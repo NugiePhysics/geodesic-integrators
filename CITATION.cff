@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "geodesic-integrators"
+type: software
+abstract: >-
+  Systematic comparison of explicit Runge-Kutta, Gauss-Legendre and Tao integrators for
+  timelike and null geodesics around a Schwarzschild black hole, in the second-order and the
+  Hamiltonian formulation, validated against closed-form solutions.
+authors:
+  - family-names: Saputra
+    given-names: Nugie
+version: 0.1.0.dev0
+license: MIT
+repository-code: "https://github.com/NugiePhysics/geodesic-integrators"
+keywords:
+  - general relativity
+  - black hole
+  - geodesics
+  - Schwarzschild metric
+  - symplectic integrators
+  - geometric numerical integration
+  - Runge-Kutta

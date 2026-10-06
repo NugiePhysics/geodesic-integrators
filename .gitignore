@@ -1,0 +1,43 @@
+# Environments
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.hypothesis/
+
+# Numba on-disk cache (cache=True); normally inside __pycache__, listed for safety
+*.nbi
+*.nbc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Raw experiment output (summaries in results/summary/ are committed)
+results/raw/
+
+# MkDocs build output
+site/
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.toc
+*.synctex.gz
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
