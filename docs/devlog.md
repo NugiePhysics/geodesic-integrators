@@ -4,6 +4,88 @@ One entry per working session or phase: what was done, what was learned, and wha
 
 ---
 
+## 2026-10-07 · Phase 4: analytic references and test-case registry
+
+### Done
+
+- `geoint.analytic`: light deflection through three independent paths (the elliptic integral via the roots of $`2u^3 - u^2 + b^{-2}`$, Darwin's $`(r_0, Q)`$ form, direct mpmath quadrature), the weak-field series, Bozza's strong-deflection limit, and the angle swept from a photon turning point. Timelike orbits by $`(p, e)`$: conversions to $`(E, L)`$ and back, $`\Phi`$ in closed form, $`r(\phi)`$ through Jacobi functions, and $`\Phi`$, $`T_\tau`$, $`T_t`$ by an independent 30-digit quadrature in the angle $`\chi`$ of $`r = \tfrac12(r_a + r_p) - \tfrac12(r_a - r_p)\cos\chi`$, which removes both turning-point singularities.
+- `geoint.testcases`: the TC1–TC6 matrix as frozen dataclasses (deflection, near-critical photons, photon sphere, circular, eccentric and inclined orbits). Each case builds the initial data for either formulation and computes errors on physical quantities (Δφ at $`r_\text{far}`$, phase at a known proper time, in-plane angle, $`\delta(L^2)`$, orbital-plane tilt).
+
+### Exit criteria
+
+| Criterion | Target | Measured |
+|---|---|---|
+| Darwin vs quadrature, $`b \in [5.2, 10^4]`$ | $`\le 10^{-12}`$ | identical in float64 (all three paths), for $`r_\text{far} = \infty, 10^3, 10^4`$ |
+| Weak-field and Bozza limits | met | series error $`< 10^3 b^{-5}`$; Bozza error shrinks 100× per decade of $`b - b_c`$ |
+| Precession from $`r(\phi)`$ vs the formula for $`\Phi`$ | match | $`\Phi`$ closed form vs quadrature $`1.2\times10^{-16}`$; $`r(0) = r(\Phi) = r_p`$, $`r(\Phi/2) = r_a`$; orbit equation satisfied |
+| All TCs with tight DOP853 vs reference | $`\le 10^{-10}`$ | (b): $`\le 2\times10^{-11}`$ on TC1, TC3, TC4, TC6. (a): same on TC3, TC4, TC6; TC1 up to $`1.2\times10^{-8}`$ (explained below). TC1b and TC2 are ill-conditioned (pitfall 19) |
+
+### Learned
+
+- **I first transcribed Darwin's formula wrongly**, as $`-\pi + 4\sqrt{r_0/Q}\,F(\zeta, k)`$. The correct form has $`K(k) - F(\zeta, k)`$ (Iyer & Petters 2007, eq. 6). The two-path test caught it at once, with a disagreement of order 1.
+- **The predecessor's "analytic" precession was not analytic.** Its README lists 2.127093985 rad for $`r_\text{apo} = 20`$, $`L = 4.2`$. Its test evaluated the elliptic formula at `r_peri = trajectory.r.min()`, the smallest *sampled* radius, which misses the true periapsis. The exact value is 2.12709400813 rad (closed form and a 40-digit quadrature agree). The old *numerical* value, 2.127094008, was right. This is the interpolation problem the roadmap set out to remove.
+- **Formulation (a) loses accuracy on rays that go far out.** With DOP853 at $`10^{-13}`$, $`b = 5.3`$, $`r_\text{far} = 10^4`$: error $`1.2\times10^{-8}`$ in (a), $`3\times10^{-12}`$ in (b). In (a), $`L = r^2u^\phi`$ is rebuilt from a component that falls like $`1/r^2`$. An absolute tolerance cannot hold its relative accuracy, so L drifts by about $`10^{-10}`$ while E stays within $`4\times10^{-14}`$. The impact parameter $`b = L/E`$ drifts with it, and $`|d\Delta\phi/db|\,\delta b`$ reproduces the error within a factor of 2. In (b), L is a state variable that never changes. This is a first, quantitative answer to RQ2 for ray tracing.
+- **The equatorial photon sphere is an exact fixed point of every Runge–Kutta map.** At $`r = 3`$ with $`p_r = 0`$, the $`(r, p_r)`$ components of the vector field vanish and $`t`$, $`\phi`$ are linear in λ, so no truncation error can perturb the orbit. With tight tolerances it survived 900 orbits; what eventually tips it is $`\cos(\pi/2) \approx 6\times10^{-17}`$ tilting the plane (pitfall 3). RQ4 therefore has to be measured on an *inclined* photon-sphere orbit, where the truncation error in $`L^2`$ kicks $`r`$. TC2 got an `inclination` parameter. A first look: 3.0 → 4.66 orbits survived as the tolerance goes from $`10^{-8}`$ to $`10^{-13}`$, about 0.32 orbits per decade against the predicted $`\ln 10/2\pi = 0.37`$.
+- **Linear theory misses the photon-sphere exit by about 0.0035 orbits**, from the nonlinear terms at $`|r - 3| = 0.1`$. The exact exit angle is an elliptic integral from the turning point. Because $`u_2 = 1/r_0`$ is known exactly there, the other two roots follow without solving the cubic, which matters since $`b - b_c = O((r_0 - 3)^2)`$ falls below float64 resolution for $`r_0 - 3 < 10^{-8}`$. The measured growth rate is 0.1925, against $`\lambda_L = 1/(3\sqrt3) = 0.19245`$.
+- `np.unwrap` lost whole turns of the in-plane angle when an adaptive step swept more than π. For prograde orbits the in-plane angle and $`\phi`$ never differ by more than $`\pi/2`$, so whole turns are now taken from $`\phi`$, which is continuous in the state.
+- Circular orbits (TC3) are, like the photon sphere, fixed points of the radial dynamics. Their errors ($`\le 10^{-11}`$) measure round-off and the initial data, not truncation error, so they are not used for convergence or work-precision studies. Inclined orbits are.
+
+---
+
+## 2026-10-07 · Phase 3: symplectic integrators
+
+### Done
+
+- Gauss–Legendre GL1–GL3 (closed-form coefficients). Fixed-point iteration on the stage increments $`Z`$, run to round-off stagnation. Start value extrapolated from the previous step's collocation polynomial. Update $`y + d^\mathsf{T}Z`$ with $`d = b^\mathsf{T}A^{-1}`$, added with compensated summation. Optional `iter_tol` for experiment F15.
+- Tao's method of order 2 (Strang) and 4 (triple jump). Every flow is one call of the canonical `rhs`, and a one-entry gradient cache merges consecutive $`\phi_A`$ flows, giving 3 and 9 evaluations per step. Optional coupling mask. Compensated summation inside the flows.
+- One-step maps (`Integrator.step`) for the geometric tests, and cumulative per-step costs at the saved points (`Solution.counts`).
+
+### Exit criteria (TC0)
+
+| Criterion | Target | Measured |
+|---|---|---|
+| Order GL1/GL2/GL3 | 2/4/6 ± 0.1 | 2.00 / 4.00 / 6.00 (Kepler, $`e = 0.5`$) |
+| Order Tao2/Tao4 | 2/4 ± 0.1 | 2.00 / 3.98 |
+| $`\Psi'^\mathsf{T}J\Psi' = J`$ | $`\le 10^{-10}`$ (Tao in extended space); RK4 clearly fails | GL and Tao $`\le 2\times10^{-12}`$, limited by the finite-difference Jacobian; RK4 $`4.3\times10^{-3}`$ |
+| $`\Psi_{-h}\circ\Psi_h = \mathrm{id}`$ | met | GL2, GL3, Tao $`\approx 2\times10^{-16}`$; GL1 $`1.5\times10^{-14}`$; RK4 $`2.7\times10^{-4}`$ |
+| $`\lvert\Delta H\rvert`$ bounded, $`10^6`$ steps | met | Tao's non-separable example: GL1, GL2, Tao2, Tao4 flat; RK4 doubles from the first to the second half (linear drift) |
+
+### Learned
+
+- **Hairer's stagnation rule needs a guard.** "Stop when $`\lVert\Delta Z\rVert`$ no longer decreases" assumes monotone convergence. On a rotation-like problem the fixed-point map has complex eigenvalues, the norm of the increments wobbles, and the iteration stopped at $`10^{-11}`$ instead of round-off: GL1 was symmetric only to $`2.5\times10^{-11}`$. Stagnation now counts only within 100 ulp of the stage increments.
+- **The symplectic structure of Tao's extended space pairs $`(q, p)`$ and $`(x, y)`$.** My first test used the standard $`J`$ on $`(q, p, x, y)`$ and reported a defect of 1.7. With the block-diagonal $`J`$ the defect is $`10^{-11}`$.
+- **Tao on geodesics: couple only the non-cyclic coordinates** ([ADR 0006](decisions/0006-tao-coupling.md)). With all coordinates coupled, the time copies drift apart by up to $`10^4`$, the rotation feeds that into $`p_t`$, and the copies run away. With $`(r, \theta)`$ only, $`E`$ and $`L_z`$ stay exact in both copies.
+- **Tao's accuracy depends strongly on ω.** On $`(p, e) = (20, 0.5)`$ the error grows linearly in $`\omega h`$ above about $`10^{-3}`$, and the method diverges for $`\omega h \gtrsim 1.4`$. Even at its best, Tao4 is about 60 times less accurate than RK4 at the same step, while costing 9 evaluations per step against 4. ω is chosen from F14.
+- Iterating to stagnation costs about 7–11 iterations per step: GL2 takes 13.5 evaluations per step on Tao's example.
+
+---
+
+## 2026-10-07 · Phase 2: explicit integrators and experiment harness
+
+### Done
+
+- Integrator interface (`Problem`, `Event`, `Solution`, `Integrator`) without any physics import. Fixed-step RK4. Adaptive DP5(4) and DOP853 with SciPy's controller copied line by line. A `solve_ivp` adapter as the oracle. Registry `geoint.integrators.get(name)`.
+- Events located by root finding on partial steps of the method itself, accurate to the method's order. Fixed steps use λ = λ₀ + n·h.
+- TC0 toy problems: harmonic oscillator, Kepler, Tao's non-separable $`H`$.
+- Experiment harness `geoint.experiments`: `RunSpec` → `run` → one flat row with errors, costs and provenance (git hash, versions, CPU), cached as JSON under `results/raw/` by a hash of the specification; `run_many` forks worker processes.
+
+### Exit criteria
+
+| Criterion | Target | Measured |
+|---|---|---|
+| RK4 order | 4 ± 0.1 | 4.05 (Kepler); 4.00 on the strong-field orbit $`(7.5, 0.5)`$ in both formulations |
+| Own DP5/DOP853 vs SciPy | nfev ± 1 %, solution ≤ tol | nfev and step counts *identical* at tolerances $`10^{-4}`$–$`10^{-12}`$ (Kepler and a geodesic); final states agree to $`10^{-12}`$ |
+| TC0 | pass | oscillator, Kepler, Tao's example |
+| Predecessor's validation table | reproduced | $`d\phi/dt`$ at $`r_c = 10`$, precession (see Phase 4), capture threshold, deflection at $`b = 40`$, RK4 order |
+
+### Learned
+
+- **Compilation dominated everything.** The first design compiled one driver per (method kind, vector field), 10–20 s each, which is minutes per process. Numba's disk cache refused the drivers, because passing a jitted function as a value embeds a dispatcher pointer. Typed first-class vector fields, a single step function that dispatches on an integer kind, and one module for all compiled code fixed it: about 60 s once per machine, about 1 s per process afterwards ([ADR 0005](decisions/0005-compiled-integrator-core.md)). The cold-cache test suite runs in 84 s.
+- RK4 on $`(p, e) = (20, 0.5)`$ is pre-asymptotic over the whole usable range (slopes 4.5 → 4.07 before round-off), so the order is measured on the strong-field orbit $`(7.5, 0.5)`$, where it is 4.00.
+- SciPy's `nfev` with events includes 3 extra evaluations per located event (DOP853 dense output), and ours includes 20–50 (partial steps). The `nfev` comparison is therefore made without events.
+
+---
+
 ## 2026-10-07 · Phase 1: metric and formulations
 
 ### Done
