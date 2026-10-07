@@ -63,6 +63,8 @@ packages = ["src/geoint"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+# tools/ holds the SymPy reference derivation the metric tests import; tests/ holds helpers.py.
+pythonpath = ["tools", "tests"]
 # Long integrations are marked `slow` and skipped by default; run them with `pytest -m slow`.
 addopts = "-ra --strict-markers -m 'not slow'"
 markers = ["slow: long-running integration (nightly or manual CI only)"]
@@ -70,7 +72,7 @@ markers = ["slow: long-running integration (nightly or manual CI only)"]
 [tool.ruff]
 line-length = 100
 target-version = "py312"
-src = ["src", "tests"]
+src = ["src", "tests", "tools"]
 # Only Python sources and notebooks are linted/formatted, not the Markdown documentation.
 extend-exclude = ["docs", "report", "*.md"]
 
