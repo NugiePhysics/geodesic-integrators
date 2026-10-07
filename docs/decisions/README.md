@@ -7,6 +7,7 @@ Each record describes one design decision: the context that forced it, the decis
 | [0001](0001-full-8d-phase-space.md) | Full 8D phase space and physics-agnostic integrators | Accepted |
 | [0002](0002-numba-first.md) | Numba-first numerical core, SciPy as oracle, JAX optional | Accepted |
 | [0003](0003-nfev-as-cost-metric.md) | Number of vector-field evaluations (nfev) as the primary cost metric | Accepted |
+| [0004](0004-metric-interface.md) | Metric interface: compiled kernels returning full arrays | Accepted |
 
 ## Template
 

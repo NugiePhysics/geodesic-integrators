@@ -307,7 +307,17 @@ The constraint (13) is quadratic in the momenta. Given a position $`x^\mu`$, the
 p_r = \pm\frac{\sqrt{E^2 - V_\text{eff}(r)}}{f(r)} . \tag{24}
 ```
 
-Near a turning point $`E^2 - V_\text{eff}`$ is a difference of nearly equal numbers. Phase 1 will evaluate it in a cancellation-free form, for example by factoring the radial polynomial $`R(r) = r^3\left(E^2 - V_\text{eff}\right)`$ with its known roots, or by starting exactly at a turning point with $`p_r = 0`$. The state for formulation (a) then follows from $`u^\mu = g^{\mu\nu}p_\nu`$, so both formulations start from the same physical point.
+For a general metric (Kerr: $`g^{t\phi} \neq 0`$) the shell is a quadratic in the unknown component $`p_k`$ with a linear term,
+
+```math
+A\,p_k^2 + 2B\,p_k + C = 0, \qquad A = g^{kk}, \quad B = \sum_{\nu \neq k} g^{k\nu}p_\nu, \quad C = \sum_{\mu,\nu \neq k} g^{\mu\nu}p_\mu p_\nu + \epsilon . \tag{25}
+```
+
+Both roots satisfy $`u^k = A\,p_k + B = \pm\sqrt{D}`$ with $`D = B^2 - AC`$. The sign is therefore chosen physically, as the sign of the velocity component $`\dot x^k`$ (ingoing or outgoing for $`k = r`$, future-directed for $`k = t`$). The root is evaluated as $`(-B \pm \sqrt D)/A`$ or as $`C/(-B \mp \sqrt D)`$, whichever does not subtract nearly equal numbers (`geoint.initial_conditions.solve_quadratic_shell`).
+
+**Turning points.** Near a turning point $`D \propto E^2 - V_\text{eff}`$ is itself a difference of nearly equal numbers, and no rearrangement of (24) fixes that. Its absolute error is a few ulp of the largest term, so where $`p_r`$ should vanish it comes out of order $`\sqrt{\epsilon_\text{mach}} \approx 10^{-8}`$ (observed: $`1.8\times10^{-8}`$ for the circular orbit at $`r = 7M`$ started from the closed-form $`E`$, $`L`$). This does not spoil the constraint: the error in $`p_r^2`$ is as small as the rounding error of $`D`$, so $`|H + \epsilon/2|`$ stays at rounding level. For a generic orbit it amounts to a rounding-level change of the constants. For a circular orbit, however, it is a radial oscillation of amplitude $`\sim10^{-8}`$, which would mask integrator errors in TC3. Such orbits therefore start *at* the turning point, with $`p_r = 0`$ exactly, and the shell is solved for $`p_t`$ instead. That solve involves no cancellation: $`E^2 = V_\text{eff}(r)`$ (`turning_point_momentum`). A negative $`D`$ that is pure rounding (within $`64\,\epsilon_\text{mach}`$ of the scale of its terms) is set to zero; a clearly negative one is reported as a forbidden starting point. Factoring $`R(r) = r^3(E^2 - V_\text{eff})`$ through its known roots is needed only where an analytic reference must evaluate $`\dot r`$ at a generic radius (Phase 4).
+
+The state for formulation (a) then follows from $`u^\mu = g^{\mu\nu}p_\nu`$, so both formulations start from the same physical point. On every orbit of the test-case matrix, the initial relative constraint (§5.1) is at most $`3.3\times10^{-16}`$ in both formulations.
 
 Integrations stop at $`r = 2M(1 + \delta)`$ ("captured"), at $`r = r_\text{far}`$ ("escaped"), or at a requested $`\lambda`$ or event count. Events (periapsis passages $`p_r = 0`$ with $`\dot p_r > 0`$, crossings of $`r_\text{far}`$) are located by root finding on dense output, never by linear interpolation (roadmap §7, pitfall 7).
 
