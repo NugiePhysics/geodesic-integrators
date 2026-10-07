@@ -19,6 +19,7 @@ from pathlib import Path
 EXPERIMENTS = Path(__file__).resolve().parents[1] / "experiments"
 
 ORDER = [
+    "f01_hero",
     # Phase 5: short integrations
     "f14_tao_omega",  # fixes Tao's omega for everything below
     "f04_convergence",
@@ -33,11 +34,13 @@ ORDER = [
     "t2_validation",
     # Phase 6: long integrations and unstable orbits
     "f07_long_term",  # also F8, F9, F17 and T4
+    "t1_methods",  # reads T4
     "f20_long_work_precision",
     "f10_photon_sphere",  # also T6
     "f11_isco",
     "f18_inclined",
     "f19_roundoff",
+    "t8_environment",
 ]
 
 
