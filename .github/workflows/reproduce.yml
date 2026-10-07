@@ -1,0 +1,59 @@
+name: Reproduce
+
+# From a clean checkout and an empty cache: every figure, table and the report (make all), the
+# long-running tests and the notebooks. Weekly and on demand; about 40 minutes.
+on:
+  schedule:
+    - cron: "17 3 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  NUMBA_NUM_THREADS: "1"
+  OMP_NUM_THREADS: "1"
+
+jobs:
+  slow-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - run: uv sync --locked
+      - name: Long integrations
+        run: uv run pytest -m slow
+      - name: Notebooks
+        run: uv run pytest --nbmake notebooks
+
+  make-all:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - name: Install Tectonic (official installer)
+        run: |
+          curl --proto '=https' --tlsv1.2 -fsSL https://drop-sh.fullyjustified.net | sh
+          mkdir -p "$HOME/.local/bin" && mv tectonic "$HOME/.local/bin/"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - run: uv sync --locked
+      - name: Every figure and table from an empty cache, then the report
+        run: make clean-cache all
+      - name: What changed against the committed results
+        # Wall times (F6, T5), the environment table (T8) and the bits of the figures may
+        # differ between machines; everything else is expected to match.
+        run: git diff --stat -- results/summary figures report | tee reproduce-diff.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: reproduced-results
+          path: |
+            report/main.pdf
+            report/summary.pdf
+            figures/
+            results/summary/
+            reproduce-diff.txt
