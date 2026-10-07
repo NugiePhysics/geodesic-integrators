@@ -27,6 +27,18 @@ class FormulationKernels(NamedTuple):
     point_invariants: Kernel
 
 
+def as_array(a: ArrayLike, shape: tuple[int, ...], name: str) -> NDArray[np.float64]:
+    """``a`` as a float64 array of exactly ``shape``, or ``ValueError``.
+
+    Without the check, a wrongly sized vector (for example a 16-component Tao state) can be
+    sliced or concatenated into a valid-looking but meaningless 8-component state.
+    """
+    arr = np.asarray(a, dtype=np.float64)
+    if arr.shape != shape:
+        raise ValueError(f"{name} must have shape {shape}, got {arr.shape}")
+    return arr
+
+
 @njit
 def _apply_rows(fn, Y, n_out):
     """``fn`` applied to every row of the 2-D array ``Y``."""
@@ -66,12 +78,13 @@ class Formulation:
         raise NotImplementedError
 
     def invariants(self, y: ArrayLike) -> dict[str, NDArray[np.float64]]:
-        """Invariants of a state ``(8,)`` or a trajectory ``(N, 8)``, keyed by name."""
+        """Invariants of states of shape ``(..., 8)``, keyed by name, each of shape ``(...)``."""
         Y = np.asarray(y, dtype=np.float64)
+        if Y.ndim == 0 or Y.shape[-1] != self.dim:
+            raise ValueError(f"y must have shape (..., {self.dim}), got {Y.shape}")
+        n = len(self.invariant_names)
         rows = np.ascontiguousarray(Y.reshape(-1, self.dim))
-        values = _apply_rows(self.kernels.point_invariants, rows, len(self.invariant_names))
-        if Y.ndim == 1:
-            values = values[0]
+        values = _apply_rows(self.kernels.point_invariants, rows, n).reshape(*Y.shape[:-1], n)
         return {name: values[..., i] for i, name in enumerate(self.invariant_names)}
 
     def constraint(self, y: ArrayLike, eps: float) -> NDArray[np.float64]:

@@ -134,6 +134,28 @@ def test_invariants_of_a_trajectory(formulation):
             assert single[name] == batch[name][i]
 
 
+def test_invariants_keep_leading_shape(formulation):
+    Y = random_states(np.random.default_rng(18), 6).reshape(2, 3, 8)
+    batch = formulation.invariants(Y)
+    flat = formulation.invariants(Y.reshape(6, 8))
+    for name in formulation.invariant_names:
+        assert batch[name].shape == (2, 3)
+        assert np.array_equal(batch[name].ravel(), flat[name])
+
+
+def test_wrongly_shaped_states_are_rejected(formulation):
+    # A 16-component vector (Tao's extended state) used to be read silently as two states.
+    y = random_states(np.random.default_rng(19), 1)[0]
+    for bad in (np.concatenate([y, y]), y[:7], 1.0):
+        with pytest.raises(ValueError, match="shape"):
+            formulation.invariants(bad)
+    for bad in (np.concatenate([y, y]), np.stack([y, y])):
+        with pytest.raises(ValueError, match="shape"):
+            formulation.to_xp(bad)
+    with pytest.raises(ValueError, match="shape"):
+        formulation.from_xp(y[:4], y[3:])
+
+
 def test_relative_constraint_normalizations(hamiltonian):
     x = np.array([0.0, 10.0, np.pi / 2, 0.0])
     f = 0.8

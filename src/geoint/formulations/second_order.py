@@ -14,7 +14,7 @@ from numba import njit
 from numpy.typing import ArrayLike, NDArray
 
 from ..metrics import Metric, MetricKernels
-from .base import Formulation, FormulationKernels
+from .base import Formulation, FormulationKernels, as_array
 
 
 class SecondOrder(Formulation):
@@ -31,12 +31,11 @@ class SecondOrder(Formulation):
         super().__init__(metric, _kernels(metric.kernels))
 
     def from_xp(self, x: ArrayLike, p: ArrayLike) -> NDArray[np.float64]:
-        x = np.asarray(x, dtype=np.float64)
-        u = self.metric.g_inv(x) @ np.asarray(p, dtype=np.float64)
-        return np.concatenate([x, u])
+        x, p = as_array(x, (4,), "x"), as_array(p, (4,), "p")
+        return np.concatenate([x, self.metric.g_inv(x) @ p])
 
     def to_xp(self, y: ArrayLike) -> tuple[NDArray[np.float64], NDArray[np.float64]]:
-        y = np.asarray(y, dtype=np.float64)
+        y = as_array(y, (self.dim,), "y")
         x = y[:4].copy()
         return x, self.metric.g(x) @ y[4:]
 

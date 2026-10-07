@@ -16,7 +16,7 @@ from numba import njit
 from numpy.typing import ArrayLike, NDArray
 
 from ..metrics import Metric, MetricKernels
-from .base import Formulation, FormulationKernels, Kernel
+from .base import Formulation, FormulationKernels, Kernel, as_array
 
 
 class HamiltonianKernels(NamedTuple):
@@ -47,10 +47,10 @@ class Hamiltonian(Formulation):
         self.dH_dp = kernels.dH_dp
 
     def from_xp(self, x: ArrayLike, p: ArrayLike) -> NDArray[np.float64]:
-        return np.concatenate([np.asarray(x, dtype=np.float64), np.asarray(p, dtype=np.float64)])
+        return np.concatenate([as_array(x, (4,), "x"), as_array(p, (4,), "p")])
 
     def to_xp(self, y: ArrayLike) -> tuple[NDArray[np.float64], NDArray[np.float64]]:
-        y = np.asarray(y, dtype=np.float64)
+        y = as_array(y, (self.dim,), "y")
         return y[:4].copy(), y[4:].copy()
 
 
