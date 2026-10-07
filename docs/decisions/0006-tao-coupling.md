@@ -36,3 +36,18 @@ With full coupling the time copies drift apart (up to 10⁴ in t), because their
 - **Couple all coordinates** (Tao 2016; FANTASY). Rejected on the evidence above.
 - **Report the copy average.** It removes the O(h²) asymmetry between the copies, but it is no longer the image of a symplectic map, and the reported E would be an average.
 - **Fix ω once** (for example ω = 20, as in Tao's examples). The good range depends on h, because the rotation angle 2ωγh enters through trigonometric functions: with large ωh the coupling can become nearly the identity, and the copies decouple.
+
+## Update (Phase 6): ω = 10⁻³ fails on the marginally stable ISCO
+
+Phase 5 fixed ω = 10⁻³ for all geodesic experiments (figure F14): within a factor 1.2–5 of the most accurate ω on the orbits tested, and the copies stay within 3×10⁻⁶ over 300 periods. Phase 6 found a case where this choice fails. On the inclined ISCO orbit (figure F11, 45°), the radial dynamics is marginal: a difference between the copies along r is not rotated back by the orbital motion, as it is on an eccentric orbit, but drifts. The coupling rotation of 2ωh per step is too weak to stop it.
+
+| ω | Steps per orbit | Orbits to plunge | max ‖r_q − r_x‖ | max \|δH\| |
+|---|---|---|---|---|
+| 10⁻³ | 100, 1000 | 3.2, 5.5 | 1.7, 1.7 | 2.5×10⁻², 6.5×10⁻² |
+| 10⁻² | 100, 1000 | 12.5, 52.9 | 3×10⁻⁴, 0.17 | 2.2×10⁻⁵, 3.4×10⁻³ |
+| 0.1 | 100, 1000 | 9.1, 106 | 1.5×10⁻³, 6.9×10⁻⁸ | 6.4×10⁻⁵, 4.4×10⁻⁹ |
+| 1 | 100, 1000 | 6.0, 63.2 | 8×10⁻⁵, 1.7×10⁻⁸ | 4.4×10⁻⁴, 4.7×10⁻⁸ |
+
+The comparisons keep the single global ω = 10⁻³, so that every figure shows the same method. F11 adds Tao4 with ω = 0.1 as a separate curve. The lesson for the report: ω is a problem-dependent parameter. A value tuned on a stable orbit does not transfer to a marginally stable one. Choosing ω is a real cost of Tao's method that the Gauss–Legendre methods do not have.
+
+The inclined orbits of TC6 (figure F18, (p, e) = (20, 0.5), 1000 steps per period, 1000 periods) show the same weakness. At 30° Tao4 behaves: L² is bounded at 7×10⁻⁸ and the copies stay within 2×10⁻⁶. At 60° the copies separate after about 10 periods and the orbit is captured after 41. At 85° it is captured after 3 periods. Coupling φ as well makes every inclination worse. A larger ω helps only partly. At 60°, ω = 10⁻² holds the copies within 2×10⁻⁴ over 300 periods, but L² still drifts by 6×10⁻⁵, about 3000 times more than GL2. At 85° no ω from 10⁻³ to 1 keeps the run stable. Near the pole all methods are under-resolved at this step (RK4: δL² = 8×10⁻²), but only Tao fails outright.
