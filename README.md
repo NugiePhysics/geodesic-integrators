@@ -11,7 +11,7 @@ A reproducible study of **how numerical integrators behave on black-hole geodesi
 
 Every result is measured against a closed-form reference (elliptic integrals and functions), and the code is laid out so that Kerr can be added without touching the integrators.
 
-> **Status: Phase 1 (metric and formulations).** The Schwarzschild metric, both formulations and mass-shell initial data are implemented and verified against SymPy ([`tools/derive_metric.py`](tools/derive_metric.py)); the interface is recorded in [ADR 0004](docs/decisions/0004-metric-interface.md). Integrators come next. The theory is in [`docs/theory/formulations.md`](docs/theory/formulations.md) and progress is logged in [`docs/devlog.md`](docs/devlog.md).
+> **Status: Phase 5 of 7 (short-integration experiments).** All integrators (RK4, DP5, DOP853, Gauss–Legendre GL1–GL3, Tao of order 2 and 4) are implemented and verified, every test case has an exact reference, and the convergence and work-precision figures are in [`figures/`](figures/) (`make figures` regenerates them). Long-term experiments come next. Progress, results and what went wrong are logged in [`docs/devlog.md`](docs/devlog.md); design decisions in [`docs/decisions/`](docs/decisions/).
 
 ## Development
 

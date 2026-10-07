@@ -1,0 +1,89 @@
+case_label,method,opt_rtol,error,nfev,n_steps,status
+"orbit (20, 0.5), 3 periods",DP5,0.001,2.74181,294,23,completed
+"orbit (20, 0.5), 3 periods",DP5,0.0001,0.0163715,363,33,completed
+"orbit (20, 0.5), 3 periods",DP5,1e-05,0.00142966,401,46,completed
+"orbit (20, 0.5), 3 periods",DP5,1e-06,0.000298421,628,67,completed
+"orbit (20, 0.5), 3 periods",DP5,1e-07,2.04797e-05,812,99,completed
+"orbit (20, 0.5), 3 periods",DP5,1e-08,3.15769e-06,1125,150,completed
+"orbit (20, 0.5), 3 periods",DP5,1e-09,3.01282e-07,1598,231,completed
+"orbit (20, 0.5), 3 periods",DP5,1e-10,2.84564e-08,2278,360,completed
+"orbit (20, 0.5), 3 periods",DP5,1e-11,2.83149e-09,3505,567,completed
+"orbit (20, 0.5), 3 periods",DP5,1e-12,2.70088e-10,5444,896,completed
+"orbit (20, 0.5), 3 periods",DP5,1e-13,2.59845e-11,8565,1418,completed
+"orbit (20, 0.5), 3 periods",scipy-RK45,0.001,2.74181,194,23,completed
+"orbit (20, 0.5), 3 periods",scipy-RK45,0.0001,0.0163715,278,33,completed
+"orbit (20, 0.5), 3 periods",scipy-RK45,1e-05,0.00142966,356,46,completed
+"orbit (20, 0.5), 3 periods",scipy-RK45,1e-06,0.000298421,548,67,completed
+"orbit (20, 0.5), 3 periods",scipy-RK45,1e-07,2.04797e-05,752,99,completed
+"orbit (20, 0.5), 3 periods",scipy-RK45,1e-08,3.15769e-06,1070,150,completed
+"orbit (20, 0.5), 3 periods",scipy-RK45,1e-09,3.01282e-07,1538,231,completed
+"orbit (20, 0.5), 3 periods",scipy-RK45,1e-10,2.84564e-08,2228,360,completed
+"orbit (20, 0.5), 3 periods",scipy-RK45,1e-11,2.8315e-09,3440,567,completed
+"orbit (20, 0.5), 3 periods",scipy-RK45,1e-12,2.70216e-10,5384,896,completed
+"orbit (20, 0.5), 3 periods",scipy-RK45,1e-13,2.59419e-11,8510,1418,completed
+"orbit (20, 0.5), 3 periods",DOP853,0.001,0.0409817,458,20,completed
+"orbit (20, 0.5), 3 periods",DOP853,0.0001,0.0135564,542,25,completed
+"orbit (20, 0.5), 3 periods",DOP853,1e-05,0.00350343,622,30,completed
+"orbit (20, 0.5), 3 periods",DOP853,1e-06,0.000403615,688,36,completed
+"orbit (20, 0.5), 3 periods",DOP853,1e-07,2.16831e-05,840,44,completed
+"orbit (20, 0.5), 3 periods",DOP853,1e-08,2.00848e-06,964,56,completed
+"orbit (20, 0.5), 3 periods",DOP853,1e-09,1.60531e-07,1192,70,completed
+"orbit (20, 0.5), 3 periods",DOP853,1e-10,7.6643e-08,1517,89,completed
+"orbit (20, 0.5), 3 periods",DOP853,1e-11,4.3551e-09,1829,113,completed
+"orbit (20, 0.5), 3 periods",DOP853,1e-12,3.2064e-10,2213,146,completed
+"orbit (20, 0.5), 3 periods",DOP853,1e-13,6.10356e-12,2633,190,completed
+"orbit (20, 0.5), 3 periods",scipy-DOP853,0.001,0.0409817,335,20,completed
+"orbit (20, 0.5), 3 periods",scipy-DOP853,0.0001,0.0135564,419,25,completed
+"orbit (20, 0.5), 3 periods",scipy-DOP853,1e-05,0.00350343,458,30,completed
+"orbit (20, 0.5), 3 periods",scipy-DOP853,1e-06,0.000403615,587,36,completed
+"orbit (20, 0.5), 3 periods",scipy-DOP853,1e-07,2.16831e-05,698,44,completed
+"orbit (20, 0.5), 3 periods",scipy-DOP853,1e-08,2.00848e-06,863,56,completed
+"orbit (20, 0.5), 3 periods",scipy-DOP853,1e-09,1.60531e-07,1091,70,completed
+"orbit (20, 0.5), 3 periods",scipy-DOP853,1e-10,7.66432e-08,1427,89,completed
+"orbit (20, 0.5), 3 periods",scipy-DOP853,1e-11,4.33934e-09,1739,113,completed
+"orbit (20, 0.5), 3 periods",scipy-DOP853,1e-12,5.55616e-10,2111,146,completed
+"orbit (20, 0.5), 3 periods",scipy-DOP853,1e-13,3.5989e-12,2555,190,completed
+deflection b = 6,DP5,0.001,0.0530418,167,18,escaped
+deflection b = 6,DP5,0.0001,0.000304144,220,25,escaped
+deflection b = 6,DP5,1e-05,1.67082e-05,280,34,escaped
+deflection b = 6,DP5,1e-06,4.56562e-06,376,45,escaped
+deflection b = 6,DP5,1e-07,6.69346e-07,521,62,escaped
+deflection b = 6,DP5,1e-08,7.19838e-08,766,92,escaped
+deflection b = 6,DP5,1e-09,7.65831e-09,1024,138,escaped
+deflection b = 6,DP5,1e-10,6.09385e-10,1360,210,escaped
+deflection b = 6,DP5,1e-11,5.50466e-11,1990,328,escaped
+deflection b = 6,DP5,1e-12,5.88418e-12,3130,518,escaped
+deflection b = 6,DP5,1e-13,6.11955e-13,4930,818,escaped
+deflection b = 6,scipy-RK45,0.001,0.0530505,152,18,escaped
+deflection b = 6,scipy-RK45,0.0001,0.000274138,200,25,escaped
+deflection b = 6,scipy-RK45,1e-05,1.67211e-05,260,34,escaped
+deflection b = 6,scipy-RK45,1e-06,5.70625e-06,356,45,escaped
+deflection b = 6,scipy-RK45,1e-07,6.69739e-07,506,62,escaped
+deflection b = 6,scipy-RK45,1e-08,5.61471e-08,746,92,escaped
+deflection b = 6,scipy-RK45,1e-09,1.05256e-08,1004,138,escaped
+deflection b = 6,scipy-RK45,1e-10,5.67875e-11,1340,210,escaped
+deflection b = 6,scipy-RK45,1e-11,2.9905e-11,1970,328,escaped
+deflection b = 6,scipy-RK45,1e-12,1.98375e-11,3110,518,escaped
+deflection b = 6,scipy-RK45,1e-13,9.14824e-14,4910,818,escaped
+deflection b = 6,DOP853,0.001,0.000172018,369,17,escaped
+deflection b = 6,DOP853,0.0001,0.000108744,393,21,escaped
+deflection b = 6,DOP853,1e-05,4.41041e-06,429,25,escaped
+deflection b = 6,DOP853,1e-06,4.66387e-07,502,31,escaped
+deflection b = 6,DOP853,1e-07,5.14205e-09,646,36,escaped
+deflection b = 6,DOP853,1e-08,7.87967e-09,790,44,escaped
+deflection b = 6,DOP853,1e-09,2.74073e-09,957,54,escaped
+deflection b = 6,DOP853,1e-10,2.706e-10,1198,68,escaped
+deflection b = 6,DOP853,1e-11,4.09708e-11,1533,88,escaped
+deflection b = 6,DOP853,1e-12,4.71445e-12,1869,113,escaped
+deflection b = 6,DOP853,1e-13,6.10179e-13,2122,146,escaped
+deflection b = 6,scipy-DOP853,0.001,0.000171169,317,17,escaped
+deflection b = 6,scipy-DOP853,0.0001,0.000108792,341,21,escaped
+deflection b = 6,scipy-DOP853,1e-05,4.34008e-06,377,25,escaped
+deflection b = 6,scipy-DOP853,1e-06,4.66163e-07,461,31,escaped
+deflection b = 6,scipy-DOP853,1e-07,5.5609e-09,605,36,escaped
+deflection b = 6,scipy-DOP853,1e-08,7.98248e-09,749,44,escaped
+deflection b = 6,scipy-DOP853,1e-09,2.96825e-09,905,54,escaped
+deflection b = 6,scipy-DOP853,1e-10,2.93708e-10,1145,68,escaped
+deflection b = 6,scipy-DOP853,1e-11,4.22098e-11,1493,88,escaped
+deflection b = 6,scipy-DOP853,1e-12,5.18696e-12,1817,113,escaped
+deflection b = 6,scipy-DOP853,1e-13,6.24389e-13,2069,146,escaped

@@ -1,0 +1,22 @@
+| case | formulation | method | theory | measured | fit_se | points |
+|---|---|---|---|---|---|---|
+| deflection | a | GL1 | 2 | 2 | 8.65e-07 | 3 |
+| deflection | a | GL2 | 4 | 4 | 8.37e-06 | 7 |
+| deflection | a | GL3 | 6 | 6 | 0.00178 | 4 |
+| deflection | a | RK4 | 4 | 4.08 | 0.0189 | 6 |
+| deflection | b | GL1 | 2 | 2 | 5.64e-07 | 6 |
+| deflection | b | GL2 | 4 | 3.98 | 0.00602 | 7 |
+| deflection | b | GL3 | 6 | 6.06 | 0.0446 | 5 |
+| deflection | b | RK4 | 4 | 3.96 | 0.00849 | 7 |
+| deflection | b | Tao2 | 2 | 2 | 7.18e-07 | 7 |
+| deflection | b | Tao4 | 4 | 4.01 | 0.00212 | 7 |
+| orbit | a | GL1 | 2 | 2 | 2.45e-07 | 4 |
+| orbit | a | GL2 | 4 | 3.98 | 0.0117 | 7 |
+| orbit | a | GL3 | 6 | 5.97 | 0.00802 | 5 |
+| orbit | a | RK4 | 4 | 3.98 | 0.00818 | 7 |
+| orbit | b | GL1 | 2 | 2 | 1e-06 | 6 |
+| orbit | b | GL2 | 4 | 4 | 0.00196 | 6 |
+| orbit | b | GL3 | 6 | 6.05 | 0.00779 | 4 |
+| orbit | b | RK4 | 4 | 4.01 | 0.00118 | 6 |
+| orbit | b | Tao2 | 2 | 2 | 7.39e-07 | 7 |
+| orbit | b | Tao4 | 4 | 4 | 0.00201 | 7 |

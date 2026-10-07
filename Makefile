@@ -1,4 +1,4 @@
-.PHONY: sync lint format test test-slow test-nojit
+.PHONY: sync lint format test test-slow test-nojit figures
 
 sync:            ## Install the locked environment (all extras + dev group)
 	uv sync --locked --all-extras
@@ -19,3 +19,6 @@ test-slow:       ## Long integrations only
 
 test-nojit:      ## Same tests as pure Python, for debugging
 	NUMBA_DISABLE_JIT=1 uv run pytest
+
+figures:         ## Every figure and summary table (cached integrations in results/raw/)
+	NUMBA_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run python scripts/make_figures.py

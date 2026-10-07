@@ -4,6 +4,41 @@ One entry per working session or phase: what was done, what was learned, and wha
 
 ---
 
+## 2026-10-07 · Phase 5: short integrations, convergence and work-precision
+
+### Done
+
+- Experiment scripts in `experiments/`, one per figure or table; `make figures` (`scripts/make_figures.py`) runs them in dependency order. Integrations are cached under `results/raw/` (git-ignored); small summary tables go to `results/summary/` (committed), figures to `figures/` as PDF (report) and PNG (README).
+- Shared tools: `geoint.experiments.sweeps` (grids, per-method options, Tao's ω), `geoint.experiments.analysis` (slope fits over the asymptotic window, Pareto fronts, cost at a target error, per-period envelopes, growth classes), `geoint.plotting.style` (one colour and marker per method from the validated reference palette, with a marker on every series because three slots are below 3:1 contrast on white).
+- Figures F2–F6 and F12–F16, tables T2, T3 and T5.
+
+### What each figure shows
+
+- **F14, Tao against ω.** The error of Tao4 grows in proportion to ω once $`\omega h \gtrsim 10^{-3}`$, and the method diverges for $`\omega h \gtrsim 1.4`$. Too small an ω decouples the copies: with $`\omega = 10^{-5}`$ they separate by up to 23 within 300 periods. **ω = 10⁻³ is used everywhere** ([ADR 0006](decisions/0006-tao-coupling.md)): it is within 1.2–5× of the best ω in all four settings tested, and it holds the copies within $`3\times10^{-6}`$ over 300 periods.
+- **F4 and T3, convergence.** Every fixed-step method reaches its theoretical order in both formulations: on the orbit $`(7.5, 0.5)`$ the measured orders are within ±0.05; on the deflection $`b = 6`$ all are within ±0.08. GL1 and Tao2 are almost indistinguishable in (b). GL1 is about 35 times less accurate in (a) than in (b) at the same step.
+- **F5, tolerance proportionality.** The global error falls like $`\text{tol}^{0.85\text{–}1.04}`$ for DP5 and DOP853, and our curves lie on SciPy's.
+- **F6 and T5, work-precision.** On these short integrations **DOP853 is the cheapest method everywhere**. To reach $`10^{-10}`$ in (b) it needs $`1.4`$–$`3.2\times10^3`$ evaluations, against $`1.6`$–$`3.6\times10^4`$ for GL3 (the best fixed-step method) and $`3.5\times10^4`$–$`1.7\times10^5`$ for RK4. Tao4 costs 1.2–10 times as much as RK4 for the same error. GL1 and Tao2 never reach $`10^{-10}`$ in the sweep. Formulation (b) is cheaper than (a) for most method–case pairs, but not all: on the inclined orbit DOP853 and GL3 reach $`10^{-10}`$ more cheaply in (a). *Caveat on the time axis:* one evaluation costs 0.7–1.6 µs inside our drivers, 2–5 times the bare vector field (Phase 1: 135/331 ns), because the generic step code allocates small arrays. Times compare our implementations with each other, as ADR 0003 intends; they are not a measure of the algorithms' intrinsic cost.
+- **F3, deflection at a fixed budget** ($`2\times10^4`$ evaluations). In (b) the adaptive pairs reach $`10^{-11}`$–$`10^{-12}`$ for every $`b`$. In (a) they lose up to three orders near $`b_c`$ ($`1.5\times10^{-8}`$ at $`b = 5.3`$), the drift of $`L = r^2u^\phi`$ found in Phase 4. Errors of all methods rise towards $`b_c`$ with the conditioning.
+- **F2, deflection angle.** The integration matches the exact $`\Delta\phi(r_\text{far})`$ to $`10^{-14}`$ relative far from the hole and to $`10^{-11}`$ at $`b - b_c = 10^{-3}`$, where the exact problem amplifies errors. The fourth-order weak-field series is good to $`10^{-11}`$ at $`b \approx 2000`$ and off by more than 1 % below $`b \approx 10`$. Bozza's limit is accurate near $`b_c`$ and fails above $`b - b_c \approx 1`$.
+- **F12, windings near $`b_c`$.** The windings follow $`-\ln(b/b_c - 1)/2\pi`$, as Bozza predicts. The integration error grows exactly like the condition number $`1/(b - b_c)`$: $`3.3\times10^{-13}/(b - b_c)`$ windings in (b), $`1.4\times10^{-10}/(b - b_c)`$ in (a), 440 times worse because of the drifting L.
+- **F13, periapsis advance.** The integration agrees with $`\Phi - 2\pi`$ to $`\le 4\times10^{-13}`$ away from the separatrix, and to $`1.5\times10^{-8}`$ at $`p = 7.02`$, where the advance is 21.3 rad (3.4 extra turns per orbit). The weak-field $`6\pi M/p`$ is off by 87 % there and still by 2 % at $`p = 207`$.
+- **F15, the implicit iteration.** Iterations per step grow from 2–5 at small $`h`$ to 10–23 at the largest; GL3 needs the fewest, and (a) needs more than (b). Along an orbit, steps near periapsis need about one iteration more. Stopping the iteration at a tolerance makes GL2 drift: over 1000 periods $`|\delta H|`$ grows tenfold with tolerances $`10^{-6}`$ and $`10^{-8}`$, threefold with $`10^{-10}`$, and not at all with $`10^{-12}`$ or with iteration to stagnation. A tolerance of $`10^{-12}`$ stays bounded at 3.5 iterations per step, against 6.7 for stagnation: the round-off rule is safe but not the cheapest safe rule.
+- **F16, adaptive step sizes.** On the deflection the step grows roughly in proportion to $`r`$. DOP853 needs three to four times fewer steps than DP5 at the same tolerance. The tiny first steps come from the start-up of the controller at a turning point.
+- **T2, validation.** Every check agrees with its analytic value to $`10^{-11}`$ or better, except the cases amplified by the photon sphere (about $`10^{-8}`$).
+
+### Learned
+
+- F2 first plotted $`\Delta\phi(r_\text{far}) - \pi`$ against the *asymptotic* angle, and the points fell below the curve at large $`b`$. The finite-$`r_\text{far}`$ curve now sits next to it (pitfall 18 again, this time in a figure).
+- F15's first version reported a zero drift for iteration to stagnation. The last per-period window held a single sample. Envelopes now drop a short trailing window.
+- The wall-time runs of F6 were first made while the interpreted test suite ran on another core. They were deleted from the cache and re-timed on an idle machine.
+
+### Open
+
+- `make figures` has not yet been run from an empty cache in one go; every script has been run, but at different times.
+- Phase 6 has started (long-term runs, photon sphere, ISCO, inclined orbits, round-off), but is not committed: the scripts are untracked work in progress.
+
+---
+
 ## 2026-10-07 · Phase 4: analytic references and test-case registry
 
 ### Done
