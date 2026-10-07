@@ -1,0 +1,86 @@
+site_name: geodesic-integrators
+site_description: Geometric versus classical integrators for Schwarzschild geodesics
+site_author: Nugie Saputra
+site_url: https://nugiephysics.github.io/geodesic-integrators/
+repo_url: https://github.com/NugiePhysics/geodesic-integrators
+repo_name: NugiePhysics/geodesic-integrators
+edit_uri: edit/main/docs/
+copyright: MIT License © 2026 Nugie Saputra
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - search.highlight
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      toggle:
+        icon: material/weather-night
+        name: Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Light mode
+
+# docs/hooks.py converts GitHub's math syntax, serves figures/ and rewrites links that leave docs/.
+hooks:
+  - docs/hooks.py
+
+exclude_docs: |
+  hooks.py
+  __pycache__/
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - footnotes
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.superfences
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+          options:
+            docstring_style: numpy
+            show_source: false
+            show_root_heading: true
+            members_order: source
+            heading_level: 3
+
+nav:
+  - Home: index.md
+  - Theory: theory/formulations.md
+  - Integrators: integrators.md
+  - Test cases: testcases.md
+  - Results: results.md
+  - Pitfalls: pitfalls.md
+  - Reproducibility: reproducibility.md
+  - Extending to Kerr: extending.md
+  - API: api.md
+  - Decisions:
+      - decisions/README.md
+      - decisions/0001-full-8d-phase-space.md
+      - decisions/0002-numba-first.md
+      - decisions/0003-nfev-as-cost-metric.md
+      - decisions/0004-metric-interface.md
+      - decisions/0005-compiled-integrator-core.md
+      - decisions/0006-tao-coupling.md
+  - Development log: devlog.md
+  - Reading list: reading-list.md

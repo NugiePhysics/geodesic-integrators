@@ -1,4 +1,4 @@
-.PHONY: sync lint format test test-slow test-nojit figures
+.PHONY: sync lint format test test-slow test-nojit figures docs docs-serve
 
 sync:            ## Install the locked environment (all extras + dev group)
 	uv sync --locked --all-extras
@@ -22,3 +22,9 @@ test-nojit:      ## Same tests as pure Python, for debugging
 
 figures:         ## Every figure and summary table (cached integrations in results/raw/)
 	NUMBA_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run python scripts/make_figures.py
+
+docs:            ## Documentation site into site/ (fails on broken links)
+	uv run --group docs mkdocs build --strict
+
+docs-serve:      ## Documentation site with live reload
+	uv run --group docs mkdocs serve
