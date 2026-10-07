@@ -70,7 +70,7 @@ def crossing(g0, g1, direction):
     """Whether ``g`` changes sign from ``g0`` to ``g1`` in the requested direction.
 
     A start exactly on the surface (``g0 == 0``) is not a crossing, so an orbit started at a
-    turning point does not report a spurious event at ``lam = 0`` (roadmap pitfall 7).
+    turning point does not report a spurious event at ``lam = 0`` (pitfall 7).
     """
     up = g0 < 0.0 and g1 >= 0.0
     down = g0 > 0.0 and g1 <= 0.0

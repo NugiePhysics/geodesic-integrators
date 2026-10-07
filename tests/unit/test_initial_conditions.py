@@ -28,7 +28,10 @@ def eccentric(p, e):
 
 
 def canonical_cases():
-    """(id, x, builder, keyword arguments) for the orbits of the test-case matrix (roadmap §1.3)."""
+    """(id, x, builder, keyword arguments) for the orbits of the test-case matrix.
+
+    The matrix is listed in docs/testcases.md.
+    """
     cases = []
     for rc in (6, 7, 10, 20, 100):
         x = [0.0, rc, EQUATOR, 0.0]

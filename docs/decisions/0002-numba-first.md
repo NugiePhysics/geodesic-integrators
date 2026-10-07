@@ -35,7 +35,7 @@ Negative, and what we do about it:
 
 - **Compilation latency.** Compiling each new type signature takes seconds. Benchmarks warm up before timing, heavy kernels use `cache=True`, and the test suite accepts a fixed compile overhead.
 - **Numba's subset of Python and NumPy.** No SciPy, limited exceptions and strings inside kernels. Kernels report failure through integer status codes, which the Python wrapper turns into exceptions or `Solution.status`.
-- **Interpreted and compiled runs need not agree bit for bit**, because libm and LLVM intrinsics and summation order can differ. The Level-3 cross-check (roadmap §5) therefore compares the two modes to a few ulp per step rather than demanding identical output.
+- **Interpreted and compiled runs need not agree bit for bit**, because libm and LLVM intrinsics and summation order can differ. The Level-3 cross-check ([verification levels](../reproducibility.md#verification-levels)) therefore compares the two modes to a few ulp per step rather than demanding identical output.
 - **Numba lags new CPython releases.** It decides the supported Python range together with NumPy, SciPy and JAX. Today the floor is 3.12 (NumPy ≥ 2.5, SciPy ≥ 1.18 and JAX require it). Numba 0.68 covers 3.10–3.15.
 
 ## Alternatives considered

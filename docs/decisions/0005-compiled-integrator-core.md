@@ -12,7 +12,7 @@ The obvious remedy, Numba's on-disk cache, failed for two reasons found while tr
 1. A cached function cannot receive another jitted function *as a value*. Numba embeds a pointer to the dispatcher object and refuses to cache ("dynamic globals").
 2. The cache is invalidated only when the file that defines a cached function changes, not when a callee in another file does. Stale machine code would survive edits to helper modules.
 
-Events need their own decision. The predecessor located them by linear interpolation, which caps the measured order at 2 (roadmap pitfall 7). SciPy uses its dense output, but RK4, Gauss–Legendre and Tao have no interpolant of matching order.
+Events need their own decision. The predecessor located them by linear interpolation, which caps the measured order at 2 ([pitfall 7](../pitfalls.md)). SciPy uses its dense output, but RK4, Gauss–Legendre and Tao have no interpolant of matching order.
 
 ## Decision
 

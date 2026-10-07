@@ -5,7 +5,7 @@
 
 ## Context
 
-RQ3 asks which method reaches a given accuracy most cheaply. Wall-clock time depends on language, implementation quality, interpreter overhead and hardware. Any comparison between SciPy (Python stepping loop) and compiled code in time would mostly measure the Python overhead (roadmap pitfall 14). The numerical-ODE literature (Hairer–Nørsett–Wanner; SciMLBenchmarks work-precision diagrams) measures cost in evaluations of the vector field. That count is hardware-independent and reproducible exactly, and it is the dominant cost once the right-hand side is expensive, as it will be for Kerr and for generic $`\Gamma`$ contractions.
+RQ3 asks which method reaches a given accuracy most cheaply. Wall-clock time depends on language, implementation quality, interpreter overhead and hardware. Any comparison between SciPy (Python stepping loop) and compiled code in time would mostly measure the Python overhead ([pitfall 14](../pitfalls.md)). The numerical-ODE literature (Hairer–Nørsett–Wanner; SciMLBenchmarks work-precision diagrams) measures cost in evaluations of the vector field. That count is hardware-independent and reproducible exactly, and it is the dominant cost once the right-hand side is expensive, as it will be for Kerr and for generic $`\Gamma`$ contractions.
 
 ## Decision
 

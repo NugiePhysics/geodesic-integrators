@@ -43,7 +43,7 @@ Negative, and what we do about it:
 
 - **Allocation and dense contractions in every evaluation.** Each kernel call allocates its output array, and the contractions multiply many structural zeros. On an i5-7300HQ one evaluation of (a) takes about 135 ns and one of (b) about 331 ns, because (b) calls two kernels (`g_inv` and `dg_inv`). This is cheap next to Python overhead, but it is implementation cost, not intrinsic cost. Before wall times are compared across formulations (ADR 0003), a fused kernel or preallocated work arrays will be considered, and only if profiling justifies it.
 - **Accuracy depends on how the kernel is written.** The Schwarzschild kernels use $`r - 2M`$, which is exact for $`M \le r \le 4M`$ (Sterbenz lemma), rather than $`f = 1 - 2M/r`$, which loses $`\log_{10}(1/f)`$ digits near the horizon. Generated kernels for Kerr will need the same care, with $`\Delta = r^2 - 2Mr + a^2`$ written in factored form.
-- **No input validation inside kernels.** At $`r = 2M`$ or $`\sin\theta = 0`$ they return `inf` or `nan` rather than raising, because Numba kernels cannot raise cheaply. Stopping surfaces keep integrations away from those points (roadmap pitfalls 1–2).
+- **No input validation inside kernels.** At $`r = 2M`$ or $`\sin\theta = 0`$ they return `inf` or `nan` rather than raising, because Numba kernels cannot raise cheaply. Stopping surfaces keep integrations away from those points ([pitfalls 1–2](../pitfalls.md)).
 
 ## Alternatives considered
 

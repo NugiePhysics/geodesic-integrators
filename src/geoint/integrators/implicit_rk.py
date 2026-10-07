@@ -8,7 +8,7 @@ Implementation after GNI VIII.5-VIII.6 and Hairer, McLachlan & Razakarivony (200
   ``||dZ||`` is zero, or no longer decreases while within 100 ulp of the stage increments
   (convergence of the fixed-point map need not be monotone); stopping earlier leaves an
   iteration error
-  that is not symplectic and shows up as a linear drift of the energy (roadmap pitfall 10);
+  that is not symplectic and shows up as a linear drift of the energy (pitfall 10);
   ``iter_tol > 0`` instead stops at ``||dZ|| <= iter_tol``, for experiment F15;
 - the starting guess extrapolates the collocation polynomial of the previous step;
 - the update ``y + d^T Z`` with ``d = b^T A^{-1}`` needs no extra evaluation and is added with

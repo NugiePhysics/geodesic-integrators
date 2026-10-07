@@ -95,7 +95,7 @@ class Metric:
     def stop_surfaces(self, horizon_margin: float = 1e-3) -> tuple[StopSurface, ...]:
         """Surfaces where an integration must stop, by default ``r = r_h (1 + horizon_margin)``.
 
-        Coordinate singularities make every integrator fail at the horizon (roadmap pitfall 1),
+        Coordinate singularities make every integrator fail at the horizon (pitfall 1),
         so a geodesic that gets this close is reported as captured.
         """
         return (StopSurface("captured", 1, self.horizon * (1.0 + horizon_margin), -1),)

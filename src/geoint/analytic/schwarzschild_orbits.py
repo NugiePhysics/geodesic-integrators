@@ -6,7 +6,7 @@ equation is ``(du/dphi)^2 = 2 (u - u1)(u - u2)(u - u3)`` with ``u1 = (1-e)/p``,
 ``u2 = (1+e)/p`` and ``u3 = 1/2 - 2/p``, which gives
 
 - the angle per radial period ``Phi = 4 K(m) / sqrt(2 (u3 - u1))``, ``m = (u2-u1)/(u3-u1)``
-  (SciPy's parameter convention ``m = k^2``, roadmap pitfall 17);
+  (SciPy's parameter convention ``m = k^2``, pitfall 17 in docs/pitfalls.md);
 - the orbit ``u(phi) = u1 + (u2 - u1) cd^2(sqrt((u3 - u1)/2) phi | m)`` with ``phi`` measured
   from periapsis.
 

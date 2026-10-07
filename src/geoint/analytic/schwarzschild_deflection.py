@@ -9,7 +9,7 @@ passages through ``r = r_far`` is
     m = (u2 - u1)/(u3 - u1),   sin^2 psi = (u3 - u1)(u2 - u_far) / ((u2 - u1)(u3 - u_far)).
 
 Integrations stop at a finite ``r_far``, so they are compared with ``Delta phi(r_far)``, not with
-the asymptotic angle (roadmap pitfall 18). Three independent evaluations are provided: the
+the asymptotic angle (pitfall 18, docs/pitfalls.md). Three independent evaluations are provided: the
 elliptic form above, Darwin's (1959) form in terms of ``r0``, and a direct quadrature.
 """
 

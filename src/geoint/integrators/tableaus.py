@@ -1,7 +1,7 @@
 """Butcher tableaus.
 
 The Dormand-Prince coefficients are taken from SciPy, which is the oracle our own
-implementations must reproduce step for step (roadmap Phase 2). The Gauss-Legendre tableaus
+implementations must reproduce step for step (ADR 0005). The Gauss-Legendre tableaus
 are the closed-form coefficients, together with the two derived arrays the implicit solver
 needs (GNI VIII.6): ``d = b^T A^{-1}``, which gives the update directly from the stage
 increments, and the matrix that extrapolates the previous step's collocation polynomial into

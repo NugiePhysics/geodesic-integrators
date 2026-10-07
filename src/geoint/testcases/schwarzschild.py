@@ -1,4 +1,4 @@
-"""The test-case matrix TC1-TC6 of the roadmap (§1.3) for the Schwarzschild metric, ``M = 1``.
+"""The test-case matrix TC1-TC6 (docs/testcases.md) for the Schwarzschild metric, ``M = 1``.
 
 Errors are always measured on physical quantities (``r``, ``phi``, ``t`` at an event or at a
 given proper time), never on the raw state, because the states of (a) and (b) differ.
@@ -430,7 +430,7 @@ FAMILIES = {
     )
 }
 
-#: The parameter grid of roadmap §1.3.
+#: The parameter grid of docs/testcases.md.
 TC1_IMPACT_PARAMETERS = (5.3, 6.0, 8.0, 10.0, 20.0, 50.0, 100.0, 1000.0)
 TC3_RADII = (6.0, 7.0, 10.0, 20.0, 100.0)
 TC4_ORBITS = ((100.0, 0.5), (20.0, 0.5), (7.5, 0.5))

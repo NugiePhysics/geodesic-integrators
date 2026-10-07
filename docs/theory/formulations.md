@@ -5,7 +5,7 @@ This document derives the two systems of ordinary differential equations that ev
 - **(a) the second-order formulation**, the geodesic equation in the state $`y = (x^\mu, u^\mu) \in \mathbb{R}^8`$;
 - **(b) the Hamiltonian formulation**, Hamilton's equations for $`H = \tfrac12 g^{\mu\nu}p_\mu p_\nu`$ in the state $`y = (x^\mu, p_\mu) \in \mathbb{R}^8`$.
 
-It then lists the conserved quantities ($`E`$, $`L_z`$, $`L^2`$, $`H`$) in both sets of variables and explains which of them an integrator can or cannot preserve exactly. That last point decides which conservation plots are meaningful (research question RQ2 of the [roadmap](../../ROADMAP.md)).
+It then lists the conserved quantities ($`E`$, $`L_z`$, $`L^2`$, $`H`$) in both sets of variables and explains which of them an integrator can or cannot preserve exactly. That last point decides which conservation plots are meaningful (research question RQ2; see the [results](../results.md#rq2-the-formulation)).
 
 **Conventions.** Signature $`(-,+,+,+)`$, geometrized units $`G = c = 1`$, Schwarzschild coordinates $`x^\mu = (t, r, \theta, \phi)`$. A dot is the derivative with respect to the affine parameter $`\lambda`$. $`\epsilon = 1`$ for timelike geodesics (then $`\lambda = \tau`$, the proper time) and $`\epsilon = 0`$ for null geodesics. The code sets $`M = 1`$; it is kept explicit here so that dimensions can be checked.
 
@@ -28,7 +28,7 @@ g_{\mu\nu} = \operatorname{diag}\!\left(-f,\ \frac1f,\ r^2,\ r^2\sin^2\theta\rig
 g^{\mu\nu} = \operatorname{diag}\!\left(-\frac1f,\ f,\ \frac1{r^2},\ \frac1{r^2\sin^2\theta}\right). \tag{2}
 ```
 
-Coordinate singularities: $`f = 0`$ at the horizon $`r = 2M`$ ($`g_{rr}, g^{tt} \to \infty`$) and $`\sin\theta = 0`$ on the polar axis ($`g^{\phi\phi} \to \infty`$). Both are properties of the coordinates, not of the spacetime, but both are real numerical hazards (roadmap §7, pitfalls 1–2).
+Coordinate singularities: $`f = 0`$ at the horizon $`r = 2M`$ ($`g_{rr}, g^{tt} \to \infty`$) and $`\sin\theta = 0`$ on the polar axis ($`g^{\phi\phi} \to \infty`$). Both are properties of the coordinates, not of the spacetime, but both are real numerical hazards ([pitfalls](../pitfalls.md) 1–2).
 
 ---
 
@@ -174,7 +174,7 @@ Hamilton's equations (12) then read
 
 For Schwarzschild the radial force is $`\dot p_r = -M p_t^2/(r-2M)^2 - M p_r^2/r^2 + L^2/r^3`$, with $`L^2`$ from (20) below. In the equatorial plane this is eq. (24) of the derivation in `schwarzschild-geodesics`.
 
-$`H`$ is **not separable**: the "kinetic" term $`\tfrac12 g^{\mu\nu}(x)p_\mu p_\nu`$ depends on position, so $`H \neq T(p) + V(x)`$ and the Störmer–Verlet/leapfrog family cannot be applied in its explicit form. This is why the project uses implicit Gauss–Legendre methods and Tao's extended phase space (roadmap §2.4).
+$`H`$ is **not separable**: the "kinetic" term $`\tfrac12 g^{\mu\nu}(x)p_\mu p_\nu`$ depends on position, so $`H \neq T(p) + V(x)`$ and the Störmer–Verlet/leapfrog family cannot be applied in its explicit form. This is why the project uses implicit Gauss–Legendre methods and Tao's extended phase space ([Integrators](../integrators.md)).
 
 ### 4.3 Equivalence of (a) and (b)
 
@@ -237,7 +237,7 @@ A direct check from (16): $`\tfrac{d}{d\lambda}L^2 = 2p_\theta\dot p_\theta - 2p
 
 This is the form used to set up initial data (§7) and to find turning points analytically.
 
-**Relative errors used in the experiments** (roadmap §1.4): timelike $`\delta H = |H + \tfrac12|/\tfrac12`$; null $`\delta H = |H|/E^2`$, which is invariant under the rescaling $`p \to \alpha p`$ that the free normalization of null $`\lambda`$ allows; $`\delta E = |E - E_0|/E_0`$, and likewise for $`L_z`$ and $`L^2`$.
+**Relative errors used in the experiments** ([test cases](../testcases.md#error-measures)): timelike $`\delta H = |H + \tfrac12|/\tfrac12`$; null $`\delta H = |H|/E^2`$, which is invariant under the rescaling $`p \to \alpha p`$ that the free normalization of null $`\lambda`$ allows; $`\delta E = |E - E_0|/E_0`$, and likewise for $`L_z`$ and $`L^2`$.
 
 ### 5.2 Why $`p_t`$ and $`p_\phi`$ are conserved *exactly* in formulation (b)
 
@@ -319,7 +319,7 @@ Both roots satisfy $`u^k = A\,p_k + B = \pm\sqrt{D}`$ with $`D = B^2 - AC`$. The
 
 The state for formulation (a) then follows from $`u^\mu = g^{\mu\nu}p_\nu`$, so both formulations start from the same physical point. On every orbit of the test-case matrix, the initial relative constraint (§5.1) is at most $`3.3\times10^{-16}`$ in both formulations.
 
-Integrations stop at $`r = 2M(1 + \delta)`$ ("captured"), at $`r = r_\text{far}`$ ("escaped"), or at a requested $`\lambda`$ or event count. Events (periapsis passages $`p_r = 0`$ with $`\dot p_r > 0`$, crossings of $`r_\text{far}`$) are located by root finding on dense output, never by linear interpolation (roadmap §7, pitfall 7).
+Integrations stop at $`r = 2M(1 + \delta)`$ ("captured"), at $`r = r_\text{far}`$ ("escaped"), or at a requested $`\lambda`$ or event count. Events (periapsis passages $`p_r = 0`$ with $`\dot p_r > 0`$, crossings of $`r_\text{far}`$) are located by root finding on dense output, never by linear interpolation ([pitfall 7](../pitfalls.md)).
 
 ---
 

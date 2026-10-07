@@ -77,7 +77,7 @@ GROWTH_CLASSES = {0.0: "bounded", 0.5: "random walk", 1.0: "linear", 2.0: "quadr
 
 
 def classify_growth(exponent: float) -> str:
-    """Nearest of the laws 0, 1/2, 1, 2 (roadmap §1.4)."""
+    """Nearest of the laws 0, 1/2, 1, 2 (docs/testcases.md)."""
     if not np.isfinite(exponent):
         return "n/a"
     nearest = min(GROWTH_CLASSES, key=lambda p: abs(p - exponent))
