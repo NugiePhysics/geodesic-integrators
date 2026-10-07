@@ -12,6 +12,9 @@ UP = Event("q_up", 0, 0.0, +1)
 DOWN = Event("q_down", 0, 0.0, -1)
 METHODS = {
     "RK4": {"h": 0.01},
+    "GL2": {"h": 0.05},
+    "GL3": {"h": 0.1},
+    "Tao4": {"h": 0.002, "omega": 50.0},
     "DP5": {"rtol": 1e-10, "atol": 1e-12},
     "DOP853": {"rtol": 1e-12, "atol": 1e-14},
     "scipy-DOP853": {"rtol": 1e-12, "atol": 1e-14},
@@ -27,7 +30,7 @@ def test_event_times_and_directions(name):
     np.testing.assert_allclose(sol.events["q_up"].y[:, 0], 0.0, atol=1e-12)
 
 
-@pytest.mark.parametrize("name", ["RK4", "DOP853"])
+@pytest.mark.parametrize("name", ["RK4", "GL3", "DOP853"])
 def test_event_location_has_the_order_of_the_method(name):
     # Halving the step must shrink the event-time error like the global error, not like O(h^2).
     errors = []
@@ -45,7 +48,7 @@ def test_event_location_has_the_order_of_the_method(name):
         assert errors[0] / errors[1] > 0.7 * 2 ** get(name).order
 
 
-@pytest.mark.parametrize("name", ["RK4", "DP5", "scipy-RK45"])
+@pytest.mark.parametrize("name", ["RK4", "GL2", "DP5", "scipy-RK45"])
 def test_terminal_event_and_count(name):
     stop_second = Event("q_up", 0, 0.0, +1, stop_after=2)
     options = METHODS.get(name, {"rtol": 1e-10, "atol": 1e-12})
@@ -75,9 +78,9 @@ def test_h_is_shrunk_to_divide_the_interval():
 
 
 def test_save_every_keeps_the_end_point():
-    sol = get("RK4").solve(OSC.problem(1.0), n_steps=10, save_every=4)
+    sol = get("GL2").solve(OSC.problem(1.0), n_steps=10, save_every=4)
     np.testing.assert_allclose(sol.lam, [0.0, 0.4, 0.8, 1.0])
-    full = get("RK4").solve(OSC.problem(1.0), n_steps=10)
+    full = get("GL2").solve(OSC.problem(1.0), n_steps=10)
     np.testing.assert_array_equal(sol.y_end, full.y_end)
 
 
@@ -87,9 +90,24 @@ def test_compensated_summation_reduces_round_off():
     exact = OSC.exact(10.0)
     errors = {}
     for comp in (False, True):
-        sol = get("RK4").solve(problem, n_steps=10**6, save_every=10**6, compensated=comp)
+        sol = get("GL3").solve(problem, n_steps=10**6, save_every=10**6, compensated=comp)
         errors[comp] = np.max(np.abs(sol.y_end - exact))
     assert errors[True] < 0.1 * errors[False]
+
+
+def test_iteration_tolerance_stops_earlier():
+    problem = kepler(0.5).problem(2 * np.pi)
+    strict = get("GL2").solve(problem, n_steps=200)
+    loose = get("GL2").solve(problem, n_steps=200, iter_tol=1e-6)
+    assert loose.n_iter < strict.n_iter
+    assert strict.n_iter / strict.n_steps < 15
+
+
+def test_divergent_implicit_iteration_is_reported():
+    # Midpoint rule on the oscillator: the fixed-point map has spectral radius h/2 = 2.5.
+    sol = get("GL1").solve(OSC.problem(10.0), n_steps=2)
+    assert sol.status == "failed: implicit iteration did not converge"
+    assert not sol.success
 
 
 def test_adaptive_failure_is_reported():
@@ -104,3 +122,15 @@ def test_problem_validation():
         Problem(OSC.rhs, OSC.y0, (0.0, 1.0), events=(Event("bad", 5, 0.0),))
     with pytest.raises(ValueError, match="exactly one"):
         get("RK4").solve(OSC.problem(1.0))
+    with pytest.raises(ValueError, match="Hamiltonian"):
+        get("Tao2").solve(Problem(OSC.rhs, OSC.y0, (0.0, 1.0)), h=0.1, omega=1.0)
+
+
+def test_tao_reports_the_first_copy_and_counts_three_evaluations_per_step():
+    sol = get("Tao2").solve(OSC.problem(1.0), n_steps=100, omega=50.0)
+    assert sol.y.shape[1] == 2 and sol.extended.shape[1] == 4
+    np.testing.assert_array_equal(sol.y, sol.extended[:, :2])
+    # 4 gradient flows per Strang step, but the closing phi_A of one step and the opening phi_A
+    # of the next are evaluated at the same (q, y): 3 per step plus the very first one.
+    assert sol.nfev == 3 * 100 + 1
+    assert get("Tao4").solve(OSC.problem(1.0), n_steps=100, omega=50.0).nfev == 9 * 100 + 1

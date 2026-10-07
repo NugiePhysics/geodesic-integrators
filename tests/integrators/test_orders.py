@@ -9,16 +9,23 @@ from geoint.testcases.toy import kepler
 KEPLER = kepler(0.5)
 PERIOD = 2 * np.pi
 
-# Step counts in the asymptotic range of each method, above the round-off floor.
+# Step counts in the asymptotic range of each method: above the round-off floor and, for Tao,
+# below the step sizes where omega h is too large.
 CASES = {
     "RK4": (4, [512, 1024, 2048]),
+    "GL1": (2, [256, 512, 1024]),
+    "GL2": (4, [128, 256, 512]),
+    "GL3": (6, [32, 64, 128]),
+    "Tao2": (2, [512, 1024, 2048]),
+    "Tao4": (4, [1024, 2048, 4096]),
 }
 
 
 def measured_order(name, steps):
     errors = []
     for n in steps:
-        sol = get(name).solve(KEPLER.problem(PERIOD), n_steps=n, save_every=n)
+        kwargs = {"omega": 20.0} if name.startswith("Tao") else {}
+        sol = get(name).solve(KEPLER.problem(PERIOD), n_steps=n, save_every=n, **kwargs)
         errors.append(np.max(np.abs(sol.y_end - KEPLER.exact(PERIOD))))
     slope, _ = np.polyfit(np.log(PERIOD / np.array(steps)), np.log(errors), 1)
     return slope
