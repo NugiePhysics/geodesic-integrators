@@ -1,4 +1,4 @@
-.PHONY: sync lint format test test-slow test-nojit figures tables report all docs docs-serve clean-cache
+.PHONY: sync lint format test test-slow test-notebooks test-nojit figures tables report all docs docs-serve clean-cache
 
 sync:            ## Install the locked environment (all extras + dev group)
 	uv sync --locked --all-extras
@@ -16,6 +16,9 @@ test:            ## Fast tests (CI)
 
 test-slow:       ## Long integrations only
 	uv run pytest -m slow
+
+test-notebooks:  ## Execute the walkthrough notebooks
+	uv run pytest --nbmake notebooks
 
 test-nojit:      ## Same tests as pure Python, for debugging
 	NUMBA_DISABLE_JIT=1 uv run pytest
