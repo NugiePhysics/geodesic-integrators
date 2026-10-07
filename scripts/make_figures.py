@@ -31,6 +31,13 @@ ORDER = [
     "f15_implicit",  # reads the F4 table
     "f16_step_history",
     "t2_validation",
+    # Phase 6: long integrations and unstable orbits
+    "f07_long_term",  # also F8, F9, F17 and T4
+    "f20_long_work_precision",
+    "f10_photon_sphere",  # also T6
+    "f11_isco",
+    "f18_inclined",
+    "f19_roundoff",
 ]
 
 
