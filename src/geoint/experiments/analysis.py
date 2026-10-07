@@ -82,3 +82,36 @@ def classify_growth(exponent: float) -> str:
         return "n/a"
     nearest = min(GROWTH_CLASSES, key=lambda p: abs(p - exponent))
     return GROWTH_CLASSES[nearest]
+
+
+def log_binned_max(x, y, bins_per_decade: int = 8):
+    """Maximum of ``y`` in logarithmically spaced bins of ``x > 0``, for drawing long series.
+
+    10^4 per-period maxima drawn on a logarithmic axis crowd into the last decade, and their
+    jitter hides the trend. One point per bin, placed where the maximum occurs, shows the same
+    upper envelope evenly. Fits use the full series, not this.
+    """
+    x, y = np.asarray(x, float), np.asarray(y, float)
+    keep = (x > 0) & np.isfinite(y)
+    x, y = x[keep], y[keep]
+    bins = np.floor(np.log10(x / x[0]) * bins_per_decade).astype(int)
+    groups = np.split(np.arange(x.size), np.flatnonzero(np.diff(bins)) + 1)
+    at = np.array([g[np.argmax(y[g])] for g in groups])
+    return x[at], y[at]
+
+
+def fit_phase_drift(n, phase_error):
+    """Fit the signed phase error at passage ``n`` as ``c1 n + c2 n^2``.
+
+    ``c1`` is a frequency error (radians per orbit), ``c2`` the effect of a drifting frequency,
+    as from an energy error growing linearly (radians per orbit squared). Fitting
+    ``phase_error / n = c1 + c2 n`` weights all passages alike. A log-log slope is unreliable
+    when the two terms have opposite signs and the error passes through zero. Returns
+    ``(c1, c2, crossover)`` with ``crossover = |c1 / c2|``, the passage from which the quadratic
+    term dominates.
+    """
+    n, err = np.asarray(n, float), np.asarray(phase_error, float)
+    keep = np.isfinite(err) & (n > 0)
+    c2, c1 = np.polyfit(n[keep], err[keep] / n[keep], 1)
+    crossover = abs(c1 / c2) if c2 != 0 else np.inf
+    return float(c1), float(c2), float(crossover)

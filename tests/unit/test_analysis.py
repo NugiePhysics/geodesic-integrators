@@ -8,7 +8,9 @@ from geoint.experiments.analysis import (
     cost_at_error,
     envelope,
     error_at_cost,
+    fit_phase_drift,
     fit_slope,
+    log_binned_max,
     pareto_front,
 )
 
@@ -42,3 +44,22 @@ def test_envelope_drops_a_short_trailing_window():
 )
 def test_growth_classification(p, law):
     assert classify_growth(p) == law
+
+
+def test_log_binned_max_keeps_the_upper_envelope():
+    n = np.arange(1, 10_001, dtype=float)
+    y = 1e-10 * n * (1 + 0.5 * np.sin(n))  # linear growth with jitter
+    x, env = log_binned_max(n, y, bins_per_decade=5)
+    assert x.size == 21  # 4 decades and the last point
+    assert np.all(np.diff(x) > 0)
+    np.testing.assert_array_equal(env, [y[n == v][0] for v in x])
+    assert env.max() == y.max()
+
+
+def test_phase_drift_fit_separates_linear_and_quadratic_terms():
+    n = np.arange(1.0, 5001.0)
+    c1, c2, crossover = fit_phase_drift(n, 3e-9 * n - 1e-12 * n**2)
+    assert c1 == pytest.approx(3e-9) and c2 == pytest.approx(-1e-12)
+    assert crossover == pytest.approx(3000)
+    _, c2, crossover = fit_phase_drift(n, 2e-6 * n)
+    assert abs(c2) < 1e-20 and crossover > 1e10
