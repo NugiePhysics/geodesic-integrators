@@ -1,0 +1,11 @@
+quantity,method,compensated,final,exponent
+circular phase,RK4,True,5.09317e-11,0.975679
+circular phase,RK4,False,5.54541e-06,2.04683
+circular phase,GL2,True,5.09317e-11,0.982474
+circular phase,GL2,False,5.54541e-06,2.04683
+circular phase,GL3,True,5.09317e-11,0.976277
+circular phase,GL3,False,5.54541e-06,2.04683
+eccentric dH,GL3,True,6.66134e-16,0.482656
+eccentric dH,GL3,False,3.88578e-15,0.665988
+eccentric dH,RK4,True,1.63672e-08,0.999281
+eccentric dH,RK4,False,1.63672e-08,0.99928

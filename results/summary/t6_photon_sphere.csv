@@ -1,0 +1,12 @@
+method,formulation,setting,orbits_tightest,orbits_loosest,orbits_per_decade,fit_points,predicted_per_decade
+DOP853,a,tolerance,4.65548,1.16305,0.348884,11,0.366468
+DOP853,b,tolerance,4.59204,1.31169,0.3303,11,0.366468
+DP5,a,tolerance,4.81835,0.780931,0.426279,11,0.366468
+DP5,b,tolerance,4.93893,1.53742,0.369168,11,0.366468
+GL2,a,step size,4.91423,1.28143,1.40801,10,1.46587
+GL2,b,step size,4.74707,0.925292,1.43961,10,1.46587
+GL3,a,step size,5.77627,1.27822,2.48899,5,2.19881
+GL3,b,step size,5.95913,1.24589,2.26143,6,2.19881
+RK4,a,step size,4.64705,0.613696,1.48772,10,1.46587
+RK4,b,step size,4.55741,0.707561,1.44896,10,1.46587
+Tao4,b,step size,3.83528,0.20469,1.375,10,1.46587

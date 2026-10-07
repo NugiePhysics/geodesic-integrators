@@ -1,493 +1,493 @@
 case_label,formulation,method,opt_n_steps,opt_rtol,error,nfev,n_steps,n_rejected,n_iter,wall_time,status
-deflection b = 6,a,RK4,300,,173.983,376,76,0,0,0.000345229,escaped
-deflection b = 6,a,RK4,627,,0.0298111,1428,353,0,0,0.00154607,escaped
-deflection b = 6,a,RK4,1311,,0.0048689,2640,658,0,0,0.00276784,escaped
-deflection b = 6,a,RK4,2741,,0.00013902,5504,1374,0,0,0.00557924,escaped
-deflection b = 6,a,RK4,5730,,4.72641e-06,11496,2872,0,0,0.0117152,escaped
-deflection b = 6,a,RK4,11979,,2.01607e-07,24020,6003,0,0,0.0241563,escaped
-deflection b = 6,a,RK4,25043,,9.66824e-09,50204,12549,0,0,0.0507044,escaped
-deflection b = 6,a,RK4,52354,,4.8724e-10,104944,26234,0,0,0.106307,escaped
-deflection b = 6,a,RK4,109450,,2.50733e-11,219380,54843,0,0,0.220615,escaped
-deflection b = 6,a,RK4,228811,,1.30207e-12,458620,114653,0,0,0.355131,escaped
-deflection b = 6,a,RK4,478342,,6.75016e-14,958756,239687,0,0,0.938034,escaped
-deflection b = 6,a,RK4,1e+06,,2.66454e-15,2004316,501078,0,0,1.87023,escaped
-deflection b = 6,b,RK4,300,,inf,400,76,0,0,0.000605056,captured
-deflection b = 6,b,RK4,627,,0.020551,1264,314,0,0,0.0017215,escaped
-deflection b = 6,b,RK4,1311,,0.000383,2640,658,0,0,0.00262132,escaped
-deflection b = 6,b,RK4,2741,,6.1717e-05,5504,1374,0,0,0.00518056,escaped
-deflection b = 6,b,RK4,5730,,4.35792e-06,11496,2872,0,0,0.011543,escaped
-deflection b = 6,b,RK4,11979,,2.55101e-07,24020,6003,0,0,0.0235652,escaped
-deflection b = 6,b,RK4,25043,,1.40069e-08,50204,12549,0,0,0.0513402,escaped
-deflection b = 6,b,RK4,52354,,7.49314e-10,104944,26234,0,0,0.104694,escaped
-deflection b = 6,b,RK4,109450,,3.96252e-11,219380,54843,0,0,0.242213,escaped
-deflection b = 6,b,RK4,228811,,2.08455e-12,458620,114653,0,0,0.578917,escaped
-deflection b = 6,b,RK4,478342,,1.09246e-13,958756,239687,0,0,0.946301,escaped
-deflection b = 6,b,RK4,1e+06,,5.32907e-15,2004316,501078,0,0,2.30314,escaped
-deflection b = 6,a,DP5,,0.001,0.0203798,208,25,6,0,0.000347652,escaped
-deflection b = 6,a,DP5,,0.0001,0.00404577,275,33,10,0,0.000403914,escaped
-deflection b = 6,a,DP5,,1e-05,0.00234101,340,40,13,0,0.00046054,escaped
-deflection b = 6,a,DP5,,1e-06,0.000568004,484,56,21,0,0.000585714,escaped
-deflection b = 6,a,DP5,,1e-07,7.43077e-05,688,83,28,0,0.000778042,escaped
-deflection b = 6,a,DP5,,1e-08,8.49492e-06,964,126,31,0,0.00105301,escaped
-deflection b = 6,a,DP5,,1e-09,1.10356e-06,1234,192,10,0,0.00136876,escaped
-deflection b = 6,a,DP5,,1e-10,1.22617e-07,1822,300,0,0,0.00198081,escaped
-deflection b = 6,a,DP5,,1e-11,1.09631e-08,2866,474,0,0,0.00302609,escaped
-deflection b = 6,a,DP5,,1e-12,1.0234e-09,4505,748,0,0,0.00466813,escaped
-deflection b = 6,a,DP5,,1e-13,9.80318e-11,7126,1184,0,0,0.00749882,escaped
-deflection b = 6,b,DP5,,0.001,0.0530418,167,18,7,0,0.000348716,escaped
-deflection b = 6,b,DP5,,0.0001,0.000304144,220,25,8,0,0.000409389,escaped
-deflection b = 6,b,DP5,,1e-05,1.67082e-05,280,34,9,0,0.000498117,escaped
-deflection b = 6,b,DP5,,1e-06,4.56562e-06,376,45,14,0,0.000598481,escaped
-deflection b = 6,b,DP5,,1e-07,6.69346e-07,521,62,22,0,0.000769054,escaped
-deflection b = 6,b,DP5,,1e-08,7.19838e-08,766,92,32,0,0.00106717,escaped
-deflection b = 6,b,DP5,,1e-09,7.65831e-09,1024,138,29,0,0.00140097,escaped
-deflection b = 6,b,DP5,,1e-10,6.09385e-10,1360,210,13,0,0.00186486,escaped
-deflection b = 6,b,DP5,,1e-11,5.50466e-11,1990,328,0,0,0.0026761,escaped
-deflection b = 6,b,DP5,,1e-12,5.88418e-12,3130,518,0,0,0.00414333,escaped
-deflection b = 6,b,DP5,,1e-13,6.11955e-13,4930,818,0,0,0.00640848,escaped
-deflection b = 6,a,DOP853,,0.001,0.127565,370,19,8,0,0.000485781,escaped
-deflection b = 6,a,DOP853,,0.0001,0.0237014,417,23,7,0,0.000534202,escaped
-deflection b = 6,a,DOP853,,1e-05,0.00400143,478,29,7,0,0.000601345,escaped
-deflection b = 6,a,DOP853,,1e-06,0.000476577,585,35,9,0,0.000771111,escaped
-deflection b = 6,a,DOP853,,1e-07,0.000125389,658,41,10,0,0.000840317,escaped
-deflection b = 6,a,DOP853,,1e-08,6.40833e-05,778,48,13,0,0.000870763,escaped
-deflection b = 6,a,DOP853,,1e-09,4.93098e-06,994,60,19,0,0.00107197,escaped
-deflection b = 6,a,DOP853,,1e-10,3.66848e-07,1294,77,27,0,0.00134707,escaped
-deflection b = 6,a,DOP853,,1e-11,2.33739e-08,1642,101,32,0,0.00167449,escaped
-deflection b = 6,a,DOP853,,1e-12,1.53113e-09,1942,131,27,0,0.00197916,escaped
-deflection b = 6,a,DOP853,,1e-13,1.5618e-10,2218,171,10,0,0.00227591,escaped
-deflection b = 6,b,DOP853,,0.001,0.000172018,369,17,9,0,0.000602581,escaped
-deflection b = 6,b,DOP853,,0.0001,0.000108744,393,21,7,0,0.00062259,escaped
-deflection b = 6,b,DOP853,,1e-05,4.41041e-06,429,25,6,0,0.000728516,escaped
-deflection b = 6,b,DOP853,,1e-06,4.66387e-07,502,31,7,0,0.000765405,escaped
-deflection b = 6,b,DOP853,,1e-07,5.14205e-09,646,36,14,0,0.000943992,escaped
-deflection b = 6,b,DOP853,,1e-08,7.87967e-09,790,44,18,0,0.00108875,escaped
-deflection b = 6,b,DOP853,,1e-09,2.74073e-09,957,54,21,0,0.00128583,escaped
-deflection b = 6,b,DOP853,,1e-10,2.706e-10,1198,68,28,0,0.00157259,escaped
-deflection b = 6,b,DOP853,,1e-11,4.09708e-11,1533,88,35,0,0.00196578,escaped
-deflection b = 6,b,DOP853,,1e-12,4.71445e-12,1869,113,38,0,0.00238805,escaped
-deflection b = 6,b,DOP853,,1e-13,6.10179e-13,2122,146,27,0,0.00274227,escaped
-deflection b = 6,a,GL1,300,,inf,1121,74,0,1121,0.000804902,failed: implicit iteration did not converge
-deflection b = 6,a,GL1,627,,inf,1863,156,0,1863,0.00134486,failed: implicit iteration did not converge
-deflection b = 6,a,GL1,1311,,0.319974,6274,657,0,6258,0.00455137,escaped
-deflection b = 6,a,GL1,2741,,0.0969241,11145,1374,0,11132,0.00854269,escaped
-deflection b = 6,a,GL1,5730,,0.0240493,20343,2872,0,20331,0.0164812,escaped
-deflection b = 6,a,GL1,11979,,0.00561236,38324,6003,0,38312,0.0327563,escaped
-deflection b = 6,a,GL1,25043,,0.00129005,71741,12549,0,71729,0.0646309,escaped
-deflection b = 6,a,GL1,52354,,0.000295486,139572,26234,0,139561,0.131491,escaped
-deflection b = 6,a,GL1,109450,,6.76253e-05,272011,54843,0,272001,0.211641,escaped
-deflection b = 6,a,GL1,228811,,1.54743e-05,510754,114653,0,510746,0.473841,escaped
-deflection b = 6,a,GL1,478342,,3.54073e-06,1008074,239687,0,1008064,0.839511,escaped
-deflection b = 6,a,GL1,1e+06,,8.10162e-07,2051456,501078,0,2051446,1.94031,escaped
-deflection b = 6,b,GL1,300,,inf,670,75,0,670,0.000806561,failed: implicit iteration did not converge
-deflection b = 6,b,GL1,627,,inf,1164,157,0,1164,0.00136883,failed: implicit iteration did not converge
-deflection b = 6,b,GL1,1311,,0.0166165,3996,658,0,3986,0.00471234,escaped
-deflection b = 6,b,GL1,2741,,0.00386946,7509,1374,0,7499,0.00915722,escaped
-deflection b = 6,b,GL1,5730,,0.00088901,14538,2872,0,14528,0.0181017,escaped
-deflection b = 6,b,GL1,11979,,0.000203586,29022,6003,0,29012,0.0369113,escaped
-deflection b = 6,b,GL1,25043,,4.65909e-05,55598,12549,0,55588,0.0734984,escaped
-deflection b = 6,b,GL1,52354,,1.06609e-05,111002,26234,0,110994,0.150277,escaped
-deflection b = 6,b,GL1,109450,,2.4393e-06,222193,54843,0,222185,0.227429,escaped
-deflection b = 6,b,GL1,228811,,5.58142e-07,417353,114653,0,417345,0.606547,escaped
-deflection b = 6,b,GL1,478342,,1.27709e-07,804150,239687,0,804142,1.09075,escaped
-deflection b = 6,b,GL1,1e+06,,2.92212e-08,1604757,501078,0,1604753,2.48091,escaped
-deflection b = 6,a,GL2,300,,inf,1796,74,0,898,0.00129027,failed: implicit iteration did not converge
-deflection b = 6,a,GL2,627,,0.00163749,6018,313,0,2993,0.00421389,escaped
-deflection b = 6,a,GL2,1311,,0.00218869,10260,657,0,5115,0.00740755,escaped
-deflection b = 6,a,GL2,2741,,0.000116685,18256,1374,0,9116,0.0141229,escaped
-deflection b = 6,a,GL2,5730,,6.10583e-06,33158,2872,0,16567,0.0264185,escaped
-deflection b = 6,a,GL2,11979,,3.19621e-07,62586,6003,0,31281,0.0519955,escaped
-deflection b = 6,a,GL2,25043,,1.67326e-08,114872,12549,0,57426,0.101842,escaped
-deflection b = 6,a,GL2,52354,,8.76008e-10,223274,26234,0,111627,0.167581,escaped
-deflection b = 6,a,GL2,109450,,4.58611e-11,428712,54843,0,214346,0.38719,escaped
-deflection b = 6,a,GL2,228811,,2.40163e-12,786252,114653,0,393118,0.701082,escaped
-deflection b = 6,a,GL2,478342,,1.26121e-13,1533364,239687,0,766672,1.38755,escaped
-deflection b = 6,a,GL2,1e+06,,7.10543e-15,3096752,501078,0,1548372,3.00037,escaped
-deflection b = 6,b,GL2,300,,0.0721086,2106,155,0,1043,0.00227088,escaped
-deflection b = 6,b,GL2,627,,0.010339,3712,316,0,1846,0.00402857,escaped
-deflection b = 6,b,GL2,1311,,7.51129e-06,6862,657,0,3421,0.00756862,escaped
-deflection b = 6,b,GL2,2741,,1.56248e-06,13022,1374,0,6501,0.014948,escaped
-deflection b = 6,b,GL2,5730,,8.47191e-08,25128,2872,0,12554,0.0290076,escaped
-deflection b = 6,b,GL2,11979,,4.46985e-09,47372,6003,0,23676,0.0570799,escaped
-deflection b = 6,b,GL2,25043,,2.34422e-10,88662,12549,0,44321,0.112544,escaped
-deflection b = 6,b,GL2,52354,,1.22782e-11,172556,26234,0,86270,0.224788,escaped
-deflection b = 6,b,GL2,109450,,6.43041e-13,346218,54843,0,173101,0.392994,escaped
-deflection b = 6,b,GL2,228811,,3.37508e-14,696540,114653,0,348262,0.815154,escaped
-deflection b = 6,b,GL2,478342,,1.77636e-15,1361804,239687,0,680894,1.51928,escaped
-deflection b = 6,b,GL2,1e+06,,0,2706312,501078,0,1353152,2.94155,escaped
-deflection b = 6,a,GL3,300,,inf,2376,75,0,792,0.00135934,failed: implicit iteration did not converge
-deflection b = 6,a,GL3,627,,0.00561607,7755,315,0,2571,0.00457097,escaped
-deflection b = 6,a,GL3,1311,,2.14152e-05,13290,657,0,4415,0.00884676,escaped
-deflection b = 6,a,GL3,2741,,1.8632e-07,23451,1374,0,7805,0.0154268,escaped
-deflection b = 6,a,GL3,5730,,2.22435e-09,41643,2872,0,13869,0.0274938,escaped
-deflection b = 6,a,GL3,11979,,2.66205e-11,77598,6003,0,25854,0.0553044,escaped
-deflection b = 6,a,GL3,25043,,3.18856e-13,138609,12549,0,46193,0.104486,escaped
-deflection b = 6,a,GL3,52354,,4.44089e-15,260433,26234,0,86801,0.205814,escaped
-deflection b = 6,a,GL3,109450,,0,502425,54843,0,167465,0.413787,escaped
-deflection b = 6,a,GL3,228811,,8.88178e-16,883188,114653,0,294388,0.83809,escaped
-deflection b = 6,a,GL3,478342,,0,1626114,239687,0,542028,1.86775,escaped
-deflection b = 6,a,GL3,1e+06,,8.88178e-16,3188568,501078,0,1062851,3.5864,escaped
-deflection b = 6,b,GL3,300,,0.0069842,2907,152,0,945,0.00238679,escaped
-deflection b = 6,b,GL3,627,,0.00108751,5082,315,0,1684,0.00416896,escaped
-deflection b = 6,b,GL3,1311,,1.52973e-06,9249,657,0,3073,0.0084892,escaped
-deflection b = 6,b,GL3,2741,,2.13974e-08,16875,1374,0,5615,0.0160437,escaped
-deflection b = 6,b,GL3,5730,,2.59419e-10,30840,2872,0,10270,0.0329575,escaped
-deflection b = 6,b,GL3,11979,,3.11573e-12,59502,6003,0,19824,0.0592978,escaped
-deflection b = 6,b,GL3,25043,,3.73035e-14,112569,12549,0,37513,0.11584,escaped
-deflection b = 6,b,GL3,52354,,0,218220,26234,0,72732,0.227119,escaped
-deflection b = 6,b,GL3,109450,,0,401289,54843,0,133755,0.447765,escaped
-deflection b = 6,b,GL3,228811,,0,757773,114653,0,252583,0.869883,escaped
-deflection b = 6,b,GL3,478342,,0,1510080,239687,0,503352,1.7784,escaped
-deflection b = 6,b,GL3,1e+06,,0,3076869,501078,0,1025615,3.74409,escaped
-deflection b = 6,b,Tao2,300,,inf,270,79,0,0,0.000431045,captured
-deflection b = 6,b,Tao2,627,,0.237995,958,311,0,0,0.00144537,escaped
-deflection b = 6,b,Tao2,1311,,0.0107223,1988,657,0,0,0.00277153,escaped
-deflection b = 6,b,Tao2,2741,,0.00241582,4139,1374,0,0,0.00560061,escaped
-deflection b = 6,b,Tao2,5730,,0.000551883,8625,2872,0,0,0.0122653,escaped
-deflection b = 6,b,Tao2,11979,,0.000126224,18050,6003,0,0,0.0235943,escaped
-deflection b = 6,b,Tao2,25043,,2.88781e-05,37656,12549,0,0,0.0516742,escaped
-deflection b = 6,b,Tao2,52354,,6.60742e-06,78730,26234,0,0,0.106672,escaped
-deflection b = 6,b,Tao2,109450,,1.51181e-06,162707,54843,0,0,0.24136,escaped
-deflection b = 6,b,Tao2,228811,,3.4592e-07,311185,114653,0,0,0.497302,escaped
-deflection b = 6,b,Tao2,478342,,7.91502e-08,622171,239687,0,0,1.02396,escaped
-deflection b = 6,b,Tao2,1e+06,,1.81104e-08,1279575,501078,0,0,2.07842,escaped
-deflection b = 6,b,Tao4,300,,inf,846,75,0,0,0.00103508,captured
-deflection b = 6,b,Tao4,627,,inf,1653,158,0,0,0.00194349,captured
-deflection b = 6,b,Tao4,1311,,0.00380579,5963,658,0,0,0.00692743,escaped
-deflection b = 6,b,Tao4,2741,,0.000497789,12427,1374,0,0,0.0140357,escaped
-deflection b = 6,b,Tao4,5730,,2.32721e-05,25889,2872,0,0,0.0287221,escaped
-deflection b = 6,b,Tao4,11979,,1.18e-06,54068,6003,0,0,0.0598543,escaped
-deflection b = 6,b,Tao4,25043,,6.13047e-08,112992,12549,0,0,0.109977,escaped
-deflection b = 6,b,Tao4,52354,,3.20384e-09,236167,26234,0,0,0.258386,escaped
-deflection b = 6,b,Tao4,109450,,1.67661e-10,493638,54843,0,0,0.504357,escaped
-deflection b = 6,b,Tao4,228811,,8.77698e-12,1026508,114653,0,0,1.11907,escaped
-deflection b = 6,b,Tao4,478342,,4.60965e-13,2011136,239687,0,0,2.16522,escaped
-deflection b = 6,b,Tao4,1e+06,,2.30926e-14,3982968,501078,0,0,4.32528,escaped
-"orbit (20, 0.5), 3 periods",a,RK4,150,,0.0092329,672,150,0,0,0.000722889,completed
-"orbit (20, 0.5), 3 periods",a,RK4,299,,0.00129183,1256,299,0,0,0.00133529,completed
-"orbit (20, 0.5), 3 periods",a,RK4,597,,0.000116943,2436,597,0,0,0.00204867,completed
-"orbit (20, 0.5), 3 periods",a,RK4,1192,,8.58371e-06,4812,1192,0,0,0.00382505,completed
-"orbit (20, 0.5), 3 periods",a,RK4,2379,,5.80432e-07,9548,2379,0,0,0.00762871,completed
-"orbit (20, 0.5), 3 periods",a,RK4,4749,,3.78023e-08,19032,4749,0,0,0.0149439,completed
-"orbit (20, 0.5), 3 periods",a,RK4,9477,,2.42327e-09,37936,9477,0,0,0.0312624,completed
-"orbit (20, 0.5), 3 periods",a,RK4,18912,,1.54195e-10,75680,18912,0,0,0.0580752,completed
-"orbit (20, 0.5), 3 periods",a,RK4,37743,,9.90141e-12,151000,37743,0,0,0.116812,completed
-"orbit (20, 0.5), 3 periods",a,RK4,75324,,7.78044e-13,301320,75324,0,0,0.228294,completed
-"orbit (20, 0.5), 3 periods",a,RK4,150324,,2.06057e-13,601320,150324,0,0,0.457092,completed
-"orbit (20, 0.5), 3 periods",a,RK4,300000,,1.56319e-13,1200020,300000,0,0,0.927248,completed
-"orbit (20, 0.5), 3 periods",b,RK4,150,,0.022378,656,150,0,0,0.000711308,completed
-"orbit (20, 0.5), 3 periods",b,RK4,299,,0.00078923,1260,299,0,0,0.00127705,completed
-"orbit (20, 0.5), 3 periods",b,RK4,597,,2.68988e-05,2420,597,0,0,0.00245499,completed
-"orbit (20, 0.5), 3 periods",b,RK4,1192,,9.44152e-07,4812,1192,0,0,0.00505646,completed
-"orbit (20, 0.5), 3 periods",b,RK4,2379,,3.55061e-08,9544,2379,0,0,0.00900714,completed
-"orbit (20, 0.5), 3 periods",b,RK4,4749,,1.47323e-09,19020,4749,0,0,0.0185761,completed
-"orbit (20, 0.5), 3 periods",b,RK4,9477,,6.88019e-11,37924,9477,0,0,0.0366076,completed
-"orbit (20, 0.5), 3 periods",b,RK4,18912,,3.64864e-12,75672,18912,0,0,0.0730478,completed
-"orbit (20, 0.5), 3 periods",b,RK4,37743,,2.80664e-13,150996,37743,0,0,0.144614,completed
-"orbit (20, 0.5), 3 periods",b,RK4,75324,,9.23706e-14,301316,75324,0,0,0.289372,completed
-"orbit (20, 0.5), 3 periods",b,RK4,150324,,8.88178e-14,601316,150324,0,0,0.580111,completed
-"orbit (20, 0.5), 3 periods",b,RK4,300000,,7.81597e-14,1200016,300000,0,0,1.15114,completed
-"orbit (20, 0.5), 3 periods",a,DP5,,0.001,9.26696,398,37,9,0,0.0005406,completed
-"orbit (20, 0.5), 3 periods",a,DP5,,0.0001,0.0441168,411,43,11,0,0.000415749,completed
-"orbit (20, 0.5), 3 periods",a,DP5,,1e-05,0.0241618,515,59,19,0,0.000552054,completed
-"orbit (20, 0.5), 3 periods",a,DP5,,1e-06,0.00250619,748,88,28,0,0.00077328,completed
-"orbit (20, 0.5), 3 periods",a,DP5,,1e-07,0.000255412,1013,133,28,0,0.000963619,completed
-"orbit (20, 0.5), 3 periods",a,DP5,,1e-08,3.62142e-05,1356,205,14,0,0.0012464,completed
-"orbit (20, 0.5), 3 periods",a,DP5,,1e-09,3.20634e-06,1980,321,2,0,0.00169142,completed
-"orbit (20, 0.5), 3 periods",a,DP5,,1e-10,3.06868e-07,3084,507,0,0,0.00261234,completed
-"orbit (20, 0.5), 3 periods",a,DP5,,1e-11,3.04065e-08,4860,803,0,0,0.00395259,completed
-"orbit (20, 0.5), 3 periods",a,DP5,,1e-12,3.0427e-09,7663,1271,0,0,0.00596099,completed
-"orbit (20, 0.5), 3 periods",a,DP5,,1e-13,3.03849e-10,12125,2013,0,0,0.00923068,completed
-"orbit (20, 0.5), 3 periods",b,DP5,,0.001,2.74181,294,23,9,0,0.000359553,completed
-"orbit (20, 0.5), 3 periods",b,DP5,,0.0001,0.0163715,363,33,13,0,0.000405098,completed
-"orbit (20, 0.5), 3 periods",b,DP5,,1e-05,0.00142966,401,46,13,0,0.000500316,completed
-"orbit (20, 0.5), 3 periods",b,DP5,,1e-06,0.000298421,628,67,24,0,0.000661756,completed
-"orbit (20, 0.5), 3 periods",b,DP5,,1e-07,2.04797e-05,812,99,26,0,0.000963449,completed
-"orbit (20, 0.5), 3 periods",b,DP5,,1e-08,3.15769e-06,1125,150,28,0,0.00158209,completed
-"orbit (20, 0.5), 3 periods",b,DP5,,1e-09,3.01282e-07,1598,231,25,0,0.00193264,completed
-"orbit (20, 0.5), 3 periods",b,DP5,,1e-10,2.84564e-08,2278,360,11,0,0.00252765,completed
-"orbit (20, 0.5), 3 periods",b,DP5,,1e-11,2.83149e-09,3505,567,6,0,0.0034589,completed
-"orbit (20, 0.5), 3 periods",b,DP5,,1e-12,2.70088e-10,5444,896,1,0,0.00509148,completed
-"orbit (20, 0.5), 3 periods",b,DP5,,1e-13,2.59845e-11,8565,1418,0,0,0.00839593,completed
-"orbit (20, 0.5), 3 periods",a,DOP853,,0.001,0.0837197,573,24,8,0,0.000474161,completed
-"orbit (20, 0.5), 3 periods",a,DOP853,,0.0001,0.00846934,612,30,8,0,0.00052805,completed
-"orbit (20, 0.5), 3 periods",a,DOP853,,1e-05,0.00152866,744,37,12,0,0.000574965,completed
-"orbit (20, 0.5), 3 periods",a,DOP853,,1e-06,0.000530141,831,45,14,0,0.000655718,completed
-"orbit (20, 0.5), 3 periods",a,DOP853,,1e-07,1.75966e-05,1024,59,17,0,0.000782641,completed
-"orbit (20, 0.5), 3 periods",a,DOP853,,1e-08,8.00502e-06,1312,76,24,0,0.00103758,completed
-"orbit (20, 0.5), 3 periods",a,DOP853,,1e-09,3.69511e-07,1635,99,27,0,0.00134483,completed
-"orbit (20, 0.5), 3 periods",a,DOP853,,1e-10,3.38556e-08,1913,129,22,0,0.00182339,completed
-"orbit (20, 0.5), 3 periods",a,DOP853,,1e-11,2.81578e-09,2334,169,18,0,0.00183662,completed
-"orbit (20, 0.5), 3 periods",a,DOP853,,1e-12,4.97685e-10,2982,223,18,0,0.00232969,completed
-"orbit (20, 0.5), 3 periods",a,DOP853,,1e-13,3.8888e-11,3845,295,17,0,0.00334047,completed
-"orbit (20, 0.5), 3 periods",b,DOP853,,0.001,0.0409817,458,20,7,0,0.000550381,completed
-"orbit (20, 0.5), 3 periods",b,DOP853,,0.0001,0.0135564,542,25,9,0,0.000605566,completed
-"orbit (20, 0.5), 3 periods",b,DOP853,,1e-05,0.00350343,622,30,7,0,0.000656289,completed
-"orbit (20, 0.5), 3 periods",b,DOP853,,1e-06,0.000403615,688,36,12,0,0.00072143,completed
-"orbit (20, 0.5), 3 periods",b,DOP853,,1e-07,2.16831e-05,840,44,13,0,0.000888579,completed
-"orbit (20, 0.5), 3 periods",b,DOP853,,1e-08,2.00848e-06,964,56,15,0,0.00104901,completed
-"orbit (20, 0.5), 3 periods",b,DOP853,,1e-09,1.60531e-07,1192,70,20,0,0.00139729,completed
-"orbit (20, 0.5), 3 periods",b,DOP853,,1e-10,7.6643e-08,1517,89,29,0,0.00161127,completed
-"orbit (20, 0.5), 3 periods",b,DOP853,,1e-11,4.3551e-09,1829,113,31,0,0.00186354,completed
-"orbit (20, 0.5), 3 periods",b,DOP853,,1e-12,3.2064e-10,2213,146,30,0,0.00199177,completed
-"orbit (20, 0.5), 3 periods",b,DOP853,,1e-13,6.10356e-12,2633,190,21,0,0.00236481,completed
-"orbit (20, 0.5), 3 periods",a,GL1,150,,1.68459,2909,150,0,2658,0.00125652,completed
-"orbit (20, 0.5), 3 periods",a,GL1,299,,0.496584,4249,299,0,4097,0.00207347,completed
-"orbit (20, 0.5), 3 periods",a,GL1,597,,0.125794,6737,597,0,6612,0.00379275,completed
-"orbit (20, 0.5), 3 periods",a,GL1,1192,,0.0315428,11370,1192,0,11248,0.00581446,completed
-"orbit (20, 0.5), 3 periods",a,GL1,2379,,0.00791672,19530,2379,0,19450,0.0122158,completed
-"orbit (20, 0.5), 3 periods",a,GL1,4749,,0.00198653,34209,4749,0,34146,0.0209998,completed
-"orbit (20, 0.5), 3 periods",a,GL1,9477,,0.000498825,61694,9477,0,61652,0.0428758,completed
-"orbit (20, 0.5), 3 periods",a,GL1,18912,,0.00012526,111562,18912,0,111537,0.0745914,completed
-"orbit (20, 0.5), 3 periods",a,GL1,37743,,3.14495e-05,203023,37743,0,202998,0.146791,completed
-"orbit (20, 0.5), 3 periods",a,GL1,75324,,7.89624e-06,386645,75324,0,386620,0.29602,completed
-"orbit (20, 0.5), 3 periods",a,GL1,150324,,1.98258e-06,703915,150324,0,703895,0.535041,completed
-"orbit (20, 0.5), 3 periods",a,GL1,300000,,4.97788e-07,1312503,300000,0,1312473,1.07287,completed
-"orbit (20, 0.5), 3 periods",b,GL1,150,,0.391416,2410,150,0,2085,0.00168556,completed
-"orbit (20, 0.5), 3 periods",b,GL1,299,,0.103341,3521,299,0,3318,0.00263429,completed
-"orbit (20, 0.5), 3 periods",b,GL1,597,,0.0262267,5746,597,0,5551,0.00423673,completed
-"orbit (20, 0.5), 3 periods",b,GL1,1192,,0.00659782,9838,1192,0,9724,0.00793409,completed
-"orbit (20, 0.5), 3 periods",b,GL1,2379,,0.0016576,16998,2379,0,16888,0.0146872,completed
-"orbit (20, 0.5), 3 periods",b,GL1,4749,,0.000416047,30911,4749,0,30802,0.027218,completed
-"orbit (20, 0.5), 3 periods",b,GL1,9477,,0.000104478,57179,9477,0,57089,0.0509185,completed
-"orbit (20, 0.5), 3 periods",b,GL1,18912,,2.62359e-05,102108,18912,0,102056,0.0965336,completed
-"orbit (20, 0.5), 3 periods",b,GL1,37743,,6.58719e-06,194358,37743,0,194309,0.182609,completed
-"orbit (20, 0.5), 3 periods",b,GL1,75324,,1.65389e-06,345374,75324,0,345325,0.339208,completed
-"orbit (20, 0.5), 3 periods",b,GL1,150324,,4.15257e-07,648850,150324,0,648808,0.659878,completed
-"orbit (20, 0.5), 3 periods",b,GL1,300000,,1.04263e-07,1252864,300000,0,1252823,1.29441,completed
-"orbit (20, 0.5), 3 periods",a,GL2,150,,0.00744086,4316,150,0,2115,0.00212194,completed
-"orbit (20, 0.5), 3 periods",a,GL2,299,,0.000461495,6930,299,0,3340,0.00341605,completed
-"orbit (20, 0.5), 3 periods",a,GL2,597,,2.89044e-05,10990,597,0,5460,0.0058203,completed
-"orbit (20, 0.5), 3 periods",a,GL2,1192,,1.81666e-06,18690,1192,0,9264,0.00957948,completed
-"orbit (20, 0.5), 3 periods",a,GL2,2379,,1.14467e-07,32066,2379,0,16008,0.018538,completed
-"orbit (20, 0.5), 3 periods",a,GL2,4749,,7.20793e-09,55426,4749,0,27698,0.0350917,completed
-"orbit (20, 0.5), 3 periods",a,GL2,9477,,4.54339e-10,99998,9477,0,49987,0.0607168,completed
-"orbit (20, 0.5), 3 periods",a,GL2,18912,,2.84963e-11,178764,18912,0,89370,0.120866,completed
-"orbit (20, 0.5), 3 periods",a,GL2,37743,,1.6378e-12,327716,37743,0,163843,0.235691,completed
-"orbit (20, 0.5), 3 periods",a,GL2,75324,,5.68434e-14,613250,75324,0,306591,0.443395,completed
-"orbit (20, 0.5), 3 periods",a,GL2,150324,,1.63425e-13,1113138,150324,0,556534,0.826511,completed
-"orbit (20, 0.5), 3 periods",a,GL2,300000,,1.59872e-13,2009940,300000,0,1004946,1.55774,completed
-"orbit (20, 0.5), 3 periods",b,GL2,150,,0.00236689,3876,150,0,1660,0.00324784,completed
-"orbit (20, 0.5), 3 periods",b,GL2,299,,0.000145648,5788,299,0,2697,0.00469445,completed
-"orbit (20, 0.5), 3 periods",b,GL2,597,,9.10553e-06,9480,597,0,4621,0.00699956,completed
-"orbit (20, 0.5), 3 periods",b,GL2,1192,,5.72029e-07,16354,1192,0,8043,0.0130465,completed
-"orbit (20, 0.5), 3 periods",b,GL2,2379,,3.60393e-08,27648,2379,0,13731,0.021827,completed
-"orbit (20, 0.5), 3 periods",b,GL2,4749,,2.26944e-09,50852,4749,0,25345,0.0442584,completed
-"orbit (20, 0.5), 3 periods",b,GL2,9477,,1.43171e-10,90020,9477,0,44932,0.0806905,completed
-"orbit (20, 0.5), 3 periods",b,GL2,18912,,9.10916e-12,164620,18912,0,82247,0.154243,completed
-"orbit (20, 0.5), 3 periods",b,GL2,37743,,6.53699e-13,308142,37743,0,154036,0.281498,completed
-"orbit (20, 0.5), 3 periods",b,GL2,75324,,1.24345e-13,533226,75324,0,266571,0.505408,completed
-"orbit (20, 0.5), 3 periods",b,GL2,150324,,9.59233e-14,994430,150324,0,497180,1.00195,completed
-"orbit (20, 0.5), 3 periods",b,GL2,300000,,8.17124e-14,1877022,300000,0,938475,2.00135,completed
-"orbit (20, 0.5), 3 periods",a,GL3,150,,8.41203e-06,6171,150,0,1855,0.00304057,completed
-"orbit (20, 0.5), 3 periods",a,GL3,299,,9.65179e-08,9204,299,0,2931,0.00543764,completed
-"orbit (20, 0.5), 3 periods",a,GL3,597,,1.39996e-09,14547,597,0,4757,0.00868067,completed
-"orbit (20, 0.5), 3 periods",a,GL3,1192,,2.17817e-11,24435,1192,0,8026,0.0151496,completed
-"orbit (20, 0.5), 3 periods",a,GL3,2379,,4.9738e-13,41082,2379,0,13625,0.0262988,completed
-"orbit (20, 0.5), 3 periods",a,GL3,4749,,1.66978e-13,70866,4749,0,23568,0.0476591,completed
-"orbit (20, 0.5), 3 periods",a,GL3,9477,,1.49214e-13,124842,9477,0,41562,0.0860729,completed
-"orbit (20, 0.5), 3 periods",a,GL3,18912,,1.81188e-13,226002,18912,0,75289,0.165181,completed
-"orbit (20, 0.5), 3 periods",a,GL3,37743,,1.63425e-13,387378,37743,0,129091,0.300068,completed
-"orbit (20, 0.5), 3 periods",a,GL3,75324,,1.63425e-13,705654,75324,0,235169,0.594165,completed
-"orbit (20, 0.5), 3 periods",a,GL3,150324,,1.66978e-13,1255308,150324,0,418375,1.06714,completed
-"orbit (20, 0.5), 3 periods",a,GL3,300000,,1.59872e-13,2199288,300000,0,733072,2.03562,completed
-"orbit (20, 0.5), 3 periods",b,GL3,150,,5.11438e-06,4497,150,0,1464,0.00368814,completed
-"orbit (20, 0.5), 3 periods",b,GL3,299,,6.4258e-08,7476,299,0,2367,0.00608906,completed
-"orbit (20, 0.5), 3 periods",b,GL3,597,,9.58089e-10,12162,597,0,4036,0.010342,completed
-"orbit (20, 0.5), 3 periods",b,GL3,1192,,1.48255e-11,20805,1192,0,6859,0.0187206,completed
-"orbit (20, 0.5), 3 periods",b,GL3,2379,,1.52767e-13,35646,2379,0,11870,0.0303189,completed
-"orbit (20, 0.5), 3 periods",b,GL3,4749,,7.81597e-14,63651,4749,0,21172,0.0598665,completed
-"orbit (20, 0.5), 3 periods",b,GL3,9477,,7.81597e-14,110070,9477,0,36652,0.109182,completed
-"orbit (20, 0.5), 3 periods",b,GL3,18912,,8.52651e-14,195411,18912,0,65096,0.190638,completed
-"orbit (20, 0.5), 3 periods",b,GL3,37743,,7.81597e-14,359967,37743,0,119954,0.36036,completed
-"orbit (20, 0.5), 3 periods",b,GL3,75324,,8.52651e-14,633756,75324,0,211211,0.666639,completed
-"orbit (20, 0.5), 3 periods",b,GL3,150324,,9.23706e-14,1125591,150324,0,375176,1.23138,completed
-"orbit (20, 0.5), 3 periods",b,GL3,300000,,7.81597e-14,1988943,300000,0,662944,2.31378,completed
-"orbit (20, 0.5), 3 periods",b,Tao2,150,,0.263228,501,150,0,0,0.00074495,completed
-"orbit (20, 0.5), 3 periods",b,Tao2,299,,0.0634197,956,299,0,0,0.00143678,completed
-"orbit (20, 0.5), 3 periods",b,Tao2,597,,0.0155414,1838,597,0,0,0.00270221,completed
-"orbit (20, 0.5), 3 periods",b,Tao2,1192,,0.00387056,3623,1192,0,0,0.00491141,completed
-"orbit (20, 0.5), 3 periods",b,Tao2,2379,,0.000969907,7180,2379,0,0,0.00968133,completed
-"orbit (20, 0.5), 3 periods",b,Tao2,4749,,0.000243282,14278,4749,0,0,0.0208389,completed
-"orbit (20, 0.5), 3 periods",b,Tao2,9477,,6.10832e-05,28458,9477,0,0,0.0395713,completed
-"orbit (20, 0.5), 3 periods",b,Tao2,18912,,1.53383e-05,56767,18912,0,0,0.0775562,completed
-"orbit (20, 0.5), 3 periods",b,Tao2,37743,,3.85101e-06,113248,37743,0,0,0.155165,completed
-"orbit (20, 0.5), 3 periods",b,Tao2,75324,,9.66896e-07,225999,75324,0,0,0.302156,completed
-"orbit (20, 0.5), 3 periods",b,Tao2,150324,,2.42767e-07,450995,150324,0,0,0.612828,completed
-"orbit (20, 0.5), 3 periods",b,Tao2,300000,,6.09542e-08,900023,300000,0,0,1.22248,completed
-"orbit (20, 0.5), 3 periods",b,Tao4,150,,0.575415,1593,150,0,0,0.00160769,completed
-"orbit (20, 0.5), 3 periods",b,Tao4,299,,0.0267942,2884,299,0,0,0.00274585,completed
-"orbit (20, 0.5), 3 periods",b,Tao4,597,,0.00161111,5526,597,0,0,0.00516575,completed
-"orbit (20, 0.5), 3 periods",b,Tao4,1192,,0.000100258,10871,1192,0,0,0.0115099,completed
-"orbit (20, 0.5), 3 periods",b,Tao4,2379,,6.3016e-06,21514,2379,0,0,0.0204845,completed
-"orbit (20, 0.5), 3 periods",b,Tao4,4749,,3.96571e-07,42844,4749,0,0,0.0434134,completed
-"orbit (20, 0.5), 3 periods",b,Tao4,9477,,2.50019e-08,85396,9477,0,0,0.0880072,completed
-"orbit (20, 0.5), 3 periods",b,Tao4,18912,,1.57654e-09,170281,18912,0,0,0.167793,completed
-"orbit (20, 0.5), 3 periods",b,Tao4,37743,,9.9444e-11,339770,37743,0,0,0.327363,completed
-"orbit (20, 0.5), 3 periods",b,Tao4,75324,,6.33804e-12,677969,75324,0,0,0.65538,completed
-"orbit (20, 0.5), 3 periods",b,Tao4,150324,,4.86722e-13,1352979,150324,0,0,1.34048,completed
-"orbit (20, 0.5), 3 periods",b,Tao4,300000,,1.20792e-13,2700073,300000,0,0,2.64199,completed
-"inclined orbit, 60°, 2 periods",a,RK4,100,,3.37072,400,100,0,0,0.000396709,completed
-"inclined orbit, 60°, 2 periods",a,RK4,200,,0.0406243,800,200,0,0,0.00070458,completed
-"inclined orbit, 60°, 2 periods",a,RK4,398,,0.0019762,1592,398,0,0,0.00126129,completed
-"inclined orbit, 60°, 2 periods",a,RK4,795,,0.000181107,3180,795,0,0,0.00244764,completed
-"inclined orbit, 60°, 2 periods",a,RK4,1586,,1.35711e-05,6344,1586,0,0,0.00525368,completed
-"inclined orbit, 60°, 2 periods",a,RK4,3166,,9.23981e-07,12664,3166,0,0,0.0102694,completed
-"inclined orbit, 60°, 2 periods",a,RK4,6318,,6.04532e-08,25272,6318,0,0,0.0195734,completed
-"inclined orbit, 60°, 2 periods",a,RK4,12608,,3.88111e-09,50432,12608,0,0,0.0404735,completed
-"inclined orbit, 60°, 2 periods",a,RK4,25162,,2.46901e-10,100648,25162,0,0,0.0803297,completed
-"inclined orbit, 60°, 2 periods",a,RK4,50216,,1.57119e-11,200864,50216,0,0,0.153187,completed
-"inclined orbit, 60°, 2 periods",a,RK4,100216,,1.06759e-12,400864,100216,0,0,0.296875,completed
-"inclined orbit, 60°, 2 periods",a,RK4,200000,,1.40332e-13,800000,200000,0,0,0.607002,completed
-"inclined orbit, 60°, 2 periods",b,RK4,100,,2.96311,400,100,0,0,0.000525099,completed
-"inclined orbit, 60°, 2 periods",b,RK4,200,,0.238454,800,200,0,0,0.00089231,completed
-"inclined orbit, 60°, 2 periods",b,RK4,398,,0.0104608,1592,398,0,0,0.00157107,completed
-"inclined orbit, 60°, 2 periods",b,RK4,795,,0.000451725,3180,795,0,0,0.00301974,completed
-"inclined orbit, 60°, 2 periods",b,RK4,1586,,2.17367e-05,6344,1586,0,0,0.00602759,completed
-"inclined orbit, 60°, 2 periods",b,RK4,3166,,1.1523e-06,12664,3166,0,0,0.0119223,completed
-"inclined orbit, 60°, 2 periods",b,RK4,6318,,6.58003e-08,25272,6318,0,0,0.0242355,completed
-"inclined orbit, 60°, 2 periods",b,RK4,12608,,3.93228e-09,50432,12608,0,0,0.0482463,completed
-"inclined orbit, 60°, 2 periods",b,RK4,25162,,2.41043e-10,100648,25162,0,0,0.097023,completed
-"inclined orbit, 60°, 2 periods",b,RK4,50216,,1.49907e-11,200864,50216,0,0,0.191049,completed
-"inclined orbit, 60°, 2 periods",b,RK4,100216,,9.48575e-13,400864,100216,0,0,0.387666,completed
-"inclined orbit, 60°, 2 periods",b,RK4,200000,,6.75016e-14,800000,200000,0,0,0.806548,completed
-"inclined orbit, 60°, 2 periods",a,DP5,,0.001,inf,724,83,34,0,0.000719851,captured
-"inclined orbit, 60°, 2 periods",a,DP5,,0.0001,0.872264,308,38,13,0,0.00034527,completed
-"inclined orbit, 60°, 2 periods",a,DP5,,1e-05,0.0476462,452,57,18,0,0.000448049,completed
-"inclined orbit, 60°, 2 periods",a,DP5,,1e-06,0.00432454,686,86,28,0,0.000612623,completed
-"inclined orbit, 60°, 2 periods",a,DP5,,1e-07,0.000147912,944,130,27,0,0.000925654,completed
-"inclined orbit, 60°, 2 periods",a,DP5,,1e-08,2.89126e-06,1250,199,9,0,0.00110642,completed
-"inclined orbit, 60°, 2 periods",a,DP5,,1e-09,4.55938e-07,1880,313,0,0,0.00181704,completed
-"inclined orbit, 60°, 2 periods",a,DP5,,1e-10,8.22192e-08,2966,494,0,0,0.00260323,completed
-"inclined orbit, 60°, 2 periods",a,DP5,,1e-11,1.09995e-08,4694,782,0,0,0.00404828,completed
-"inclined orbit, 60°, 2 periods",a,DP5,,1e-12,1.29478e-09,7430,1238,0,0,0.00657717,completed
-"inclined orbit, 60°, 2 periods",a,DP5,,1e-13,1.42885e-10,11762,1960,0,0,0.0104098,completed
-"inclined orbit, 60°, 2 periods",b,DP5,,0.001,2.01893,212,25,10,0,0.000337312,completed
-"inclined orbit, 60°, 2 periods",b,DP5,,0.0001,0.23277,350,42,16,0,0.000463035,completed
-"inclined orbit, 60°, 2 periods",b,DP5,,1e-05,0.0113578,512,64,21,0,0.000694255,completed
-"inclined orbit, 60°, 2 periods",b,DP5,,1e-06,0.000724929,758,97,29,0,0.000945752,completed
-"inclined orbit, 60°, 2 periods",b,DP5,,1e-07,5.49436e-05,1046,147,27,0,0.00116249,completed
-"inclined orbit, 60°, 2 periods",b,DP5,,1e-08,4.09783e-06,1520,228,25,0,0.00175096,completed
-"inclined orbit, 60°, 2 periods",b,DP5,,1e-09,3.76394e-07,2228,356,15,0,0.00237299,completed
-"inclined orbit, 60°, 2 periods",b,DP5,,1e-10,3.31405e-08,3428,562,9,0,0.00373811,completed
-"inclined orbit, 60°, 2 periods",b,DP5,,1e-11,3.29877e-09,5342,888,2,0,0.00549874,completed
-"inclined orbit, 60°, 2 periods",b,DP5,,1e-12,3.40144e-10,8438,1406,0,0,0.00816557,completed
-"inclined orbit, 60°, 2 periods",b,DP5,,1e-13,3.50617e-11,13370,2228,0,0,0.013468,completed
-"inclined orbit, 60°, 2 periods",a,DOP853,,0.001,0.172077,410,24,10,0,0.000401842,completed
-"inclined orbit, 60°, 2 periods",a,DOP853,,0.0001,0.274223,458,30,8,0,0.000427637,completed
-"inclined orbit, 60°, 2 periods",a,DOP853,,1e-05,0.00248627,566,37,10,0,0.000526372,completed
-"inclined orbit, 60°, 2 periods",a,DOP853,,1e-06,0.000171216,734,47,14,0,0.000625188,completed
-"inclined orbit, 60°, 2 periods",a,DOP853,,1e-07,0.000211246,926,56,21,0,0.000750527,completed
-"inclined orbit, 60°, 2 periods",a,DOP853,,1e-08,1.23716e-05,1130,71,23,0,0.000909511,completed
-"inclined orbit, 60°, 2 periods",a,DOP853,,1e-09,1.05495e-06,1418,92,26,0,0.00111476,completed
-"inclined orbit, 60°, 2 periods",a,DOP853,,1e-10,8.66674e-10,1838,118,35,0,0.00137208,completed
-"inclined orbit, 60°, 2 periods",a,DOP853,,1e-11,1.66097e-09,2306,154,38,0,0.00174311,completed
-"inclined orbit, 60°, 2 periods",a,DOP853,,1e-12,2.41549e-11,2786,201,31,0,0.00211866,completed
-"inclined orbit, 60°, 2 periods",a,DOP853,,1e-13,2.11564e-12,3482,264,26,0,0.00261165,completed
-"inclined orbit, 60°, 2 periods",b,DOP853,,0.001,0.486482,338,21,7,0,0.000409714,completed
-"inclined orbit, 60°, 2 periods",b,DOP853,,0.0001,0.000500218,446,27,10,0,0.000499129,completed
-"inclined orbit, 60°, 2 periods",b,DOP853,,1e-05,0.00173811,578,35,13,0,0.000598667,completed
-"inclined orbit, 60°, 2 periods",b,DOP853,,1e-06,7.2754e-05,746,45,17,0,0.00079214,completed
-"inclined orbit, 60°, 2 periods",b,DOP853,,1e-07,7.59922e-07,974,57,24,0,0.000962562,completed
-"inclined orbit, 60°, 2 periods",b,DOP853,,1e-08,5.41373e-06,1154,73,23,0,0.00112141,completed
-"inclined orbit, 60°, 2 periods",b,DOP853,,1e-09,3.68722e-07,1514,95,31,0,0.00146932,completed
-"inclined orbit, 60°, 2 periods",b,DOP853,,1e-10,3.1839e-08,1982,123,42,0,0.00218125,completed
-"inclined orbit, 60°, 2 periods",b,DOP853,,1e-11,2.17917e-09,2474,160,46,0,0.00288549,completed
-"inclined orbit, 60°, 2 periods",b,DOP853,,1e-12,1.03585e-10,3194,209,57,0,0.00330351,completed
-"inclined orbit, 60°, 2 periods",b,DOP853,,1e-13,1.64135e-11,3974,274,57,0,0.00451331,completed
-"inclined orbit, 60°, 2 periods",a,GL1,100,,1.72315,2077,100,0,2077,0.00103882,completed
-"inclined orbit, 60°, 2 periods",a,GL1,200,,0.635234,3121,200,0,3121,0.00152496,completed
-"inclined orbit, 60°, 2 periods",a,GL1,398,,0.166865,4877,398,0,4877,0.00253696,completed
-"inclined orbit, 60°, 2 periods",a,GL1,795,,0.0418794,8022,795,0,8022,0.00423706,completed
-"inclined orbit, 60°, 2 periods",a,GL1,1586,,0.0105208,13738,1586,0,13738,0.0078037,completed
-"inclined orbit, 60°, 2 periods",a,GL1,3166,,0.00263998,24048,3166,0,24048,0.0144104,completed
-"inclined orbit, 60°, 2 periods",a,GL1,6318,,0.000662909,42770,6318,0,42770,0.0262091,completed
-"inclined orbit, 60°, 2 periods",a,GL1,12608,,0.000166463,77517,12608,0,77517,0.0508727,completed
-"inclined orbit, 60°, 2 periods",a,GL1,25162,,4.17946e-05,140055,25162,0,140055,0.0978583,completed
-"inclined orbit, 60°, 2 periods",a,GL1,50216,,1.04936e-05,262060,50216,0,262060,0.197594,completed
-"inclined orbit, 60°, 2 periods",a,GL1,100216,,2.63473e-06,485202,100216,0,485202,0.371752,completed
-"inclined orbit, 60°, 2 periods",a,GL1,200000,,6.61531e-07,882680,200000,0,882680,0.718246,completed
-"inclined orbit, 60°, 2 periods",b,GL1,100,,inf,1023,49,0,1023,0.000786992,failed: implicit iteration did not converge
-"inclined orbit, 60°, 2 periods",b,GL1,200,,0.31468,2888,200,0,2888,0.0019113,completed
-"inclined orbit, 60°, 2 periods",b,GL1,398,,0.080522,4524,398,0,4524,0.00312695,completed
-"inclined orbit, 60°, 2 periods",b,GL1,795,,0.020285,7595,795,0,7595,0.00550662,completed
-"inclined orbit, 60°, 2 periods",b,GL1,1586,,0.00510366,13128,1586,0,13128,0.00994359,completed
-"inclined orbit, 60°, 2 periods",b,GL1,3166,,0.00128119,22893,3166,0,22893,0.0193522,completed
-"inclined orbit, 60°, 2 periods",b,GL1,6318,,0.000321746,41355,6318,0,41355,0.0357432,completed
-"inclined orbit, 60°, 2 periods",b,GL1,12608,,8.07958e-05,74294,12608,0,74294,0.0664536,completed
-"inclined orbit, 60°, 2 periods",b,GL1,25162,,2.02859e-05,136558,25162,0,136558,0.12551,completed
-"inclined orbit, 60°, 2 periods",b,GL1,50216,,5.09331e-06,254142,50216,0,254142,0.254419,completed
-"inclined orbit, 60°, 2 periods",b,GL1,100216,,1.27882e-06,461551,100216,0,461551,0.451874,completed
-"inclined orbit, 60°, 2 periods",b,GL1,200000,,3.21088e-07,856512,200000,0,856512,0.873394,completed
-"inclined orbit, 60°, 2 periods",a,GL2,100,,0.454229,3332,100,0,1666,0.00150578,completed
-"inclined orbit, 60°, 2 periods",a,GL2,200,,0.00278269,4994,200,0,2497,0.00255641,completed
-"inclined orbit, 60°, 2 periods",a,GL2,398,,7.93204e-05,7982,398,0,3991,0.0041505,completed
-"inclined orbit, 60°, 2 periods",a,GL2,795,,5.02432e-06,13314,795,0,6657,0.00708211,completed
-"inclined orbit, 60°, 2 periods",a,GL2,1586,,3.17856e-07,22620,1586,0,11310,0.0124081,completed
-"inclined orbit, 60°, 2 periods",a,GL2,3166,,2.00273e-08,39278,3166,0,19639,0.0232523,completed
-"inclined orbit, 60°, 2 periods",a,GL2,6318,,1.26295e-09,69548,6318,0,34774,0.0445157,completed
-"inclined orbit, 60°, 2 periods",a,GL2,12608,,7.9547e-11,125340,12608,0,62670,0.0880304,completed
-"inclined orbit, 60°, 2 periods",a,GL2,25162,,4.94182e-12,223884,25162,0,111942,0.160367,completed
-"inclined orbit, 60°, 2 periods",a,GL2,50216,,2.34479e-13,417946,50216,0,208973,0.298219,completed
-"inclined orbit, 60°, 2 periods",a,GL2,100216,,5.68434e-14,777922,100216,0,388961,0.569369,completed
-"inclined orbit, 60°, 2 periods",a,GL2,200000,,7.4607e-14,1370776,200000,0,685388,1.0325,completed
-"inclined orbit, 60°, 2 periods",b,GL2,100,,0.392719,2898,100,0,1449,0.00213908,completed
-"inclined orbit, 60°, 2 periods",b,GL2,200,,0.00209298,4534,200,0,2267,0.00323552,completed
-"inclined orbit, 60°, 2 periods",b,GL2,398,,2.67164e-05,7358,398,0,3679,0.00559802,completed
-"inclined orbit, 60°, 2 periods",b,GL2,795,,1.66296e-06,12318,795,0,6159,0.00883439,completed
-"inclined orbit, 60°, 2 periods",b,GL2,1586,,1.04746e-07,21122,1586,0,10561,0.0157569,completed
-"inclined orbit, 60°, 2 periods",b,GL2,3166,,6.59256e-09,37034,3166,0,18517,0.0290801,completed
-"inclined orbit, 60°, 2 periods",b,GL2,6318,,4.15655e-10,66660,6318,0,33330,0.0560057,completed
-"inclined orbit, 60°, 2 periods",b,GL2,12608,,2.62332e-11,118022,12608,0,59011,0.0998924,completed
-"inclined orbit, 60°, 2 periods",b,GL2,25162,,1.66622e-12,215820,25162,0,107910,0.189032,completed
-"inclined orbit, 60°, 2 periods",b,GL2,50216,,1.20792e-13,402410,50216,0,201205,0.37465,completed
-"inclined orbit, 60°, 2 periods",b,GL2,100216,,1.95399e-14,712454,100216,0,356227,0.71044,completed
-"inclined orbit, 60°, 2 periods",b,GL2,200000,,1.42109e-14,1301974,200000,0,650987,1.3247,completed
-"inclined orbit, 60°, 2 periods",a,GL3,100,,0.0505618,4281,100,0,1427,0.0023358,completed
-"inclined orbit, 60°, 2 periods",a,GL3,200,,0.000177266,6546,200,0,2182,0.00422857,completed
-"inclined orbit, 60°, 2 periods",a,GL3,398,,9.96815e-09,10440,398,0,3480,0.0069491,completed
-"inclined orbit, 60°, 2 periods",a,GL3,795,,1.6168e-10,17253,795,0,5751,0.0118228,completed
-"inclined orbit, 60°, 2 periods",a,GL3,1586,,2.50822e-12,29082,1586,0,9694,0.0207517,completed
-"inclined orbit, 60°, 2 periods",a,GL3,3166,,3.90799e-14,50319,3166,0,16773,0.0377585,completed
-"inclined orbit, 60°, 2 periods",a,GL3,6318,,7.28306e-14,87108,6318,0,29036,0.0676867,completed
-"inclined orbit, 60°, 2 periods",a,GL3,12608,,8.70415e-14,157275,12608,0,52425,0.12551,completed
-"inclined orbit, 60°, 2 periods",a,GL3,25162,,8.34888e-14,270156,25162,0,90052,0.225244,completed
-"inclined orbit, 60°, 2 periods",a,GL3,50216,,7.99361e-14,485715,50216,0,161905,0.391736,completed
-"inclined orbit, 60°, 2 periods",a,GL3,100216,,7.81597e-14,892941,100216,0,297647,0.80997,completed
-"inclined orbit, 60°, 2 periods",a,GL3,200000,,8.17124e-14,1503564,200000,0,501188,1.3593,completed
-"inclined orbit, 60°, 2 periods",b,GL3,100,,0.0500792,3825,100,0,1275,0.00278684,completed
-"inclined orbit, 60°, 2 periods",b,GL3,200,,0.00018307,5985,200,0,1995,0.00439899,completed
-"inclined orbit, 60°, 2 periods",b,GL3,398,,5.689e-08,9531,398,0,3177,0.00711459,completed
-"inclined orbit, 60°, 2 periods",b,GL3,795,,9.05773e-10,15933,795,0,5311,0.014123,completed
-"inclined orbit, 60°, 2 periods",b,GL3,1586,,1.44187e-11,27306,1586,0,9102,0.0240918,completed
-"inclined orbit, 60°, 2 periods",b,GL3,3166,,2.0961e-13,46842,3166,0,15614,0.0449477,completed
-"inclined orbit, 60°, 2 periods",b,GL3,6318,,1.42109e-14,83394,6318,0,27798,0.08009,completed
-"inclined orbit, 60°, 2 periods",b,GL3,12608,,8.88178e-15,144891,12608,0,48297,0.134742,completed
-"inclined orbit, 60°, 2 periods",b,GL3,25162,,1.06581e-14,252462,25162,0,84154,0.248924,completed
-"inclined orbit, 60°, 2 periods",b,GL3,50216,,1.24345e-14,469866,50216,0,156622,0.467005,completed
-"inclined orbit, 60°, 2 periods",b,GL3,100216,,1.06581e-14,805146,100216,0,268382,0.882975,completed
-"inclined orbit, 60°, 2 periods",b,GL3,200000,,1.06581e-14,1400868,200000,0,466956,1.60998,completed
-"inclined orbit, 60°, 2 periods",b,Tao2,100,,4.31831,301,100,0,0,0.000499235,completed
-"inclined orbit, 60°, 2 periods",b,Tao2,200,,0.0643986,601,200,0,0,0.000896622,completed
-"inclined orbit, 60°, 2 periods",b,Tao2,398,,0.0299638,1195,398,0,0,0.00198841,completed
-"inclined orbit, 60°, 2 periods",b,Tao2,795,,0.00814329,2386,795,0,0,0.00353096,completed
-"inclined orbit, 60°, 2 periods",b,Tao2,1586,,0.00208543,4759,1586,0,0,0.00686202,completed
-"inclined orbit, 60°, 2 periods",b,Tao2,3166,,0.000525807,9499,3166,0,0,0.0137356,completed
-"inclined orbit, 60°, 2 periods",b,Tao2,6318,,0.000132191,18955,6318,0,0,0.0266589,completed
-"inclined orbit, 60°, 2 periods",b,Tao2,12608,,3.32044e-05,37825,12608,0,0,0.0511255,completed
-"inclined orbit, 60°, 2 periods",b,Tao2,25162,,8.33739e-06,75487,25162,0,0,0.103607,completed
-"inclined orbit, 60°, 2 periods",b,Tao2,50216,,2.09336e-06,150649,50216,0,0,0.201221,completed
-"inclined orbit, 60°, 2 periods",b,Tao2,100216,,5.25601e-07,300649,100216,0,0,0.405043,completed
-"inclined orbit, 60°, 2 periods",b,Tao2,200000,,1.31969e-07,600001,200000,0,0,0.841151,completed
-"inclined orbit, 60°, 2 periods",b,Tao4,100,,inf,669,52,0,0,0.000715782,captured
-"inclined orbit, 60°, 2 periods",b,Tao4,200,,0.0172959,1801,200,0,0,0.00182076,completed
-"inclined orbit, 60°, 2 periods",b,Tao4,398,,0.000487415,3583,398,0,0,0.00361039,completed
-"inclined orbit, 60°, 2 periods",b,Tao4,795,,2.75252e-05,7156,795,0,0,0.00694358,completed
-"inclined orbit, 60°, 2 periods",b,Tao4,1586,,1.68174e-06,14275,1586,0,0,0.0143657,completed
-"inclined orbit, 60°, 2 periods",b,Tao4,3166,,1.04992e-07,28495,3166,0,0,0.0289262,completed
-"inclined orbit, 60°, 2 periods",b,Tao4,6318,,6.60578e-09,56863,6318,0,0,0.0579311,completed
-"inclined orbit, 60°, 2 periods",b,Tao4,12608,,4.16319e-10,113473,12608,0,0,0.108401,completed
-"inclined orbit, 60°, 2 periods",b,Tao4,25162,,2.62403e-11,226459,25162,0,0,0.220212,completed
-"inclined orbit, 60°, 2 periods",b,Tao4,50216,,1.66267e-12,451945,50216,0,0,0.444592,completed
-"inclined orbit, 60°, 2 periods",b,Tao4,100216,,1.27898e-13,901945,100216,0,0,0.901121,completed
-"inclined orbit, 60°, 2 periods",b,Tao4,200000,,3.01981e-14,1800001,200000,0,0,1.77615,completed
+deflection b = 6,a,RK4,300,,173.983,376,76,0,0,0.000365242,escaped
+deflection b = 6,a,RK4,627,,0.0298111,1428,353,0,0,0.00116175,escaped
+deflection b = 6,a,RK4,1311,,0.0048689,2640,658,0,0,0.00206567,escaped
+deflection b = 6,a,RK4,2741,,0.00013902,5504,1374,0,0,0.00442659,escaped
+deflection b = 6,a,RK4,5730,,4.72641e-06,11496,2872,0,0,0.00865894,escaped
+deflection b = 6,a,RK4,11979,,2.01607e-07,24020,6003,0,0,0.0199955,escaped
+deflection b = 6,a,RK4,25043,,9.66824e-09,50204,12549,0,0,0.0397701,escaped
+deflection b = 6,a,RK4,52354,,4.8724e-10,104944,26234,0,0,0.0848052,escaped
+deflection b = 6,a,RK4,109450,,2.50733e-11,219380,54843,0,0,0.171688,escaped
+deflection b = 6,a,RK4,228811,,1.30207e-12,458620,114653,0,0,0.34961,escaped
+deflection b = 6,a,RK4,478342,,6.75016e-14,958756,239687,0,0,0.776205,escaped
+deflection b = 6,a,RK4,1e+06,,2.66454e-15,2004316,501078,0,0,1.61178,escaped
+deflection b = 6,b,RK4,300,,inf,400,76,0,0,0.000545662,captured
+deflection b = 6,b,RK4,627,,0.020551,1264,314,0,0,0.00143088,escaped
+deflection b = 6,b,RK4,1311,,0.000383,2640,658,0,0,0.00280086,escaped
+deflection b = 6,b,RK4,2741,,6.1717e-05,5504,1374,0,0,0.00575322,escaped
+deflection b = 6,b,RK4,5730,,4.35792e-06,11496,2872,0,0,0.0111212,escaped
+deflection b = 6,b,RK4,11979,,2.55101e-07,24020,6003,0,0,0.0251409,escaped
+deflection b = 6,b,RK4,25043,,1.40069e-08,50204,12549,0,0,0.0504596,escaped
+deflection b = 6,b,RK4,52354,,7.49314e-10,104944,26234,0,0,0.0996771,escaped
+deflection b = 6,b,RK4,109450,,3.96252e-11,219380,54843,0,0,0.212004,escaped
+deflection b = 6,b,RK4,228811,,2.08455e-12,458620,114653,0,0,0.469527,escaped
+deflection b = 6,b,RK4,478342,,1.09246e-13,958756,239687,0,0,0.961913,escaped
+deflection b = 6,b,RK4,1e+06,,5.32907e-15,2004316,501078,0,0,2.00206,escaped
+deflection b = 6,a,DP5,,0.001,0.0203798,208,25,6,0,0.000244972,escaped
+deflection b = 6,a,DP5,,0.0001,0.00404577,275,33,10,0,0.0002841,escaped
+deflection b = 6,a,DP5,,1e-05,0.00234101,340,40,13,0,0.000371417,escaped
+deflection b = 6,a,DP5,,1e-06,0.000568004,484,56,21,0,0.000436625,escaped
+deflection b = 6,a,DP5,,1e-07,7.43077e-05,688,83,28,0,0.000554217,escaped
+deflection b = 6,a,DP5,,1e-08,8.49492e-06,964,126,31,0,0.000746573,escaped
+deflection b = 6,a,DP5,,1e-09,1.10356e-06,1234,192,10,0,0.00100253,escaped
+deflection b = 6,a,DP5,,1e-10,1.22617e-07,1822,300,0,0,0.00151399,escaped
+deflection b = 6,a,DP5,,1e-11,1.09631e-08,2866,474,0,0,0.0022441,escaped
+deflection b = 6,a,DP5,,1e-12,1.0234e-09,4505,748,0,0,0.00340701,escaped
+deflection b = 6,a,DP5,,1e-13,9.80318e-11,7126,1184,0,0,0.00584171,escaped
+deflection b = 6,b,DP5,,0.001,0.0530418,167,18,7,0,0.0015798,escaped
+deflection b = 6,b,DP5,,0.0001,0.000304144,220,25,8,0,0.00463942,escaped
+deflection b = 6,b,DP5,,1e-05,1.67082e-05,280,34,9,0,0.0016875,escaped
+deflection b = 6,b,DP5,,1e-06,4.56562e-06,376,45,14,0,0.00472228,escaped
+deflection b = 6,b,DP5,,1e-07,6.69346e-07,521,62,22,0,0.000734833,escaped
+deflection b = 6,b,DP5,,1e-08,7.19838e-08,766,92,32,0,0.00101568,escaped
+deflection b = 6,b,DP5,,1e-09,7.65831e-09,1024,138,29,0,0.00128059,escaped
+deflection b = 6,b,DP5,,1e-10,6.09385e-10,1360,210,13,0,0.00168159,escaped
+deflection b = 6,b,DP5,,1e-11,5.50466e-11,1990,328,0,0,0.00235071,escaped
+deflection b = 6,b,DP5,,1e-12,5.88418e-12,3130,518,0,0,0.00371227,escaped
+deflection b = 6,b,DP5,,1e-13,6.11955e-13,4930,818,0,0,0.00634748,escaped
+deflection b = 6,a,DOP853,,0.001,0.127565,370,19,8,0,0.000438948,escaped
+deflection b = 6,a,DOP853,,0.0001,0.0237014,417,23,7,0,0.000400022,escaped
+deflection b = 6,a,DOP853,,1e-05,0.00400143,478,29,7,0,0.000466184,escaped
+deflection b = 6,a,DOP853,,1e-06,0.000476577,585,35,9,0,0.000560275,escaped
+deflection b = 6,a,DOP853,,1e-07,0.000125389,658,41,10,0,0.000643354,escaped
+deflection b = 6,a,DOP853,,1e-08,6.40833e-05,778,48,13,0,0.000656434,escaped
+deflection b = 6,a,DOP853,,1e-09,4.93098e-06,994,60,19,0,0.000753479,escaped
+deflection b = 6,a,DOP853,,1e-10,3.66848e-07,1294,77,27,0,0.00100747,escaped
+deflection b = 6,a,DOP853,,1e-11,2.33739e-08,1642,101,32,0,0.00120526,escaped
+deflection b = 6,a,DOP853,,1e-12,1.53113e-09,1942,131,27,0,0.00144324,escaped
+deflection b = 6,a,DOP853,,1e-13,1.5618e-10,2218,171,10,0,0.00196595,escaped
+deflection b = 6,b,DOP853,,0.001,0.000172018,369,17,9,0,0.000573625,escaped
+deflection b = 6,b,DOP853,,0.0001,0.000108744,393,21,7,0,0.000555177,escaped
+deflection b = 6,b,DOP853,,1e-05,4.41041e-06,429,25,6,0,0.000587311,escaped
+deflection b = 6,b,DOP853,,1e-06,4.66387e-07,502,31,7,0,0.000669611,escaped
+deflection b = 6,b,DOP853,,1e-07,5.14205e-09,646,36,14,0,0.000806874,escaped
+deflection b = 6,b,DOP853,,1e-08,7.87967e-09,790,44,18,0,0.000931935,escaped
+deflection b = 6,b,DOP853,,1e-09,2.74073e-09,957,54,21,0,0.00118962,escaped
+deflection b = 6,b,DOP853,,1e-10,2.706e-10,1198,68,28,0,0.0013486,escaped
+deflection b = 6,b,DOP853,,1e-11,4.09708e-11,1533,88,35,0,0.00193026,escaped
+deflection b = 6,b,DOP853,,1e-12,4.71445e-12,1869,113,38,0,0.00201046,escaped
+deflection b = 6,b,DOP853,,1e-13,6.10179e-13,2122,146,27,0,0.002379,escaped
+deflection b = 6,a,GL1,300,,inf,1121,74,0,1121,0.000615811,failed: implicit iteration did not converge
+deflection b = 6,a,GL1,627,,inf,1863,156,0,1863,0.00101723,failed: implicit iteration did not converge
+deflection b = 6,a,GL1,1311,,0.319974,6274,657,0,6258,0.00365527,escaped
+deflection b = 6,a,GL1,2741,,0.0969241,11145,1374,0,11132,0.00621125,escaped
+deflection b = 6,a,GL1,5730,,0.0240493,20343,2872,0,20331,0.0125172,escaped
+deflection b = 6,a,GL1,11979,,0.00561236,38324,6003,0,38312,0.0241382,escaped
+deflection b = 6,a,GL1,25043,,0.00129005,71741,12549,0,71729,0.0505257,escaped
+deflection b = 6,a,GL1,52354,,0.000295486,139572,26234,0,139561,0.102991,escaped
+deflection b = 6,a,GL1,109450,,6.76253e-05,272011,54843,0,272001,0.21555,escaped
+deflection b = 6,a,GL1,228811,,1.54743e-05,510754,114653,0,510746,0.398937,escaped
+deflection b = 6,a,GL1,478342,,3.54073e-06,1008074,239687,0,1008064,0.831633,escaped
+deflection b = 6,a,GL1,1e+06,,8.10162e-07,2051456,501078,0,2051446,1.76036,escaped
+deflection b = 6,b,GL1,300,,inf,670,75,0,670,0.000704869,failed: implicit iteration did not converge
+deflection b = 6,b,GL1,627,,inf,1164,157,0,1164,0.00121263,failed: implicit iteration did not converge
+deflection b = 6,b,GL1,1311,,0.0166165,3996,658,0,3986,0.00378117,escaped
+deflection b = 6,b,GL1,2741,,0.00386946,7509,1374,0,7499,0.00731257,escaped
+deflection b = 6,b,GL1,5730,,0.00088901,14538,2872,0,14528,0.0154485,escaped
+deflection b = 6,b,GL1,11979,,0.000203586,29022,6003,0,29012,0.0304878,escaped
+deflection b = 6,b,GL1,25043,,4.65909e-05,55598,12549,0,55588,0.0604976,escaped
+deflection b = 6,b,GL1,52354,,1.06609e-05,111002,26234,0,110994,0.122101,escaped
+deflection b = 6,b,GL1,109450,,2.4393e-06,222193,54843,0,222185,0.232722,escaped
+deflection b = 6,b,GL1,228811,,5.58142e-07,417353,114653,0,417345,0.47872,escaped
+deflection b = 6,b,GL1,478342,,1.27709e-07,804150,239687,0,804142,0.939816,escaped
+deflection b = 6,b,GL1,1e+06,,2.92212e-08,1604757,501078,0,1604753,1.94252,escaped
+deflection b = 6,a,GL2,300,,inf,1796,74,0,898,0.000949364,failed: implicit iteration did not converge
+deflection b = 6,a,GL2,627,,0.00163749,6018,313,0,2993,0.00292117,escaped
+deflection b = 6,a,GL2,1311,,0.00218869,10260,657,0,5115,0.00524894,escaped
+deflection b = 6,a,GL2,2741,,0.000116685,18256,1374,0,9116,0.0109085,escaped
+deflection b = 6,a,GL2,5730,,6.10583e-06,33158,2872,0,16567,0.0192667,escaped
+deflection b = 6,a,GL2,11979,,3.19621e-07,62586,6003,0,31281,0.0389125,escaped
+deflection b = 6,a,GL2,25043,,1.67326e-08,114872,12549,0,57426,0.074854,escaped
+deflection b = 6,a,GL2,52354,,8.76008e-10,223274,26234,0,111627,0.161223,escaped
+deflection b = 6,a,GL2,109450,,4.58611e-11,428712,54843,0,214346,0.318466,escaped
+deflection b = 6,a,GL2,228811,,2.40163e-12,786252,114653,0,393118,0.620694,escaped
+deflection b = 6,a,GL2,478342,,1.26121e-13,1533364,239687,0,766672,1.22668,escaped
+deflection b = 6,a,GL2,1e+06,,7.10543e-15,3096752,501078,0,1548372,2.52556,escaped
+deflection b = 6,b,GL2,300,,0.0721086,2106,155,0,1043,0.00162609,escaped
+deflection b = 6,b,GL2,627,,0.010339,3712,316,0,1846,0.00299366,escaped
+deflection b = 6,b,GL2,1311,,7.51129e-06,6862,657,0,3421,0.00562738,escaped
+deflection b = 6,b,GL2,2741,,1.56248e-06,13022,1374,0,6501,0.0115477,escaped
+deflection b = 6,b,GL2,5730,,8.47191e-08,25128,2872,0,12554,0.0225799,escaped
+deflection b = 6,b,GL2,11979,,4.46985e-09,47372,6003,0,23676,0.0450726,escaped
+deflection b = 6,b,GL2,25043,,2.34422e-10,88662,12549,0,44321,0.0897333,escaped
+deflection b = 6,b,GL2,52354,,1.22782e-11,172556,26234,0,86270,0.176884,escaped
+deflection b = 6,b,GL2,109450,,6.43041e-13,346218,54843,0,173101,0.352416,escaped
+deflection b = 6,b,GL2,228811,,3.37508e-14,696540,114653,0,348262,0.739252,escaped
+deflection b = 6,b,GL2,478342,,1.77636e-15,1361804,239687,0,680894,1.47734,escaped
+deflection b = 6,b,GL2,1e+06,,0,2706312,501078,0,1353152,2.99387,escaped
+deflection b = 6,a,GL3,300,,inf,2376,75,0,792,0.00166203,failed: implicit iteration did not converge
+deflection b = 6,a,GL3,627,,0.00561607,7755,315,0,2571,0.00474742,escaped
+deflection b = 6,a,GL3,1311,,2.14152e-05,13290,657,0,4415,0.00926551,escaped
+deflection b = 6,a,GL3,2741,,1.8632e-07,23451,1374,0,7805,0.016424,escaped
+deflection b = 6,a,GL3,5730,,2.22435e-09,41643,2872,0,13869,0.0310546,escaped
+deflection b = 6,a,GL3,11979,,2.66205e-11,77598,6003,0,25854,0.058595,escaped
+deflection b = 6,a,GL3,25043,,3.18856e-13,138609,12549,0,46193,0.108847,escaped
+deflection b = 6,a,GL3,52354,,4.44089e-15,260433,26234,0,86801,0.201171,escaped
+deflection b = 6,a,GL3,109450,,0,502425,54843,0,167465,0.420969,escaped
+deflection b = 6,a,GL3,228811,,8.88178e-16,883188,114653,0,294388,0.775779,escaped
+deflection b = 6,a,GL3,478342,,0,1626114,239687,0,542028,1.55533,escaped
+deflection b = 6,a,GL3,1e+06,,8.88178e-16,3188568,501078,0,1062851,3.17621,escaped
+deflection b = 6,b,GL3,300,,0.0069842,2907,152,0,945,0.00239361,escaped
+deflection b = 6,b,GL3,627,,0.00108751,5082,315,0,1684,0.00414755,escaped
+deflection b = 6,b,GL3,1311,,1.52973e-06,9249,657,0,3073,0.00773132,escaped
+deflection b = 6,b,GL3,2741,,2.13974e-08,16875,1374,0,5615,0.0153621,escaped
+deflection b = 6,b,GL3,5730,,2.59419e-10,30840,2872,0,10270,0.0295912,escaped
+deflection b = 6,b,GL3,11979,,3.11573e-12,59502,6003,0,19824,0.0598516,escaped
+deflection b = 6,b,GL3,25043,,3.73035e-14,112569,12549,0,37513,0.124665,escaped
+deflection b = 6,b,GL3,52354,,0,218220,26234,0,72732,0.24241,escaped
+deflection b = 6,b,GL3,109450,,0,401289,54843,0,133755,0.441133,escaped
+deflection b = 6,b,GL3,228811,,0,757773,114653,0,252583,0.882565,escaped
+deflection b = 6,b,GL3,478342,,0,1510080,239687,0,503352,1.82904,escaped
+deflection b = 6,b,GL3,1e+06,,0,3076869,501078,0,1025615,3.77672,escaped
+deflection b = 6,b,Tao2,300,,inf,270,79,0,0,0.000440376,captured
+deflection b = 6,b,Tao2,627,,0.237995,958,311,0,0,0.00137225,escaped
+deflection b = 6,b,Tao2,1311,,0.0107223,1988,657,0,0,0.00281928,escaped
+deflection b = 6,b,Tao2,2741,,0.00241582,4139,1374,0,0,0.00535981,escaped
+deflection b = 6,b,Tao2,5730,,0.000551883,8625,2872,0,0,0.0117636,escaped
+deflection b = 6,b,Tao2,11979,,0.000126224,18050,6003,0,0,0.0244776,escaped
+deflection b = 6,b,Tao2,25043,,2.88781e-05,37656,12549,0,0,0.0529386,escaped
+deflection b = 6,b,Tao2,52354,,6.60742e-06,78730,26234,0,0,0.111046,escaped
+deflection b = 6,b,Tao2,109450,,1.51181e-06,162707,54843,0,0,0.227115,escaped
+deflection b = 6,b,Tao2,228811,,3.4592e-07,311185,114653,0,0,0.447371,escaped
+deflection b = 6,b,Tao2,478342,,7.91502e-08,622171,239687,0,0,0.954126,escaped
+deflection b = 6,b,Tao2,1e+06,,1.81104e-08,1279575,501078,0,0,2.033,escaped
+deflection b = 6,b,Tao4,300,,inf,846,75,0,0,0.000845151,captured
+deflection b = 6,b,Tao4,627,,inf,1653,158,0,0,0.00160426,captured
+deflection b = 6,b,Tao4,1311,,0.00380579,5963,658,0,0,0.0059982,escaped
+deflection b = 6,b,Tao4,2741,,0.000497789,12427,1374,0,0,0.0115329,escaped
+deflection b = 6,b,Tao4,5730,,2.32721e-05,25889,2872,0,0,0.0246618,escaped
+deflection b = 6,b,Tao4,11979,,1.18e-06,54068,6003,0,0,0.0525285,escaped
+deflection b = 6,b,Tao4,25043,,6.13047e-08,112992,12549,0,0,0.110374,escaped
+deflection b = 6,b,Tao4,52354,,3.20384e-09,236167,26234,0,0,0.247357,escaped
+deflection b = 6,b,Tao4,109450,,1.67661e-10,493638,54843,0,0,0.508717,escaped
+deflection b = 6,b,Tao4,228811,,8.77698e-12,1026508,114653,0,0,1.04831,escaped
+deflection b = 6,b,Tao4,478342,,4.60965e-13,2011136,239687,0,0,2.12818,escaped
+deflection b = 6,b,Tao4,1e+06,,2.30926e-14,3982968,501078,0,0,4.32872,escaped
+"orbit (20, 0.5), 3 periods",a,RK4,150,,0.0092329,672,150,0,0,0.000546146,completed
+"orbit (20, 0.5), 3 periods",a,RK4,299,,0.00129183,1256,299,0,0,0.000955343,completed
+"orbit (20, 0.5), 3 periods",a,RK4,597,,0.000116943,2436,597,0,0,0.00187397,completed
+"orbit (20, 0.5), 3 periods",a,RK4,1192,,8.58371e-06,4812,1192,0,0,0.00345237,completed
+"orbit (20, 0.5), 3 periods",a,RK4,2379,,5.80432e-07,9548,2379,0,0,0.00684656,completed
+"orbit (20, 0.5), 3 periods",a,RK4,4749,,3.78023e-08,19032,4749,0,0,0.0158945,completed
+"orbit (20, 0.5), 3 periods",a,RK4,9477,,2.42327e-09,37936,9477,0,0,0.0293295,completed
+"orbit (20, 0.5), 3 periods",a,RK4,18912,,1.54195e-10,75680,18912,0,0,0.0623443,completed
+"orbit (20, 0.5), 3 periods",a,RK4,37743,,9.90141e-12,151000,37743,0,0,0.122986,completed
+"orbit (20, 0.5), 3 periods",a,RK4,75324,,7.78044e-13,301320,75324,0,0,0.229393,completed
+"orbit (20, 0.5), 3 periods",a,RK4,150324,,2.06057e-13,601320,150324,0,0,0.450652,completed
+"orbit (20, 0.5), 3 periods",a,RK4,300000,,1.56319e-13,1200020,300000,0,0,0.910725,completed
+"orbit (20, 0.5), 3 periods",b,RK4,150,,0.022378,656,150,0,0,0.000744787,completed
+"orbit (20, 0.5), 3 periods",b,RK4,299,,0.00078923,1260,299,0,0,0.00170605,completed
+"orbit (20, 0.5), 3 periods",b,RK4,597,,2.68988e-05,2420,597,0,0,0.00248633,completed
+"orbit (20, 0.5), 3 periods",b,RK4,1192,,9.44152e-07,4812,1192,0,0,0.005127,completed
+"orbit (20, 0.5), 3 periods",b,RK4,2379,,3.55061e-08,9544,2379,0,0,0.00943106,completed
+"orbit (20, 0.5), 3 periods",b,RK4,4749,,1.47323e-09,19020,4749,0,0,0.0195526,completed
+"orbit (20, 0.5), 3 periods",b,RK4,9477,,6.88019e-11,37924,9477,0,0,0.0372689,completed
+"orbit (20, 0.5), 3 periods",b,RK4,18912,,3.64864e-12,75672,18912,0,0,0.0739341,completed
+"orbit (20, 0.5), 3 periods",b,RK4,37743,,2.80664e-13,150996,37743,0,0,0.141133,completed
+"orbit (20, 0.5), 3 periods",b,RK4,75324,,9.23706e-14,301316,75324,0,0,0.281576,completed
+"orbit (20, 0.5), 3 periods",b,RK4,150324,,8.88178e-14,601316,150324,0,0,0.585226,completed
+"orbit (20, 0.5), 3 periods",b,RK4,300000,,7.81597e-14,1200016,300000,0,0,1.14202,completed
+"orbit (20, 0.5), 3 periods",a,DP5,,0.001,9.26696,398,37,9,0,0.000384763,completed
+"orbit (20, 0.5), 3 periods",a,DP5,,0.0001,0.0441168,411,43,11,0,0.0004095,completed
+"orbit (20, 0.5), 3 periods",a,DP5,,1e-05,0.0241618,515,59,19,0,0.00048148,completed
+"orbit (20, 0.5), 3 periods",a,DP5,,1e-06,0.00250619,748,88,28,0,0.000648457,completed
+"orbit (20, 0.5), 3 periods",a,DP5,,1e-07,0.000255412,1013,133,28,0,0.000942403,completed
+"orbit (20, 0.5), 3 periods",a,DP5,,1e-08,3.62142e-05,1356,205,14,0,0.00123821,completed
+"orbit (20, 0.5), 3 periods",a,DP5,,1e-09,3.20634e-06,1980,321,2,0,0.00159638,completed
+"orbit (20, 0.5), 3 periods",a,DP5,,1e-10,3.06868e-07,3084,507,0,0,0.00283188,completed
+"orbit (20, 0.5), 3 periods",a,DP5,,1e-11,3.04065e-08,4860,803,0,0,0.00371666,completed
+"orbit (20, 0.5), 3 periods",a,DP5,,1e-12,3.0427e-09,7663,1271,0,0,0.00595734,completed
+"orbit (20, 0.5), 3 periods",a,DP5,,1e-13,3.03849e-10,12125,2013,0,0,0.0102536,completed
+"orbit (20, 0.5), 3 periods",b,DP5,,0.001,2.74181,294,23,9,0,0.0046895,completed
+"orbit (20, 0.5), 3 periods",b,DP5,,0.0001,0.0163715,363,33,13,0,0.00172511,completed
+"orbit (20, 0.5), 3 periods",b,DP5,,1e-05,0.00142966,401,46,13,0,0.00171909,completed
+"orbit (20, 0.5), 3 periods",b,DP5,,1e-06,0.000298421,628,67,24,0,0.00309919,completed
+"orbit (20, 0.5), 3 periods",b,DP5,,1e-07,2.04797e-05,812,99,26,0,0.0011093,completed
+"orbit (20, 0.5), 3 periods",b,DP5,,1e-08,3.15769e-06,1125,150,28,0,0.00131815,completed
+"orbit (20, 0.5), 3 periods",b,DP5,,1e-09,3.01282e-07,1598,231,25,0,0.00391872,completed
+"orbit (20, 0.5), 3 periods",b,DP5,,1e-10,2.84564e-08,2278,360,11,0,0.00266748,completed
+"orbit (20, 0.5), 3 periods",b,DP5,,1e-11,2.83149e-09,3505,567,6,0,0.00396975,completed
+"orbit (20, 0.5), 3 periods",b,DP5,,1e-12,2.70088e-10,5444,896,1,0,0.00585017,completed
+"orbit (20, 0.5), 3 periods",b,DP5,,1e-13,2.59845e-11,8565,1418,0,0,0.00931153,completed
+"orbit (20, 0.5), 3 periods",a,DOP853,,0.001,0.0837197,573,24,8,0,0.000504519,completed
+"orbit (20, 0.5), 3 periods",a,DOP853,,0.0001,0.00846934,612,30,8,0,0.000538857,completed
+"orbit (20, 0.5), 3 periods",a,DOP853,,1e-05,0.00152866,744,37,12,0,0.000660949,completed
+"orbit (20, 0.5), 3 periods",a,DOP853,,1e-06,0.000530141,831,45,14,0,0.000705272,completed
+"orbit (20, 0.5), 3 periods",a,DOP853,,1e-07,1.75966e-05,1024,59,17,0,0.00100757,completed
+"orbit (20, 0.5), 3 periods",a,DOP853,,1e-08,8.00502e-06,1312,76,24,0,0.00106154,completed
+"orbit (20, 0.5), 3 periods",a,DOP853,,1e-09,3.69511e-07,1635,99,27,0,0.00137059,completed
+"orbit (20, 0.5), 3 periods",a,DOP853,,1e-10,3.38556e-08,1913,129,22,0,0.00169361,completed
+"orbit (20, 0.5), 3 periods",a,DOP853,,1e-11,2.81578e-09,2334,169,18,0,0.00180743,completed
+"orbit (20, 0.5), 3 periods",a,DOP853,,1e-12,4.97685e-10,2982,223,18,0,0.00223128,completed
+"orbit (20, 0.5), 3 periods",a,DOP853,,1e-13,3.8888e-11,3845,295,17,0,0.00296498,completed
+"orbit (20, 0.5), 3 periods",b,DOP853,,0.001,0.0409817,458,20,7,0,0.000645084,completed
+"orbit (20, 0.5), 3 periods",b,DOP853,,0.0001,0.0135564,542,25,9,0,0.000748874,completed
+"orbit (20, 0.5), 3 periods",b,DOP853,,1e-05,0.00350343,622,30,7,0,0.000765933,completed
+"orbit (20, 0.5), 3 periods",b,DOP853,,1e-06,0.000403615,688,36,12,0,0.000830431,completed
+"orbit (20, 0.5), 3 periods",b,DOP853,,1e-07,2.16831e-05,840,44,13,0,0.000985669,completed
+"orbit (20, 0.5), 3 periods",b,DOP853,,1e-08,2.00848e-06,964,56,15,0,0.00107583,completed
+"orbit (20, 0.5), 3 periods",b,DOP853,,1e-09,1.60531e-07,1192,70,20,0,0.00132095,completed
+"orbit (20, 0.5), 3 periods",b,DOP853,,1e-10,7.6643e-08,1517,89,29,0,0.00158933,completed
+"orbit (20, 0.5), 3 periods",b,DOP853,,1e-11,4.3551e-09,1829,113,31,0,0.00192309,completed
+"orbit (20, 0.5), 3 periods",b,DOP853,,1e-12,3.2064e-10,2213,146,30,0,0.00236616,completed
+"orbit (20, 0.5), 3 periods",b,DOP853,,1e-13,6.10356e-12,2633,190,21,0,0.00281112,completed
+"orbit (20, 0.5), 3 periods",a,GL1,150,,1.68459,2909,150,0,2658,0.00124654,completed
+"orbit (20, 0.5), 3 periods",a,GL1,299,,0.496584,4249,299,0,4097,0.00225271,completed
+"orbit (20, 0.5), 3 periods",a,GL1,597,,0.125794,6737,597,0,6612,0.00361222,completed
+"orbit (20, 0.5), 3 periods",a,GL1,1192,,0.0315428,11370,1192,0,11248,0.00690037,completed
+"orbit (20, 0.5), 3 periods",a,GL1,2379,,0.00791672,19530,2379,0,19450,0.0117049,completed
+"orbit (20, 0.5), 3 periods",a,GL1,4749,,0.00198653,34209,4749,0,34146,0.0224564,completed
+"orbit (20, 0.5), 3 periods",a,GL1,9477,,0.000498825,61694,9477,0,61652,0.0418999,completed
+"orbit (20, 0.5), 3 periods",a,GL1,18912,,0.00012526,111562,18912,0,111537,0.0782275,completed
+"orbit (20, 0.5), 3 periods",a,GL1,37743,,3.14495e-05,203023,37743,0,202998,0.140727,completed
+"orbit (20, 0.5), 3 periods",a,GL1,75324,,7.89624e-06,386645,75324,0,386620,0.27444,completed
+"orbit (20, 0.5), 3 periods",a,GL1,150324,,1.98258e-06,703915,150324,0,703895,0.543524,completed
+"orbit (20, 0.5), 3 periods",a,GL1,300000,,4.97788e-07,1312503,300000,0,1312473,1.05113,completed
+"orbit (20, 0.5), 3 periods",b,GL1,150,,0.391416,2410,150,0,2085,0.00160929,completed
+"orbit (20, 0.5), 3 periods",b,GL1,299,,0.103341,3521,299,0,3318,0.0023764,completed
+"orbit (20, 0.5), 3 periods",b,GL1,597,,0.0262267,5746,597,0,5551,0.00404429,completed
+"orbit (20, 0.5), 3 periods",b,GL1,1192,,0.00659782,9838,1192,0,9724,0.00814546,completed
+"orbit (20, 0.5), 3 periods",b,GL1,2379,,0.0016576,16998,2379,0,16888,0.0141482,completed
+"orbit (20, 0.5), 3 periods",b,GL1,4749,,0.000416047,30911,4749,0,30802,0.0252239,completed
+"orbit (20, 0.5), 3 periods",b,GL1,9477,,0.000104478,57179,9477,0,57089,0.054422,completed
+"orbit (20, 0.5), 3 periods",b,GL1,18912,,2.62359e-05,102108,18912,0,102056,0.0986472,completed
+"orbit (20, 0.5), 3 periods",b,GL1,37743,,6.58719e-06,194358,37743,0,194309,0.181362,completed
+"orbit (20, 0.5), 3 periods",b,GL1,75324,,1.65389e-06,345374,75324,0,345325,0.326268,completed
+"orbit (20, 0.5), 3 periods",b,GL1,150324,,4.15257e-07,648850,150324,0,648808,0.661162,completed
+"orbit (20, 0.5), 3 periods",b,GL1,300000,,1.04263e-07,1252864,300000,0,1252823,1.28106,completed
+"orbit (20, 0.5), 3 periods",a,GL2,150,,0.00744086,4316,150,0,2115,0.00224148,completed
+"orbit (20, 0.5), 3 periods",a,GL2,299,,0.000461495,6930,299,0,3340,0.00351708,completed
+"orbit (20, 0.5), 3 periods",a,GL2,597,,2.89044e-05,10990,597,0,5460,0.00620377,completed
+"orbit (20, 0.5), 3 periods",a,GL2,1192,,1.81666e-06,18690,1192,0,9264,0.0102922,completed
+"orbit (20, 0.5), 3 periods",a,GL2,2379,,1.14467e-07,32066,2379,0,16008,0.0183828,completed
+"orbit (20, 0.5), 3 periods",a,GL2,4749,,7.20793e-09,55426,4749,0,27698,0.0327807,completed
+"orbit (20, 0.5), 3 periods",a,GL2,9477,,4.54339e-10,99998,9477,0,49987,0.0608339,completed
+"orbit (20, 0.5), 3 periods",a,GL2,18912,,2.84963e-11,178764,18912,0,89370,0.1147,completed
+"orbit (20, 0.5), 3 periods",a,GL2,37743,,1.6378e-12,327716,37743,0,163843,0.216262,completed
+"orbit (20, 0.5), 3 periods",a,GL2,75324,,5.68434e-14,613250,75324,0,306591,0.452644,completed
+"orbit (20, 0.5), 3 periods",a,GL2,150324,,1.63425e-13,1113138,150324,0,556534,0.81102,completed
+"orbit (20, 0.5), 3 periods",a,GL2,300000,,1.59872e-13,2009940,300000,0,1004946,1.56197,completed
+"orbit (20, 0.5), 3 periods",b,GL2,150,,0.00236689,3876,150,0,1660,0.00283419,completed
+"orbit (20, 0.5), 3 periods",b,GL2,299,,0.000145648,5788,299,0,2697,0.00444312,completed
+"orbit (20, 0.5), 3 periods",b,GL2,597,,9.10553e-06,9480,597,0,4621,0.00680849,completed
+"orbit (20, 0.5), 3 periods",b,GL2,1192,,5.72029e-07,16354,1192,0,8043,0.0123754,completed
+"orbit (20, 0.5), 3 periods",b,GL2,2379,,3.60393e-08,27648,2379,0,13731,0.0229781,completed
+"orbit (20, 0.5), 3 periods",b,GL2,4749,,2.26944e-09,50852,4749,0,25345,0.0419126,completed
+"orbit (20, 0.5), 3 periods",b,GL2,9477,,1.43171e-10,90020,9477,0,44932,0.077475,completed
+"orbit (20, 0.5), 3 periods",b,GL2,18912,,9.10916e-12,164620,18912,0,82247,0.141797,completed
+"orbit (20, 0.5), 3 periods",b,GL2,37743,,6.53699e-13,308142,37743,0,154036,0.273747,completed
+"orbit (20, 0.5), 3 periods",b,GL2,75324,,1.24345e-13,533226,75324,0,266571,0.536157,completed
+"orbit (20, 0.5), 3 periods",b,GL2,150324,,9.59233e-14,994430,150324,0,497180,0.997421,completed
+"orbit (20, 0.5), 3 periods",b,GL2,300000,,8.17124e-14,1877022,300000,0,938475,1.92422,completed
+"orbit (20, 0.5), 3 periods",a,GL3,150,,8.41203e-06,6171,150,0,1855,0.00318679,completed
+"orbit (20, 0.5), 3 periods",a,GL3,299,,9.65179e-08,9204,299,0,2931,0.00550129,completed
+"orbit (20, 0.5), 3 periods",a,GL3,597,,1.39996e-09,14547,597,0,4757,0.0091253,completed
+"orbit (20, 0.5), 3 periods",a,GL3,1192,,2.17817e-11,24435,1192,0,8026,0.0157022,completed
+"orbit (20, 0.5), 3 periods",a,GL3,2379,,4.9738e-13,41082,2379,0,13625,0.0263099,completed
+"orbit (20, 0.5), 3 periods",a,GL3,4749,,1.66978e-13,70866,4749,0,23568,0.0480835,completed
+"orbit (20, 0.5), 3 periods",a,GL3,9477,,1.49214e-13,124842,9477,0,41562,0.0879092,completed
+"orbit (20, 0.5), 3 periods",a,GL3,18912,,1.81188e-13,226002,18912,0,75289,0.160208,completed
+"orbit (20, 0.5), 3 periods",a,GL3,37743,,1.63425e-13,387378,37743,0,129091,0.307062,completed
+"orbit (20, 0.5), 3 periods",a,GL3,75324,,1.63425e-13,705654,75324,0,235169,0.568803,completed
+"orbit (20, 0.5), 3 periods",a,GL3,150324,,1.66978e-13,1255308,150324,0,418375,1.05762,completed
+"orbit (20, 0.5), 3 periods",a,GL3,300000,,1.59872e-13,2199288,300000,0,733072,2.0219,completed
+"orbit (20, 0.5), 3 periods",b,GL3,150,,5.11438e-06,4497,150,0,1464,0.00346828,completed
+"orbit (20, 0.5), 3 periods",b,GL3,299,,6.4258e-08,7476,299,0,2367,0.00594252,completed
+"orbit (20, 0.5), 3 periods",b,GL3,597,,9.58089e-10,12162,597,0,4036,0.0101924,completed
+"orbit (20, 0.5), 3 periods",b,GL3,1192,,1.48255e-11,20805,1192,0,6859,0.0166877,completed
+"orbit (20, 0.5), 3 periods",b,GL3,2379,,1.52767e-13,35646,2379,0,11870,0.0299847,completed
+"orbit (20, 0.5), 3 periods",b,GL3,4749,,7.81597e-14,63651,4749,0,21172,0.0566605,completed
+"orbit (20, 0.5), 3 periods",b,GL3,9477,,7.81597e-14,110070,9477,0,36652,0.100655,completed
+"orbit (20, 0.5), 3 periods",b,GL3,18912,,8.52651e-14,195411,18912,0,65096,0.192647,completed
+"orbit (20, 0.5), 3 periods",b,GL3,37743,,7.81597e-14,359967,37743,0,119954,0.369594,completed
+"orbit (20, 0.5), 3 periods",b,GL3,75324,,8.52651e-14,633756,75324,0,211211,0.674148,completed
+"orbit (20, 0.5), 3 periods",b,GL3,150324,,9.23706e-14,1125591,150324,0,375176,1.24634,completed
+"orbit (20, 0.5), 3 periods",b,GL3,300000,,7.81597e-14,1988943,300000,0,662944,2.3429,completed
+"orbit (20, 0.5), 3 periods",b,Tao2,150,,0.263228,501,150,0,0,0.000739867,completed
+"orbit (20, 0.5), 3 periods",b,Tao2,299,,0.0634197,956,299,0,0,0.00127391,completed
+"orbit (20, 0.5), 3 periods",b,Tao2,597,,0.0155414,1838,597,0,0,0.00240669,completed
+"orbit (20, 0.5), 3 periods",b,Tao2,1192,,0.00387056,3623,1192,0,0,0.00471157,completed
+"orbit (20, 0.5), 3 periods",b,Tao2,2379,,0.000969907,7180,2379,0,0,0.00996294,completed
+"orbit (20, 0.5), 3 periods",b,Tao2,4749,,0.000243282,14278,4749,0,0,0.0194558,completed
+"orbit (20, 0.5), 3 periods",b,Tao2,9477,,6.10832e-05,28458,9477,0,0,0.038259,completed
+"orbit (20, 0.5), 3 periods",b,Tao2,18912,,1.53383e-05,56767,18912,0,0,0.077658,completed
+"orbit (20, 0.5), 3 periods",b,Tao2,37743,,3.85101e-06,113248,37743,0,0,0.161691,completed
+"orbit (20, 0.5), 3 periods",b,Tao2,75324,,9.66896e-07,225999,75324,0,0,0.316908,completed
+"orbit (20, 0.5), 3 periods",b,Tao2,150324,,2.42767e-07,450995,150324,0,0,0.617833,completed
+"orbit (20, 0.5), 3 periods",b,Tao2,300000,,6.09542e-08,900023,300000,0,0,1.24345,completed
+"orbit (20, 0.5), 3 periods",b,Tao4,150,,0.575415,1593,150,0,0,0.00158121,completed
+"orbit (20, 0.5), 3 periods",b,Tao4,299,,0.0267942,2884,299,0,0,0.0030431,completed
+"orbit (20, 0.5), 3 periods",b,Tao4,597,,0.00161111,5526,597,0,0,0.00545951,completed
+"orbit (20, 0.5), 3 periods",b,Tao4,1192,,0.000100258,10871,1192,0,0,0.010184,completed
+"orbit (20, 0.5), 3 periods",b,Tao4,2379,,6.3016e-06,21514,2379,0,0,0.0208717,completed
+"orbit (20, 0.5), 3 periods",b,Tao4,4749,,3.96571e-07,42844,4749,0,0,0.0447279,completed
+"orbit (20, 0.5), 3 periods",b,Tao4,9477,,2.50019e-08,85396,9477,0,0,0.0835451,completed
+"orbit (20, 0.5), 3 periods",b,Tao4,18912,,1.57654e-09,170281,18912,0,0,0.162756,completed
+"orbit (20, 0.5), 3 periods",b,Tao4,37743,,9.9444e-11,339770,37743,0,0,0.328856,completed
+"orbit (20, 0.5), 3 periods",b,Tao4,75324,,6.33804e-12,677969,75324,0,0,0.690476,completed
+"orbit (20, 0.5), 3 periods",b,Tao4,150324,,4.86722e-13,1352979,150324,0,0,1.33418,completed
+"orbit (20, 0.5), 3 periods",b,Tao4,300000,,1.20792e-13,2700073,300000,0,0,2.68423,completed
+"inclined orbit, 60°, 2 periods",a,RK4,100,,3.37072,400,100,0,0,0.000415313,completed
+"inclined orbit, 60°, 2 periods",a,RK4,200,,0.0406243,800,200,0,0,0.000716469,completed
+"inclined orbit, 60°, 2 periods",a,RK4,398,,0.0019762,1592,398,0,0,0.00138816,completed
+"inclined orbit, 60°, 2 periods",a,RK4,795,,0.000181107,3180,795,0,0,0.0024091,completed
+"inclined orbit, 60°, 2 periods",a,RK4,1586,,1.35711e-05,6344,1586,0,0,0.00458389,completed
+"inclined orbit, 60°, 2 periods",a,RK4,3166,,9.23981e-07,12664,3166,0,0,0.0102242,completed
+"inclined orbit, 60°, 2 periods",a,RK4,6318,,6.04532e-08,25272,6318,0,0,0.019738,completed
+"inclined orbit, 60°, 2 periods",a,RK4,12608,,3.88111e-09,50432,12608,0,0,0.0385021,completed
+"inclined orbit, 60°, 2 periods",a,RK4,25162,,2.46901e-10,100648,25162,0,0,0.074941,completed
+"inclined orbit, 60°, 2 periods",a,RK4,50216,,1.57119e-11,200864,50216,0,0,0.147731,completed
+"inclined orbit, 60°, 2 periods",a,RK4,100216,,1.06759e-12,400864,100216,0,0,0.314722,completed
+"inclined orbit, 60°, 2 periods",a,RK4,200000,,1.40332e-13,800000,200000,0,0,0.610604,completed
+"inclined orbit, 60°, 2 periods",b,RK4,100,,2.96311,400,100,0,0,0.000479232,completed
+"inclined orbit, 60°, 2 periods",b,RK4,200,,0.238454,800,200,0,0,0.000849984,completed
+"inclined orbit, 60°, 2 periods",b,RK4,398,,0.0104608,1592,398,0,0,0.00172434,completed
+"inclined orbit, 60°, 2 periods",b,RK4,795,,0.000451725,3180,795,0,0,0.00320838,completed
+"inclined orbit, 60°, 2 periods",b,RK4,1586,,2.17367e-05,6344,1586,0,0,0.00582683,completed
+"inclined orbit, 60°, 2 periods",b,RK4,3166,,1.1523e-06,12664,3166,0,0,0.0127251,completed
+"inclined orbit, 60°, 2 periods",b,RK4,6318,,6.58003e-08,25272,6318,0,0,0.0243763,completed
+"inclined orbit, 60°, 2 periods",b,RK4,12608,,3.93228e-09,50432,12608,0,0,0.0486784,completed
+"inclined orbit, 60°, 2 periods",b,RK4,25162,,2.41043e-10,100648,25162,0,0,0.0935961,completed
+"inclined orbit, 60°, 2 periods",b,RK4,50216,,1.49907e-11,200864,50216,0,0,0.202642,completed
+"inclined orbit, 60°, 2 periods",b,RK4,100216,,9.48575e-13,400864,100216,0,0,0.394208,completed
+"inclined orbit, 60°, 2 periods",b,RK4,200000,,6.75016e-14,800000,200000,0,0,0.787787,completed
+"inclined orbit, 60°, 2 periods",a,DP5,,0.001,inf,724,83,34,0,0.000628098,captured
+"inclined orbit, 60°, 2 periods",a,DP5,,0.0001,0.872264,308,38,13,0,0.00034332,completed
+"inclined orbit, 60°, 2 periods",a,DP5,,1e-05,0.0476462,452,57,18,0,0.00052992,completed
+"inclined orbit, 60°, 2 periods",a,DP5,,1e-06,0.00432454,686,86,28,0,0.000607325,completed
+"inclined orbit, 60°, 2 periods",a,DP5,,1e-07,0.000147912,944,130,27,0,0.000823014,completed
+"inclined orbit, 60°, 2 periods",a,DP5,,1e-08,2.89126e-06,1250,199,9,0,0.00136551,completed
+"inclined orbit, 60°, 2 periods",a,DP5,,1e-09,4.55938e-07,1880,313,0,0,0.00182387,completed
+"inclined orbit, 60°, 2 periods",a,DP5,,1e-10,8.22192e-08,2966,494,0,0,0.00241008,completed
+"inclined orbit, 60°, 2 periods",a,DP5,,1e-11,1.09995e-08,4694,782,0,0,0.00387815,completed
+"inclined orbit, 60°, 2 periods",a,DP5,,1e-12,1.29478e-09,7430,1238,0,0,0.00620442,completed
+"inclined orbit, 60°, 2 periods",a,DP5,,1e-13,1.42885e-10,11762,1960,0,0,0.00915093,completed
+"inclined orbit, 60°, 2 periods",b,DP5,,0.001,2.01893,212,25,10,0,0.000279954,completed
+"inclined orbit, 60°, 2 periods",b,DP5,,0.0001,0.23277,350,42,16,0,0.000527213,completed
+"inclined orbit, 60°, 2 periods",b,DP5,,1e-05,0.0113578,512,64,21,0,0.000615442,completed
+"inclined orbit, 60°, 2 periods",b,DP5,,1e-06,0.000724929,758,97,29,0,0.000778968,completed
+"inclined orbit, 60°, 2 periods",b,DP5,,1e-07,5.49436e-05,1046,147,27,0,0.0010474,completed
+"inclined orbit, 60°, 2 periods",b,DP5,,1e-08,4.09783e-06,1520,228,25,0,0.00150833,completed
+"inclined orbit, 60°, 2 periods",b,DP5,,1e-09,3.76394e-07,2228,356,15,0,0.00214568,completed
+"inclined orbit, 60°, 2 periods",b,DP5,,1e-10,3.31405e-08,3428,562,9,0,0.00409887,completed
+"inclined orbit, 60°, 2 periods",b,DP5,,1e-11,3.29877e-09,5342,888,2,0,0.00542745,completed
+"inclined orbit, 60°, 2 periods",b,DP5,,1e-12,3.40144e-10,8438,1406,0,0,0.0083328,completed
+"inclined orbit, 60°, 2 periods",b,DP5,,1e-13,3.50617e-11,13370,2228,0,0,0.012893,completed
+"inclined orbit, 60°, 2 periods",a,DOP853,,0.001,0.172077,410,24,10,0,0.000373377,completed
+"inclined orbit, 60°, 2 periods",a,DOP853,,0.0001,0.274223,458,30,8,0,0.000406518,completed
+"inclined orbit, 60°, 2 periods",a,DOP853,,1e-05,0.00248627,566,37,10,0,0.000474408,completed
+"inclined orbit, 60°, 2 periods",a,DOP853,,1e-06,0.000171216,734,47,14,0,0.000619669,completed
+"inclined orbit, 60°, 2 periods",a,DOP853,,1e-07,0.000211246,926,56,21,0,0.000711706,completed
+"inclined orbit, 60°, 2 periods",a,DOP853,,1e-08,1.23716e-05,1130,71,23,0,0.00089111,completed
+"inclined orbit, 60°, 2 periods",a,DOP853,,1e-09,1.05495e-06,1418,92,26,0,0.00117773,completed
+"inclined orbit, 60°, 2 periods",a,DOP853,,1e-10,8.66674e-10,1838,118,35,0,0.00155121,completed
+"inclined orbit, 60°, 2 periods",a,DOP853,,1e-11,1.66097e-09,2306,154,38,0,0.00191446,completed
+"inclined orbit, 60°, 2 periods",a,DOP853,,1e-12,2.41549e-11,2786,201,31,0,0.00220196,completed
+"inclined orbit, 60°, 2 periods",a,DOP853,,1e-13,2.11564e-12,3482,264,26,0,0.00276048,completed
+"inclined orbit, 60°, 2 periods",b,DOP853,,0.001,0.486482,338,21,7,0,0.000474098,completed
+"inclined orbit, 60°, 2 periods",b,DOP853,,0.0001,0.000500218,446,27,10,0,0.000517609,completed
+"inclined orbit, 60°, 2 periods",b,DOP853,,1e-05,0.00173811,578,35,13,0,0.000642695,completed
+"inclined orbit, 60°, 2 periods",b,DOP853,,1e-06,7.2754e-05,746,45,17,0,0.00082086,completed
+"inclined orbit, 60°, 2 periods",b,DOP853,,1e-07,7.59922e-07,974,57,24,0,0.00101632,completed
+"inclined orbit, 60°, 2 periods",b,DOP853,,1e-08,5.41373e-06,1154,73,23,0,0.00118707,completed
+"inclined orbit, 60°, 2 periods",b,DOP853,,1e-09,3.68722e-07,1514,95,31,0,0.00145858,completed
+"inclined orbit, 60°, 2 periods",b,DOP853,,1e-10,3.1839e-08,1982,123,42,0,0.00189134,completed
+"inclined orbit, 60°, 2 periods",b,DOP853,,1e-11,2.17917e-09,2474,160,46,0,0.00229152,completed
+"inclined orbit, 60°, 2 periods",b,DOP853,,1e-12,1.03585e-10,3194,209,57,0,0.00295351,completed
+"inclined orbit, 60°, 2 periods",b,DOP853,,1e-13,1.64135e-11,3974,274,57,0,0.00371503,completed
+"inclined orbit, 60°, 2 periods",a,GL1,100,,1.72315,2077,100,0,2077,0.000891035,completed
+"inclined orbit, 60°, 2 periods",a,GL1,200,,0.635234,3121,200,0,3121,0.00138788,completed
+"inclined orbit, 60°, 2 periods",a,GL1,398,,0.166865,4877,398,0,4877,0.00232334,completed
+"inclined orbit, 60°, 2 periods",a,GL1,795,,0.0418794,8022,795,0,8022,0.00412871,completed
+"inclined orbit, 60°, 2 periods",a,GL1,1586,,0.0105208,13738,1586,0,13738,0.00761293,completed
+"inclined orbit, 60°, 2 periods",a,GL1,3166,,0.00263998,24048,3166,0,24048,0.0134785,completed
+"inclined orbit, 60°, 2 periods",a,GL1,6318,,0.000662909,42770,6318,0,42770,0.0253204,completed
+"inclined orbit, 60°, 2 periods",a,GL1,12608,,0.000166463,77517,12608,0,77517,0.0523018,completed
+"inclined orbit, 60°, 2 periods",a,GL1,25162,,4.17946e-05,140055,25162,0,140055,0.0946611,completed
+"inclined orbit, 60°, 2 periods",a,GL1,50216,,1.04936e-05,262060,50216,0,262060,0.184586,completed
+"inclined orbit, 60°, 2 periods",a,GL1,100216,,2.63473e-06,485202,100216,0,485202,0.382936,completed
+"inclined orbit, 60°, 2 periods",a,GL1,200000,,6.61531e-07,882680,200000,0,882680,0.686644,completed
+"inclined orbit, 60°, 2 periods",b,GL1,100,,inf,1023,49,0,1023,0.000821509,failed: implicit iteration did not converge
+"inclined orbit, 60°, 2 periods",b,GL1,200,,0.31468,2888,200,0,2888,0.00196054,completed
+"inclined orbit, 60°, 2 periods",b,GL1,398,,0.080522,4524,398,0,4524,0.00357962,completed
+"inclined orbit, 60°, 2 periods",b,GL1,795,,0.020285,7595,795,0,7595,0.00646949,completed
+"inclined orbit, 60°, 2 periods",b,GL1,1586,,0.00510366,13128,1586,0,13128,0.0105374,completed
+"inclined orbit, 60°, 2 periods",b,GL1,3166,,0.00128119,22893,3166,0,22893,0.019205,completed
+"inclined orbit, 60°, 2 periods",b,GL1,6318,,0.000321746,41355,6318,0,41355,0.0372245,completed
+"inclined orbit, 60°, 2 periods",b,GL1,12608,,8.07958e-05,74294,12608,0,74294,0.0678996,completed
+"inclined orbit, 60°, 2 periods",b,GL1,25162,,2.02859e-05,136558,25162,0,136558,0.129678,completed
+"inclined orbit, 60°, 2 periods",b,GL1,50216,,5.09331e-06,254142,50216,0,254142,0.234011,completed
+"inclined orbit, 60°, 2 periods",b,GL1,100216,,1.27882e-06,461551,100216,0,461551,0.462841,completed
+"inclined orbit, 60°, 2 periods",b,GL1,200000,,3.21088e-07,856512,200000,0,856512,0.849666,completed
+"inclined orbit, 60°, 2 periods",a,GL2,100,,0.454229,3332,100,0,1666,0.00147708,completed
+"inclined orbit, 60°, 2 periods",a,GL2,200,,0.00278269,4994,200,0,2497,0.00288758,completed
+"inclined orbit, 60°, 2 periods",a,GL2,398,,7.93204e-05,7982,398,0,3991,0.00437445,completed
+"inclined orbit, 60°, 2 periods",a,GL2,795,,5.02432e-06,13314,795,0,6657,0.00734082,completed
+"inclined orbit, 60°, 2 periods",a,GL2,1586,,3.17856e-07,22620,1586,0,11310,0.0130576,completed
+"inclined orbit, 60°, 2 periods",a,GL2,3166,,2.00273e-08,39278,3166,0,19639,0.0235704,completed
+"inclined orbit, 60°, 2 periods",a,GL2,6318,,1.26295e-09,69548,6318,0,34774,0.0445602,completed
+"inclined orbit, 60°, 2 periods",a,GL2,12608,,7.9547e-11,125340,12608,0,62670,0.0777182,completed
+"inclined orbit, 60°, 2 periods",a,GL2,25162,,4.94182e-12,223884,25162,0,111942,0.148705,completed
+"inclined orbit, 60°, 2 periods",a,GL2,50216,,2.34479e-13,417946,50216,0,208973,0.287267,completed
+"inclined orbit, 60°, 2 periods",a,GL2,100216,,5.68434e-14,777922,100216,0,388961,0.56674,completed
+"inclined orbit, 60°, 2 periods",a,GL2,200000,,7.4607e-14,1370776,200000,0,685388,1.03001,completed
+"inclined orbit, 60°, 2 periods",b,GL2,100,,0.392719,2898,100,0,1449,0.00214562,completed
+"inclined orbit, 60°, 2 periods",b,GL2,200,,0.00209298,4534,200,0,2267,0.00341727,completed
+"inclined orbit, 60°, 2 periods",b,GL2,398,,2.67164e-05,7358,398,0,3679,0.00590889,completed
+"inclined orbit, 60°, 2 periods",b,GL2,795,,1.66296e-06,12318,795,0,6159,0.010099,completed
+"inclined orbit, 60°, 2 periods",b,GL2,1586,,1.04746e-07,21122,1586,0,10561,0.0166447,completed
+"inclined orbit, 60°, 2 periods",b,GL2,3166,,6.59256e-09,37034,3166,0,18517,0.0319901,completed
+"inclined orbit, 60°, 2 periods",b,GL2,6318,,4.15655e-10,66660,6318,0,33330,0.05665,completed
+"inclined orbit, 60°, 2 periods",b,GL2,12608,,2.62332e-11,118022,12608,0,59011,0.108636,completed
+"inclined orbit, 60°, 2 periods",b,GL2,25162,,1.66622e-12,215820,25162,0,107910,0.198611,completed
+"inclined orbit, 60°, 2 periods",b,GL2,50216,,1.20792e-13,402410,50216,0,201205,0.355895,completed
+"inclined orbit, 60°, 2 periods",b,GL2,100216,,1.95399e-14,712454,100216,0,356227,0.670098,completed
+"inclined orbit, 60°, 2 periods",b,GL2,200000,,1.42109e-14,1301974,200000,0,650987,1.28254,completed
+"inclined orbit, 60°, 2 periods",a,GL3,100,,0.0505618,4281,100,0,1427,0.0026523,completed
+"inclined orbit, 60°, 2 periods",a,GL3,200,,0.000177266,6546,200,0,2182,0.00375631,completed
+"inclined orbit, 60°, 2 periods",a,GL3,398,,9.96815e-09,10440,398,0,3480,0.00594676,completed
+"inclined orbit, 60°, 2 periods",a,GL3,795,,1.6168e-10,17253,795,0,5751,0.00953805,completed
+"inclined orbit, 60°, 2 periods",a,GL3,1586,,2.50822e-12,29082,1586,0,9694,0.017549,completed
+"inclined orbit, 60°, 2 periods",a,GL3,3166,,3.90799e-14,50319,3166,0,16773,0.0317153,completed
+"inclined orbit, 60°, 2 periods",a,GL3,6318,,7.28306e-14,87108,6318,0,29036,0.0594624,completed
+"inclined orbit, 60°, 2 periods",a,GL3,12608,,8.70415e-14,157275,12608,0,52425,0.110212,completed
+"inclined orbit, 60°, 2 periods",a,GL3,25162,,8.34888e-14,270156,25162,0,90052,0.201411,completed
+"inclined orbit, 60°, 2 periods",a,GL3,50216,,7.99361e-14,485715,50216,0,161905,0.409668,completed
+"inclined orbit, 60°, 2 periods",a,GL3,100216,,7.81597e-14,892941,100216,0,297647,0.729521,completed
+"inclined orbit, 60°, 2 periods",a,GL3,200000,,8.17124e-14,1503564,200000,0,501188,1.37059,completed
+"inclined orbit, 60°, 2 periods",b,GL3,100,,0.0500792,3825,100,0,1275,0.00266891,completed
+"inclined orbit, 60°, 2 periods",b,GL3,200,,0.00018307,5985,200,0,1995,0.00441935,completed
+"inclined orbit, 60°, 2 periods",b,GL3,398,,5.689e-08,9531,398,0,3177,0.00700291,completed
+"inclined orbit, 60°, 2 periods",b,GL3,795,,9.05773e-10,15933,795,0,5311,0.0132663,completed
+"inclined orbit, 60°, 2 periods",b,GL3,1586,,1.44187e-11,27306,1586,0,9102,0.0214438,completed
+"inclined orbit, 60°, 2 periods",b,GL3,3166,,2.0961e-13,46842,3166,0,15614,0.0403155,completed
+"inclined orbit, 60°, 2 periods",b,GL3,6318,,1.42109e-14,83394,6318,0,27798,0.0788088,completed
+"inclined orbit, 60°, 2 periods",b,GL3,12608,,8.88178e-15,144891,12608,0,48297,0.139514,completed
+"inclined orbit, 60°, 2 periods",b,GL3,25162,,1.06581e-14,252462,25162,0,84154,0.244251,completed
+"inclined orbit, 60°, 2 periods",b,GL3,50216,,1.24345e-14,469866,50216,0,156622,0.49572,completed
+"inclined orbit, 60°, 2 periods",b,GL3,100216,,1.06581e-14,805146,100216,0,268382,0.855181,completed
+"inclined orbit, 60°, 2 periods",b,GL3,200000,,1.06581e-14,1400868,200000,0,466956,1.61017,completed
+"inclined orbit, 60°, 2 periods",b,Tao2,100,,4.31831,301,100,0,0,0.000561962,completed
+"inclined orbit, 60°, 2 periods",b,Tao2,200,,0.0643986,601,200,0,0,0.000978973,completed
+"inclined orbit, 60°, 2 periods",b,Tao2,398,,0.0299638,1195,398,0,0,0.00184148,completed
+"inclined orbit, 60°, 2 periods",b,Tao2,795,,0.00814329,2386,795,0,0,0.0035482,completed
+"inclined orbit, 60°, 2 periods",b,Tao2,1586,,0.00208543,4759,1586,0,0,0.0067132,completed
+"inclined orbit, 60°, 2 periods",b,Tao2,3166,,0.000525807,9499,3166,0,0,0.0145348,completed
+"inclined orbit, 60°, 2 periods",b,Tao2,6318,,0.000132191,18955,6318,0,0,0.0257068,completed
+"inclined orbit, 60°, 2 periods",b,Tao2,12608,,3.32044e-05,37825,12608,0,0,0.0517319,completed
+"inclined orbit, 60°, 2 periods",b,Tao2,25162,,8.33739e-06,75487,25162,0,0,0.100801,completed
+"inclined orbit, 60°, 2 periods",b,Tao2,50216,,2.09336e-06,150649,50216,0,0,0.200945,completed
+"inclined orbit, 60°, 2 periods",b,Tao2,100216,,5.25601e-07,300649,100216,0,0,0.433613,completed
+"inclined orbit, 60°, 2 periods",b,Tao2,200000,,1.31969e-07,600001,200000,0,0,0.823542,completed
+"inclined orbit, 60°, 2 periods",b,Tao4,100,,inf,669,52,0,0,0.000809323,captured
+"inclined orbit, 60°, 2 periods",b,Tao4,200,,0.0172959,1801,200,0,0,0.0018234,completed
+"inclined orbit, 60°, 2 periods",b,Tao4,398,,0.000487415,3583,398,0,0,0.00397968,completed
+"inclined orbit, 60°, 2 periods",b,Tao4,795,,2.75252e-05,7156,795,0,0,0.00746932,completed
+"inclined orbit, 60°, 2 periods",b,Tao4,1586,,1.68174e-06,14275,1586,0,0,0.0151548,completed
+"inclined orbit, 60°, 2 periods",b,Tao4,3166,,1.04992e-07,28495,3166,0,0,0.0294238,completed
+"inclined orbit, 60°, 2 periods",b,Tao4,6318,,6.60578e-09,56863,6318,0,0,0.0596628,completed
+"inclined orbit, 60°, 2 periods",b,Tao4,12608,,4.16319e-10,113473,12608,0,0,0.117581,completed
+"inclined orbit, 60°, 2 periods",b,Tao4,25162,,2.62403e-11,226459,25162,0,0,0.22347,completed
+"inclined orbit, 60°, 2 periods",b,Tao4,50216,,1.66267e-12,451945,50216,0,0,0.460142,completed
+"inclined orbit, 60°, 2 periods",b,Tao4,100216,,1.27898e-13,901945,100216,0,0,0.877454,completed
+"inclined orbit, 60°, 2 periods",b,Tao4,200000,,3.01981e-14,1800001,200000,0,0,1.77554,completed
