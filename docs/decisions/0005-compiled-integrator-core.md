@@ -28,7 +28,7 @@ Events need their own decision. The predecessor located them by linear interpola
 Positive:
 
 - A cold start compiles the core once, in about 60 s, and every later process starts in about 1 s. Solving a new problem costs only the compilation of its vector field.
-- Our DP5 and DOP853 take the same steps and the same number of evaluations as SciPy, at every tolerance tested.
+- Our DP5 and DOP853 take the same number of steps and evaluations as SciPy at every tolerance tested. Individual step sizes agree to about $`10^{-7}`$, except where the error estimate itself is at round-off level (see the devlog, Phase 2).
 - Event locations converge at the order of the method, so convergence studies on event quantities (deflection angle, periapsis phase) are not limited by the locator.
 
 Negative, and what we do about it:

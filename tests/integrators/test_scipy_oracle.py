@@ -3,7 +3,8 @@
 import numpy as np
 import pytest
 
-from geoint.initial_conditions import turning_point_momentum
+from geoint.analytic import pe_to_EL
+from geoint.initial_conditions import momentum_from_constants
 from geoint.integrators import Problem, get
 from geoint.testcases.toy import kepler
 
@@ -16,10 +17,8 @@ def compare(problem, own, oracle, tol, atol=None):
     a = get(own).solve(problem, rtol=tol, atol=atol)
     b = get(oracle).solve(problem, rtol=tol, atol=atol)
     assert a.status == b.status == "completed"
-    # Compiled, the step sequences are identical; interpreted (NUMBA_DISABLE_JIT=1), NumPy's
-    # pairwise summation changes the rounding and a long run may differ by a step.
     assert abs(a.nfev - b.nfev) <= 0.01 * b.nfev
-    assert abs(a.n_steps - b.n_steps) <= max(1, 0.01 * b.n_steps)
+    assert abs(a.n_steps - b.n_steps) <= 0.01 * b.n_steps
     return a, b
 
 
@@ -34,8 +33,11 @@ def test_matches_scipy_on_kepler(own, oracle, tol):
 @pytest.mark.parametrize(("own", "oracle"), PAIRS)
 @pytest.mark.parametrize("tol", TOLS)
 def test_matches_scipy_on_a_geodesic(schwarzschild, hamiltonian, own, oracle, tol):
-    # The r_apo = 20, L = 4.2 orbit of the predecessor's validation table, three radial periods.
-    x0 = [0.0, 20.0, np.pi / 2, 0.0]
-    y0 = hamiltonian.from_xp(x0, turning_point_momentum(schwarzschild, x0, 4.2, 1))
+    # A bound orbit started at a generic radius, about two radial periods. (Started at a turning
+    # point, the first error estimates are at round-off level, the step-growth factor amplifies
+    # rounding noise, and the step sequences of any two implementations part after two steps.)
+    E, L = pe_to_EL(13.6, 0.32)
+    x0 = [0.0, 15.0, np.pi / 2, 0.0]
+    y0 = hamiltonian.from_xp(x0, momentum_from_constants(schwarzschild, x0, E, L, 1))
     a, b = compare(Problem(hamiltonian.rhs, y0, (0.0, 1500.0)), own, oracle, tol)
     np.testing.assert_allclose(a.y_end[1:4], b.y_end[1:4], rtol=0, atol=max(tol, 1e-9) * 10)

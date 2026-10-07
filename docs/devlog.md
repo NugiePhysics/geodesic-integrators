@@ -74,7 +74,7 @@ One entry per working session or phase: what was done, what was learned, and wha
 | Criterion | Target | Measured |
 |---|---|---|
 | RK4 order | 4 ± 0.1 | 4.05 (Kepler); 4.00 on the strong-field orbit $`(7.5, 0.5)`$ in both formulations |
-| Own DP5/DOP853 vs SciPy | nfev ± 1 %, solution ≤ tol | nfev and step counts *identical* at tolerances $`10^{-4}`$–$`10^{-12}`$ (Kepler and a geodesic); final states agree to $`10^{-12}`$ |
+| Own DP5/DOP853 vs SciPy | nfev ± 1 %, solution ≤ tol | nfev and step counts *identical* at tolerances $`10^{-4}`$–$`10^{-12}`$ (Kepler and a geodesic), compiled and interpreted; step sizes agree to $`\sim10^{-7}`$; final states to $`10^{-12}`$ |
 | TC0 | pass | oscillator, Kepler, Tao's example |
 | Predecessor's validation table | reproduced | $`d\phi/dt`$ at $`r_c = 10`$, precession (see Phase 4), capture threshold, deflection at $`b = 40`$, RK4 order |
 
@@ -82,6 +82,7 @@ One entry per working session or phase: what was done, what was learned, and wha
 
 - **Compilation dominated everything.** The first design compiled one driver per (method kind, vector field), 10–20 s each, which is minutes per process. Numba's disk cache refused the drivers, because passing a jitted function as a value embeds a dispatcher pointer. Typed first-class vector fields, a single step function that dispatches on an integer kind, and one module for all compiled code fixed it: about 60 s once per machine, about 1 s per process afterwards ([ADR 0005](decisions/0005-compiled-integrator-core.md)). The cold-cache test suite runs in 84 s.
 - RK4 on $`(p, e) = (20, 0.5)`$ is pre-asymptotic over the whole usable range (slopes 4.5 → 4.07 before round-off), so the order is measured on the strong-field orbit $`(7.5, 0.5)`$, where it is 4.00.
+- **Started at a turning point, adaptive step sequences are rounding noise.** The no-JIT test run caught our DOP853 parting from SciPy after two steps (nfev 2.5 % apart). The orbit started at $`p_r = 0`$, where the first error estimates are at round-off level. The step-growth factor $`0.9\,\text{err}^{-1/8}`$ then amplifies rounding noise, so our compiled code, our interpreted code and SciPy all take different second steps, and only the totals land close. From a generic starting point all three agree on nfev exactly and on step sizes to $`\sim10^{-7}`$. The oracle test now starts there.
 - SciPy's `nfev` with events includes 3 extra evaluations per located event (DOP853 dense output), and ours includes 20–50 (partial steps). The `nfev` comparison is therefore made without events.
 
 ---
