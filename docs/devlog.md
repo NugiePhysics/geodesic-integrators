@@ -4,6 +4,33 @@ One entry per working session or phase: what was done, what was learned, and wha
 
 ---
 
+## 2026-10-07 · Phase 7: report, documentation, release
+
+### Done
+
+- **Report** ([`report/main.tex`](../report/main.tex), RevTeX 4.2, 27 pages) with the sections of the plan: introduction, formulations, integrators, test problems, results ordered by research question, discussion with the recommendations table T7, conclusions, and appendices (Christoffel symbols, Gauss–Legendre tableaus, environment T8). A one-page research summary ([`report/summary.tex`](../report/summary.tex)) has one figure. Both compile with Tectonic (`make report`), which fetches its packages on demand, so no TeX installation is needed.
+- **No hand-typed numbers in the report.** `scripts/make_tables.py` (`make tables`) writes the LaTeX tables T1–T6 and T8, and 25 macros for the numbers the text quotes, from `results/summary/`. `make all` runs figures, tables and report in that order.
+- **Bibliography.** Journal, volume and page of the references that were not certain from memory were checked against the publishers' pages or arXiv: FANTASY, Wang et al. 2021, Seyrich & Lukes-Gerakopoulos 2012, Hairer–McLachlan–Razakarivony 2008, Cardoso et al. 2009, Iyer & Petters 2007, Pihajoki 2015 and Rackauckas & Nie 2017. DOIs are given only where they were checked or follow from the publisher's fixed scheme.
+- **New figure and tables.** F1 shows the geodesics of the study: a parallel bundle of rays down to $`b_c(1 + 10^{-6})`$, each rotated by the exact angle it would have swept from infinity, and six periods of $`(12, 0.5)`$. T1 lists the integrators, with the measured iterations of the Gauss methods. T8 records the computing environment.
+- **Documentation site** (MkDocs Material, `make docs`, deployed by `docs.yml`): home, theory, integrators, test cases, results by research question, pitfalls, reproducibility, extending to Kerr, the API reference (mkdocstrings), the ADRs and this log. A small hook (`docs/hooks.py`) lets the same Markdown render on GitHub and on the site. It converts GitHub's backtick-delimited math to MathJax, turning pipes inside math into `\vert` so that tables are not split. It serves `figures/` without copying it, includes summary tables from an HTML comment that GitHub hides, and rewrites links that leave `docs/` to GitHub URLs. MkDocs is pinned below 2.0, which drops the plugin system.
+- **Four walkthrough notebooks** (formulations, convergence, long-term behaviour, unstable orbits), stored with outputs and executed in CI by nbmake (26 s).
+- **Workflows.** `docs.yml` builds the site with `--strict` and deploys it to GitHub Pages. `reproduce.yml` runs weekly and on demand: `make clean-cache all` from a clean checkout, the slow tests and the notebooks. It uploads the report, figures and summaries and reports what differs from the committed results.
+- **Release 1.0.0**: version, `CITATION.cff` (release date, documentation URL), `CHANGELOG.md`, a new README with the key findings, quick start, methods and validation tables.
+
+### Learned
+
+- **The public repository pointed at a private file.** The roadmap stays untracked, but the theory document, five ADRs and nine docstrings cited it ("roadmap pitfall 18", "roadmap §1.3"), and the theory document linked to it. Its pitfall table is now a public page ([pitfalls](pitfalls.md)), with a column on where each pitfall actually showed up. The other references point at the test-case, integrator and reproducibility pages. In the ADRs only these references changed.
+- **A claim had to be qualified while writing.** "Conservation is cheaper to buy with a tight tolerance than with a symplectic method" holds over $`10^3`$ periods (T5b), but DOP853's linear drift will overtake GL3's bounded error on longer runs. The report now says so.
+- The first F1 used $`(7.5, 0.5)`$, whose periapsis advances by 9.4 rad per period: a tangle, not a rosette. $`(12, 0.5)`$ advances by 2.65 rad and reads at a glance.
+
+### Open
+
+- The DOI: Zenodo mints one when a GitHub release is published, once the repository is enabled in Zenodo. Then the DOI goes into `CITATION.cff` and the README badge.
+- GitHub Pages must be switched to "GitHub Actions" as its source once, in the repository settings, before `docs.yml` can deploy.
+- Roadmap step 6.5 (the photon sphere in a second precision) remains optional and undone.
+
+---
+
 ## 2026-10-07 · Phase 6: long integrations and unstable orbits
 
 ### Done

@@ -3,15 +3,20 @@ message: "If you use this software, please cite it as below."
 title: "geodesic-integrators"
 type: software
 abstract: >-
-  Systematic comparison of explicit Runge-Kutta, Gauss-Legendre and Tao integrators for
-  timelike and null geodesics around a Schwarzschild black hole, in the second-order and the
-  Hamiltonian formulation, validated against closed-form solutions.
+  Systematic comparison of explicit Runge-Kutta (RK4, DP5, DOP853), Gauss-Legendre (orders 2,
+  4, 6) and Tao (orders 2, 4) integrators for timelike and null geodesics around a
+  Schwarzschild black hole, in the second-order and the Hamiltonian formulation, validated
+  against closed-form solutions. Covers error growth over 10^4 orbits, conservation of
+  invariants, cost per accuracy, and the photon sphere and ISCO. Every figure, table and the
+  report are reproduced by one command.
 authors:
   - family-names: Saputra
     given-names: Nugie
-version: 0.1.0.dev0
+version: 1.0.0
+date-released: "2026-10-07"
 license: MIT
 repository-code: "https://github.com/NugiePhysics/geodesic-integrators"
+url: "https://nugiephysics.github.io/geodesic-integrators/"
 keywords:
   - general relativity
   - black hole

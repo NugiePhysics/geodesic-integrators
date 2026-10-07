@@ -19,7 +19,7 @@ keywords = [
     "Runge-Kutta",
 ]
 classifiers = [
-    "Development Status :: 2 - Pre-Alpha",
+    "Development Status :: 4 - Beta",
     "Intended Audience :: Science/Research",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
@@ -58,6 +58,7 @@ docs = [
 
 [project.urls]
 Homepage = "https://github.com/NugiePhysics/geodesic-integrators"
+Documentation = "https://nugiephysics.github.io/geodesic-integrators/"
 Issues = "https://github.com/NugiePhysics/geodesic-integrators/issues"
 
 [tool.hatch.version]

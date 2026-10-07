@@ -5,6 +5,6 @@ geodesics in two formulations: the second-order geodesic equation in ``(x^mu, u^
 Hamilton's equations in ``(x^mu, p_mu)``. The theory is in ``docs/theory/formulations.md``.
 """
 
-__version__ = "0.1.0.dev0"
+__version__ = "1.0.0"
 
 __all__ = ["__version__"]
