@@ -159,7 +159,11 @@ class PhotonSphere(GeodesicCase):
 
     @property
     def delta0(self) -> float:
-        return 0.0 if math.isinf(self.k) else 10.0**-self.k
+        """The offset actually represented: ``10^-k`` rounded to the grid of doubles near 3.
+
+        Below half an ulp of 3 (``k >= 16``) ``r0`` rounds to 3 and the offset is 0.
+        """
+        return 0.0 if math.isinf(self.k) else (3.0 + 10.0**-self.k) - 3.0
 
     def initial_xp(self, metric):
         i = math.radians(self.inclination)
@@ -169,7 +173,8 @@ class PhotonSphere(GeodesicCase):
 
     @property
     def lam_end(self) -> float:
-        return 1.0e4
+        # About 55 orbits of the photon sphere; every perturbed orbit leaves well before.
+        return 600.0
 
     def events(self, metric):
         d = self.exit_offset
@@ -251,6 +256,57 @@ class Circular(GeodesicCase):
             "dr_max": float(np.max(np.abs(solution.y[:, R_INDEX] - self.r_c))),
             "omega": phi / t,
             "omega_rel_error": abs(phi / t - ref["omega"]) / ref["omega"],
+            **self.constraint_errors(solution, formulation),
+        }
+
+
+@dataclass(frozen=True)
+class MarginalCircular(GeodesicCase):
+    """ISCO (r = 6) circular orbit in an inclined plane, followed until ``|r - 6| > 1``.
+
+    The ISCO is marginally stable (an inflection point of the effective potential), so a
+    perturbation grows algebraically rather than exponentially until the orbit plunges. In the
+    equatorial plane it is an exact fixed point of every Runge-Kutta map (like the photon
+    sphere, TC2); the inclination lets truncation errors in ``L^2`` perturb ``r``. Used for
+    the time-to-plunge experiment (F11).
+    """
+
+    inclination: float = 45.0
+    n_orbits: float = 2000.0
+    family = "TC3m"
+    exit_offset = 1.0
+
+    def initial_xp(self, metric):
+        _, L = analytic.circular_orbit_constants(analytic.ISCO)
+        i = math.radians(self.inclination)
+        x = np.array([0.0, analytic.ISCO, EQUATOR, 0.0])
+        p = turning_point_momentum(metric, x, L * math.cos(i), 1, p_theta=-L * math.sin(i))
+        return x, p
+
+    @property
+    def period(self) -> float:
+        return analytic.circular_orbit_period(analytic.ISCO)[0]
+
+    @property
+    def lam_end(self) -> float:
+        return self.n_orbits * self.period
+
+    def events(self, metric):
+        d = self.exit_offset
+        return (
+            capture_event(metric),
+            Event("plunged", R_INDEX, analytic.ISCO - d, -1, stop_after=1),
+            Event("outward", R_INDEX, analytic.ISCO + d, +1, stop_after=1),
+        )
+
+    def errors(self, solution, formulation) -> dict:
+        if solution.status.startswith("failed"):
+            return {"error": math.inf, "status": solution.status}
+        return {
+            "error": math.nan,
+            "exit": solution.status,
+            "lam_exit": solution.lam_end,
+            "orbits": solution.lam_end / self.period,
             **self.constraint_errors(solution, formulation),
         }
 
@@ -363,7 +419,15 @@ class Inclined(GeodesicCase):
 
 FAMILIES = {
     cls.family: cls
-    for cls in (Deflection, NearCritical, PhotonSphere, Circular, Eccentric, Inclined)
+    for cls in (
+        Deflection,
+        NearCritical,
+        PhotonSphere,
+        Circular,
+        MarginalCircular,
+        Eccentric,
+        Inclined,
+    )
 }
 
 #: The parameter grid of roadmap §1.3.

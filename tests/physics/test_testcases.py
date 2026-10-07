@@ -11,6 +11,7 @@ from geoint.testcases.schwarzschild import (
     Deflection,
     Eccentric,
     Inclined,
+    MarginalCircular,
     NearCritical,
     PhotonSphere,
     standard_cases,
@@ -69,6 +70,25 @@ def test_photon_sphere_exit_matches_the_elliptic_integral(k, hamiltonian):
         assert e["growth_rate"] == pytest.approx(1 / (3 * math.sqrt(3)), rel=2e-3)
     # Linear theory misses the exit by a few thousandths of an orbit (nonlinear terms).
     assert abs(case.reference()["orbits_linear"] - e["orbits"]) < 0.01
+
+
+def test_photon_sphere_offset_is_the_represented_one():
+    assert PhotonSphere(6.0).delta0 == pytest.approx(1e-6, rel=1e-9)
+    assert PhotonSphere(15.0).delta0 == 2 * np.spacing(3.0)  # 1e-15 rounds to 2 ulp of 3
+    assert PhotonSphere(16.0).delta0 == 0.0  # below half an ulp: r0 is exactly 3
+    assert math.isnan(PhotonSphere(16.0).reference()["orbits"])
+
+
+def test_isco_case_starts_on_the_isco_and_plunges(hamiltonian):
+    case = MarginalCircular(45.0, 200.0)
+    x, p = case.initial_xp(hamiltonian.metric)
+    inv = hamiltonian.invariants(hamiltonian.from_xp(x, p))
+    assert inv["E"] == pytest.approx(math.sqrt(8 / 9), rel=1e-15)
+    assert inv["L2"] == pytest.approx(12.0, rel=1e-15)
+    # RK4 with 10 steps per orbit perturbs the inflection point inward (F11).
+    sol = get("RK4").solve(case.problem(hamiltonian), n_steps=2000)
+    e = case.errors(sol, hamiltonian)
+    assert e["exit"] == "plunged" and 0.5 < e["orbits"] < 3
 
 
 @pytest.mark.parametrize("k", [2, 4, 6])
