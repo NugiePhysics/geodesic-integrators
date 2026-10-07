@@ -16,8 +16,10 @@ def compare(problem, own, oracle, tol, atol=None):
     a = get(own).solve(problem, rtol=tol, atol=atol)
     b = get(oracle).solve(problem, rtol=tol, atol=atol)
     assert a.status == b.status == "completed"
+    # Compiled, the step sequences are identical; interpreted (NUMBA_DISABLE_JIT=1), NumPy's
+    # pairwise summation changes the rounding and a long run may differ by a step.
     assert abs(a.nfev - b.nfev) <= 0.01 * b.nfev
-    assert a.n_steps == b.n_steps
+    assert abs(a.n_steps - b.n_steps) <= max(1, 0.01 * b.n_steps)
     return a, b
 
 
