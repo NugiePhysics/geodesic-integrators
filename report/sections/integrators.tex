@@ -1,0 +1,68 @@
+\section{Integrators}
+\label{sec:integrators}
+
+All integrators share one interface: they receive the vector field $F(y)$ (and, for Tao's
+method, the canonical structure of the state) and know nothing about the metric. The
+properties of the eight methods are collected in \tab{methods}.
+
+\begin{table*}[t]
+\caption{\label{tab:methods}The integrators (T1). For the implicit methods the cost per step
+is the number of stages times the number of fixed-point iterations; the measured values are
+averages over $10^4$ periods of the orbit $(p, e) = (20, 0.5)$ at 1000 steps per period.}
+\centering\small
+\resizebox{\textwidth}{!}{\input{tables/t1}}
+\end{table*}
+
+\paragraph{Explicit Runge--Kutta.} RK4 is the classical four-stage method with a fixed step;
+the parameter after $n$ steps is $\lambda_0 + nh$, never a running sum. DP5(4)~\cite{dormand1980}
+and DOP853~\cite{hnw1993} are the embedded pairs of SciPy's \texttt{RK45} and \texttt{DOP853},
+reimplemented in compiled code with SciPy's step-size controller copied line by line. From a
+generic starting point both take the same steps as SciPy and use the same number of
+evaluations at tolerances $10^{-4}$--$10^{-12}$; step sizes agree to $10^{-7}$. Events
+(periapsis passages, crossings of a radius) are located by root finding on partial steps of
+the method itself, so their accuracy matches the order of the method; linear interpolation
+would cap the measured order at two.
+
+\paragraph{Gauss--Legendre.} The $s$-stage Gauss methods GL1 (implicit midpoint), GL2 and GL3
+have order $2s$, and are symplectic and symmetric~\cite{gni2006}. The stage equations are
+solved by fixed-point iteration on the increments $Z_i = Y_i - y_n$, started from the
+collocation polynomial of the previous step. The iteration runs until the norm of the
+correction stops decreasing, the rule recommended for round-off-limited
+integrations~\cite{hairer2008}, with a guard: stagnation counts only once the correction is
+within 100 ulp of the increments, because on rotation-like problems the correction can wobble
+long before round-off. The update $y_{n+1} = y_n + d^\mathsf{T}Z$, $d = b^\mathsf{T}A^{-1}$, is
+added with compensated summation~\cite{kahan1965}. An optional absolute tolerance on the
+correction replaces the stagnation rule for the experiment of Sec.~\ref{sec:method-details}.
+
+\paragraph{Tao's method.} Tao~\cite{tao2016} integrates two copies $(q, p)$ and $(x, y)$ of the
+state with
+\begin{equation}
+  \tilde H(q, p, x, y) = H(q, y) + H(x, p) + \frac{\omega}{2}\left(|q - x|^2 + |p - y|^2\right).
+  \label{eq:tao}
+\end{equation}
+The flows of the first two terms are explicit shifts, the third rotates $(q - x, p - y)$ by the
+angle $2\omega\delta$. The second-order method is the Strang composition
+$\phi_A^{h/2}\phi_B^{h/2}\phi_C^{h}\phi_B^{h/2}\phi_A^{h/2}$, the fourth-order one its triple
+jump with $\gamma_1 = 1/(2 - 2^{1/3})$, $\gamma_2 = 1 - 2\gamma_1$~\cite{yoshida1990}. Each flow
+is one call of the vector field of (b); caching the gradient between consecutive flows gives 3
+and 9 evaluations per step. Two choices are not fixed by the method. We couple only the
+non-cyclic coordinates $(r, \theta)$: coupling $t$ and $\phi$ as well lets the time copies
+drift apart by up to $10^4$, and the rotation then feeds that difference into $p_t$, so $E$ is
+no longer conserved. And $\omega$ must be chosen; Sec.~\ref{sec:method-details} fixes
+$\omega = 10^{-3}$ for all experiments.
+
+\paragraph{Cost.} The cost of a run is its number of vector-field evaluations $n_\mathrm{fev}$,
+including every fixed-point iteration and, for Tao, every gradient. Wall times are compared
+only between our own compiled implementations, with one thread per process, after
+compilation, as the median of repeats; they track $n_\mathrm{fev}$ up to a factor of order
+one. One evaluation costs $0.7$--$1.6\,\mu$s inside the drivers on the machine of
+Appendix~\ref{app:environment}.
+
+\paragraph{Verification.} Before any geodesic run the integrators were tested on the harmonic
+oscillator, the Kepler problem and Tao's nonseparable example $H = \tfrac12(q^2 + 1)(p^2 + 1)$.
+The measured orders are $2.00$, $4.00$, $6.00$ for GL1--GL3, $2.00$ and $3.98$ for Tao2 and
+Tao4, and $4.05$ for RK4. The one-step maps of GL and Tao preserve the symplectic form to
+$2\times10^{-12}$ (the accuracy of the finite-difference Jacobian; Tao in its extended space),
+against $4\times10^{-3}$ for RK4, and they are symmetric, $\Psi_{-h}\circ\Psi_h = \mathrm{id}$,
+to $2\times10^{-16}$. Over $10^6$ steps of Tao's example their energy error is bounded, while
+RK4's doubles from the first to the second half of the run.

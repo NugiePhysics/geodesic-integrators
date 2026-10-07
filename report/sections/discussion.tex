@@ -1,0 +1,77 @@
+\section{Discussion and recommendations}
+\label{sec:discussion}
+
+\paragraph{Answers to the research questions.}
+\RQ{1}: the Runge--Kutta methods, fixed-step or adaptive, drift linearly in the mass shell and
+quadratically in phase. The symplectic methods keep the mass-shell error bounded at
+$\order(h^p)$ and the phase error linear, and once their truncation error falls below
+round-off, compensated summation gives Brouwer's $N^{1/2}$.
+\RQ{2}: in Hamilton's form $E$ and $L_z$ are exact for every method; in the second-order form
+they drift for every non-geometric method. Formulation (b) is up to 440 times more accurate
+for rays that go far out. Symmetry alone gives Gauss--Legendre in (a) the same bounded errors
+as in (b). The one case that favours (a) is the near-polar orbit, where the spurious node
+precession is about 100 times smaller.
+\RQ{3}: DOP853 is the cheapest method over a few periods at every accuracy and over 1000
+periods for modest accuracy; for a phase error of $10^{-8}$ over 1000 periods only GL3
+delivers. Tao4 is never competitive.
+\RQ{4}: on the photon sphere accuracy buys survival logarithmically, $\ln 10/2\pi$ orbits per
+decade, up to about six orbits in double precision for every method. At the ISCO the time to
+plunge grows algebraically, as $|\varepsilon|^{-1/4}$, and an error of the stabilizing sign
+prevents the plunge.
+
+\begin{table*}[t]
+\caption{\label{tab:recommendations}Recommendations (T7), with the evidence they rest on.}
+\centering\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.24\textwidth}>{\raggedright\arraybackslash}p{0.30\textwidth}>{\raggedright\arraybackslash}p{0.38\textwidth}}
+\toprule
+Task & Recommendation & Evidence \\
+\midrule
+Ray tracing, short integrations (deflection, a few orbits)
+  & DOP853 in formulation (b)
+  & Cheapest at every accuracy (\tab{cost}); exact $E$, $L_z$ and up to 440 times more
+    accurate than (a) near $b_c$ (\fig{windings}). \\ \addlinespace
+Long orbit evolution where the phase matters ($10^3$ periods and more)
+  & GL3 in (b), iterated to stagnation (or to $10^{-12}$), with compensated summation
+  & The only method to reach a phase error of $10^{-8}$ over 1000 periods (\tab{long-cost});
+    bounded invariants (\fig{energy}); Brouwer's law (\fig{roundoff}). \\ \addlinespace
+Long runs at modest accuracy
+  & DOP853 is cheaper, but its invariants drift linearly
+  & \tab{long-cost}, \fig{energy}, \fig{phase}. \\ \addlinespace
+Studies that need bounded invariants (Poincar\'e sections, statistics of chaotic orbits)
+  & A Gauss method with fixed step, in either formulation
+  & Bounded $H$, $L^2$ in (a) and (b) (\fig{symmetric}, \fig{inclined}). \\ \addlinespace
+Unstable orbits (photon sphere)
+  & Any accurate method with compensated summation; expect at most $\sim$6 orbits
+  & \fig{photon}, \tab{photon}; plain summation fakes survival (\fig{roundoff}). \\ \addlinespace
+Explicit symplectic integration of a general metric
+  & Tao's method only with $\omega$ tuned for the problem at hand
+  & Fails on the ISCO and on inclined orbits with $\omega$ tuned on a stable orbit
+    (Sec.~\ref{sec:method-details}). \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\paragraph{Recommendations.} \tab{recommendations} turns these answers into advice (\RQ{5}).
+Two conclusions go beyond the hypotheses we started from. First, the cost advantage of the
+adaptive pair is large enough that geometric integration pays off only when the integration
+is long \emph{and} the phase matters. Over $10^3$ periods a mass-shell error of $10^{-10}$
+is cheaper to buy with a tight tolerance than with a symplectic method, although the drift
+of DOP853 will overtake the bounded error of GL3 on longer runs. Second, the round-off details matter: compensated
+summation turns a quadratic phase drift into a few ulp, and its absence can make an
+integration look more stable than the physics allows.
+
+\paragraph{Limitations.} The study uses fixed steps for the geometric methods; variable steps
+destroy their long-time properties unless the time is transformed~\cite{calvo1993,gni2006},
+and Ref.~\cite{seyrich2012} shows one way to combine them. Only Schwarzschild is covered,
+where $t$ and $\phi$ are cyclic and the problem is integrable; in nonintegrable systems
+(charged or spinning particles, perturbed metrics) the advantage of symplectic methods should
+be larger. Wall times compare our own implementations, whose generic step code costs 2--5
+times the bare vector field, so they are not a statement about the algorithms' intrinsic
+cost. The explicit symplectic splittings of Wang et al.~\cite{wang2021} and Taylor
+methods~\cite{biscani2021} were not tested.
+
+\paragraph{Extension to Kerr.} The metric interface takes the full inverse metric and its
+derivatives, and none of the integrators or formulations knows the metric. Adding Kerr in
+Boyer--Lindquist coordinates is a new metric class, analytic references (Carter's constant,
+spherical photon orbits) and new test cases, with no change to the integrator code. The
+inclined orbits of TC6 already exercise the code path that will monitor Carter's constant.

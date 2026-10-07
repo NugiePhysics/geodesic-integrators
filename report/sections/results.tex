@@ -1,0 +1,355 @@
+\section{Results}
+\label{sec:results}
+
+\subsection{Convergence on geodesics}
+\label{sec:convergence}
+
+Every fixed-step method reaches its theoretical order on geodesics, in both formulations
+(\fig{convergence}, \tab{orders}). On the strong-field orbit $(7.5, 0.5)$ the measured orders
+are within $\pm0.05$ of theory, on the deflection with $b = 6$ within $\pm0.08$. GL1 and Tao2
+are almost indistinguishable in (b), and GL1 is about 35 times less accurate in (a) than in (b)
+at the same step. The adaptive pairs show tolerance proportionality: the global error falls
+like $\mathrm{tol}^{0.85\text{--}1.04}$ for DP5 and DOP853, on the same curves as SciPy's
+(\fig{tolerance}). On $(20, 0.5)$ RK4 stays pre-asymptotic over the whole usable range
+(slopes 4.5 to 4.07 before round-off), which is why the orders are measured on the
+strong-field orbit.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{F04_convergence.pdf}
+\caption{\label{fig:convergence}Convergence of the fixed-step methods: error against step size
+for the deflection $b = 6$ (error in $\Delta\phi(r_\mathrm{far})$) and one radial period of
+the orbit $(7.5, 0.5)$ (error in $\phi$), in both formulations, with reference slopes 2, 4
+and 6 (F4).}
+\end{figure}
+
+\begin{table}[t]
+\caption{\label{tab:orders}Measured order of convergence (T3), least-squares slope over the
+asymptotic range with its standard error.}
+\centering\small
+\input{tables/t3}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.6\textwidth]{F05_tolerance.pdf}
+\caption{\label{fig:tolerance}Tolerance proportionality of the adaptive pairs: global error
+against $\mathrm{rtol} = \mathrm{atol}$, ours and SciPy's (F5).}
+\end{figure}
+
+\subsection{Short integrations: cost per accuracy (RQ3)}
+\label{sec:short}
+
+\fig{work-precision} and \tab{cost} compare the cost of reaching a given error on three short
+problems: the deflection $b = 6$, three periods of $(20, 0.5)$ and two periods of the same
+orbit inclined by $60^\circ$. \textbf{DOP853 is the cheapest method on every problem and at
+every accuracy.} To reach $10^{-10}$ in formulation (b) it needs $1.4$--$3.2\times10^3$
+evaluations, against $1.6$--$3.6\times10^4$ for GL3, the best fixed-step method, and
+$3.5\times10^4$--$1.7\times10^5$ for RK4. Tao4 costs 1.2--10 times as much as RK4 for the same
+error, and GL1 and Tao2 never reach $10^{-10}$ in the sweep. Formulation (b) is the cheaper
+one for most pairs of method and problem, but not all: on the inclined orbit DOP853 and GL3
+reach $10^{-10}$ more cheaply in (a).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.9\textwidth]{F06_work_precision_b.pdf}
+\caption{\label{fig:work-precision}Work-precision in formulation (b): error against
+vector-field evaluations (left) and wall time (right) for the three short problems (F6).
+Each curve is the Pareto front of a sweep over 12 step sizes or 11 tolerances.}
+\end{figure}
+
+\begin{table*}[t]
+\caption{\label{tab:cost}Evaluations needed to reach the error $10^{-6}$ or $10^{-10}$ (T5),
+interpolated along each method's work-precision front, in formulation (b) with (a) in
+parentheses. A dash means the target was not reached in the sweep.}
+\centering\small
+\resizebox{\textwidth}{!}{\input{tables/t5}}
+\end{table*}
+
+The deflection angle itself is reproduced to $10^{-14}$ relative far from the hole and to
+$10^{-11}$ at $b - b_c = 10^{-3}$, where the problem amplifies errors (\fig{deflection}). The
+fourth-order weak-field series is good to $10^{-11}$ at $b \approx 2000$ and off by more than
+1\% below $b \approx 10$; Bozza's limit is accurate near $b_c$ and fails above
+$b - b_c \approx 1$. Near the critical impact parameter the number of windings follows
+$-\ln(b/b_c - 1)/2\pi$, and the integration error grows exactly like the condition number
+$1/(b - b_c)$: $3.3\times10^{-13}/(b - b_c)$ windings in (b) and $1.4\times10^{-10}/(b - b_c)$
+in (a) (\fig{windings}). The periapsis advance agrees with $\Phi - 2\pi$ to
+$4\times10^{-13}$ away from the separatrix and to $1.5\times10^{-8}$ at $p = 7.02$, where the
+orbit sweeps 3.4 extra turns per period and the weak-field value $6\pi/p$ is off by 87\%
+(\fig{precession}).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.6\textwidth]{F02_deflection.pdf}
+\caption{\label{fig:deflection}Deflection angle against $b - b_c$: exact, weak-field series,
+Bozza's limit and the integration (DOP853, tolerance $10^{-13}$); bottom, relative errors (F2).}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.48\textwidth]{F12_windings.pdf}\hfill
+\includegraphics[width=0.48\textwidth]{F13_precession.pdf}
+\caption{\label{fig:windings}\label{fig:precession}Left: windings near the critical impact
+parameter and their integration error, which follows the condition number $1/(b - b_c)$ (F12).
+Right: periapsis advance against $p$, exact, integrated and weak-field (F13).}
+\end{figure}
+
+\subsection{Long integrations: growth of the errors (RQ1)}
+\label{sec:long}
+
+\fig{energy} shows the mass-shell error over $10^4$ radial periods of $(20, 0.5)$, with 1000
+steps per period for the fixed-step methods and tolerance $10^{-10}$ for the adaptive pairs.
+The hypothesis of \RQ{1} holds without exception (\tab{growth}). \textbf{RK4, DP5 and DOP853
+drift linearly}: the exponents fitted over the last decade are $1.000 \pm 0.002$, and
+$|\delta H|$ reaches \numdHRKfourLast{} (RK4) and \numdHDOPLast{} (DOP853).
+\textbf{GL1, GL2, Tao2 and Tao4 are bounded}, with exponents below $3\times10^{-3}$; GL2 stays
+at \numdHGLtwo{}. GL3's truncation error is below round-off. Its error grows from $10^{-16}$ to
+\numdHGLthreeLast{} with exponent \numexpGLthree, Brouwer's random walk~\cite{brouwer1937}.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.7\textwidth]{F07_energy_long_term.pdf}
+\caption{\label{fig:energy}Mass-shell error, maximum per radial period, over $10^4$ periods
+of $(20, 0.5)$ in formulation (b), drawn as its maximum over logarithmic bins (F7).}
+\end{figure}
+
+The phase error at the $N$-th periapsis (\fig{phase}) grows quadratically for the
+Runge--Kutta methods (exponents 1.97--2.04) and linearly for GL1, GL2 and Tao ($1.000 \pm
+0.001$). A log-log slope is a poor summary of a signed error, so \tab{growth} also fits
+$\phi_N - N\Phi = c_1N + c_2N^2$. For RK4 in (b) the constant frequency error $c_1$ and the
+drift $c_2$ have opposite signs and cancel near $N = \numcrossRKfour$, the dip in the figure.
+GL3's phase error, \numphaseGLthreeEnd{} at $N = 10^4$, is 5 ulp of $\phi \approx
+7.3\times10^4$. Its linear growth is the spacing of floating-point numbers growing with
+$\phi$.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{F09_phase_error.pdf}
+\caption{\label{fig:phase}Phase error $|\phi_N - N\Phi|$ at the $N$-th periapsis in both
+formulations, with slopes 1 and 2 (F9).}
+\end{figure}
+
+\begin{table*}[t]
+\caption{\label{tab:growth}Growth laws over $10^4$ periods of $(20, 0.5)$ (T4): the
+mass-shell error in the last period, the log-log exponent over the last decade and its
+nearest law (0, 1/2, 1, 2), the same for the phase error, and the signed fit
+$\phi_N - N\Phi = c_1N + c_2N^2$ (radians per orbit and per orbit squared).}
+\centering\footnotesize
+\input{tables/t4}
+\end{table*}
+
+\paragraph{Round-off.} Compensated summation decides what happens once truncation errors are
+negligible (\fig{roundoff}). On the circular orbit $r_c = 10$ every Runge--Kutta map is exact,
+so the error in $\phi$ after $10^4$ orbits ($10^7$ steps) is round-off alone. With compensated
+summation it is \numcircComp, 7 ulp of $\phi$. With plain summation it is \numcircPlain{} and
+grows like $N^{\numcircPlainExp}$: the same increment is rounded the same way at every step,
+so the errors add coherently, and each is proportional to $\phi$. GL3's mass shell follows
+Brouwer's law with compensation (exponent 0.48) and grows faster without it (0.67).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{F19_roundoff.pdf}
+\caption{\label{fig:roundoff}Round-off with and without compensated summation (F19). (i) Phase
+of the circular orbit $r_c = 10$, where only round-off acts. (ii) Mass shell of GL3 and RK4 on
+$(20, 0.5)$. (iii) Survival on the photon sphere (Sec.~\ref{sec:unstable}).}
+\end{figure}
+
+\subsection{The role of the formulation (RQ2)}
+\label{sec:formulation}
+
+In formulation (b), $E$ and $L_z$ keep their initial values bit for bit in every sample of
+every method, Tao included, for all $10^4$ periods. In (a) they are nonlinear functions of the
+state, and the Runge--Kutta methods drift linearly in $E$, $L_z$ and the norm, while GL1 and
+GL2 stay bounded and GL3 stays at round-off (\fig{invariants}).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{F08_invariants_formulation_a.pdf}
+\caption{\label{fig:invariants}Formulation (a): relative errors in $E$, $L_z$ and the norm
+over $10^4$ periods (F8). In (b), $E$ and $L_z$ do not change at all.}
+\end{figure}
+
+\textbf{Gauss--Legendre in (a), where it is symmetric but not symplectic, conserves as well as
+in (b).} The largest mass-shell error of GL2 is $5.0138\times10^{-12}$ in both formulations,
+equal in every printed digit, and the phase drifts are $-7.48\times10^{-10}$ and
+$+8.03\times10^{-10}$ radians per orbit (\fig{symmetric}). For this integrable, reversible
+system reversibility is enough, as the theory of reversible integrators
+predicts~\cite[Ch.~XI]{gni2006}. RK4 drifts in both formulations.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{F17_symmetric_vs_symplectic.pdf}
+\caption{\label{fig:symmetric}GL2 in formulation (a), symmetric but not symplectic, against
+GL2 in (b), symplectic, and RK4 in both (F17).}
+\end{figure}
+
+The formulation matters most for rays that travel far. In (a) the angular momentum
+$L = r^2u^\phi$ is rebuilt from a component that falls like $r^{-2}$, which an absolute
+tolerance cannot follow to full relative accuracy, so $L$ and with it $b = L/E$ drift. At
+$b = 5.3$ and $r_\mathrm{far} = 10^4$, DOP853 at tolerance $10^{-13}$ makes an error of
+$1.2\times10^{-8}$ in (a) and $3\times10^{-12}$ in (b); near $b_c$ the windings are 440 times
+less accurate in (a) (\fig{windings}). At a fixed budget of $2\times10^4$ evaluations the
+adaptive pairs reach $10^{-11}$--$10^{-12}$ in (b) for every $b$, but lose up to three orders
+near $b_c$ in (a).
+
+\paragraph{Inclined orbits.} $L^2$, the analogue of Carter's constant, is bounded for GL2 and
+GL3 in both formulations and drifts linearly for RK4 and DOP853 (\fig{inclined}). The orbital
+plane turns, and the turn is almost entirely a spurious precession of the node: the
+inclination changes by at most $7\times10^{-9}$ for the Gauss methods, as it must with $L_z$
+exact and $L^2$ bounded. The node precesses linearly in time for every method, symplectic or
+not. Exact Schwarzschild has no nodal precession at all, so a drift in energy cannot change
+the rate. Near the pole ($85^\circ$) every method is under-resolved at 1000 steps per period,
+and (b) is the worse formulation: the node of GL2 drifts by $2.0\times10^{-5}$ radians per
+period in (b) and $1.7\times10^{-7}$ in (a).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{F18_inclined.pdf}
+\caption{\label{fig:inclined}Inclined orbits over 1000 periods (F18): (i) $L^2$ and (ii) tilt
+of the orbital plane at $60^\circ$; (iii) spurious node precession against inclination. Tao4
+fails at $60^\circ$ and $85^\circ$ (Sec.~\ref{sec:method-details}).}
+\end{figure}
+
+\subsection{Long integrations: cost per accuracy (RQ3)}
+\label{sec:long-cost}
+
+\fig{long-work} repeats the work-precision comparison over 1000 periods, where errors that
+grow with time have time to matter. To reach a phase error of $10^{-4}$, DOP853 is still the
+cheapest method (\numlongDOPfour{} evaluations per period in (b), against
+\numlongGLthreeFour{} for GL3; \tab{long-cost}). \textbf{A phase error of $10^{-8}$ is reached
+by GL3 alone}, for \numlongGLthreeEight{} evaluations per period. DOP853 stops at
+$4.8\times10^{-6}$ at tolerance $10^{-13}$, the tightest a double-precision controller accepts,
+because its phase error grows like $N^2$. For the mass shell, $|\delta H| \le 10^{-10}$,
+DOP853 remains the cheapest. Over three periods (\tab{cost}) the same orbit needed
+\numshortDOP{} evaluations per period from DOP853 to reach $10^{-10}$ in phase, and
+\numshortGLthree{} from GL3. The ranking turns over with the length of the integration.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.9\textwidth]{F20_long_work_precision.pdf}
+\caption{\label{fig:long-work}Work-precision over 1000 radial periods of $(20, 0.5)$: phase
+error and largest mass-shell error against evaluations per period (F20).}
+\end{figure}
+
+\begin{table}[t]
+\caption{\label{tab:long-cost}Evaluations per radial period needed over 1000 periods of
+$(20, 0.5)$ (T5b), formulation (b) with (a) in parentheses.}
+\centering\small
+\input{tables/t5b}
+\end{table}
+
+\subsection{Unstable and marginally stable orbits (RQ4)}
+\label{sec:unstable}
+
+\paragraph{Photon sphere.} A photon starts exactly at $r = 3$ in a plane inclined by
+$45^\circ$. Its only perturbation is the integration error $\delta_0$, amplified like
+$e^{\lambda_L t}$ until $|r - 3| > 0.1$ after about $\ln(0.1/\delta_0)/2\pi$ orbits. If
+$\delta_0$ is proportional to the tolerance, every decade of tolerance buys
+$\ln 10/2\pi = 0.37$ orbits; if $\delta_0 \propto h^p$, every decade of steps buys $0.37p$.
+Both predictions hold (\fig{photon}, \tab{photon}): the adaptive pairs gain 0.33--0.43 orbits
+per decade (DOP853 in (b): \numpsDOPdecade); RK4, GL2 and Tao4 gain 1.38--1.49 per decade of
+steps against 1.47 predicted; GL3 gains \numpsGLthreeDecade{} against 2.20. Then GL3
+saturates at 5.8--6.2 orbits whatever the step. That is the round-off limit, near the
+$\operatorname{arccosh}(0.1/\epsilon_\mathrm{mach})/2\pi = 5.5$ orbits of an offset of one
+machine epsilon. \textbf{No method keeps a photon on the photon sphere for more than about six
+orbits in double precision.} Explicit offsets $10^{-2}$--$10^{-15}$ follow the
+elliptic-integral prediction to $0.01$ orbits down to $10^{-14}$.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{F10_photon_sphere.pdf}
+\caption{\label{fig:photon}Photon sphere (F10). (a) $|r - 3|$ against coordinate time for
+DOP853 at four tolerances, with the growth $e^{t/3\sqrt3}$. (b), (c) Orbits survived against
+tolerance and against steps per orbit. (d) Equatorial orbits from an explicit offset against
+the exact prediction.}
+\end{figure}
+
+\begin{table}[t]
+\caption{\label{tab:photon}Photon-sphere survival (T6): orbits gained per decade of tolerance
+or of steps per orbit, against the prediction, and the orbits survived at the finest setting.}
+\centering\small
+\input{tables/t6}
+\end{table}
+
+\textbf{Plain floating-point summation makes the photon sphere look more stable than it is}
+(\fig{roundoff}, panel iii). With RK4 at 8000 steps per orbit the orbit survives
+\numpsPlainRKfour{} orbits with plain summation, against \numpsCompRKfour{} with compensated
+summation. An increment of $r$ smaller than half an ulp of 3 is lost, $r$ stays at exactly 3,
+and the radial force, which is proportional to $r - 3$, stays exactly zero: rounding freezes
+the instability, the longer the smaller the step. A longer survival is not always a better
+integrator.
+
+\paragraph{ISCO.} At the ISCO the effective potential has an inflection point. With
+$r = 6 + \delta$ and $L^2 = 12$, $V_\mathrm{eff} = 8/9 + \delta^3/1944 + \order(\delta^4)$, and
+an integration error acts as a small constant force $\varepsilon$:
+\begin{equation}
+  \ddot\delta = \varepsilon - \frac{\delta^2}{1296}.
+  \label{eq:isco}
+\end{equation}
+For $\varepsilon > 0$ a stable equilibrium appears at $\delta = 36\sqrt\varepsilon$, and the
+orbit oscillates about it without plunging. For $\varepsilon < 0$ it drifts inward under a
+constant acceleration until $\delta \sim -36\sqrt{|\varepsilon|}$ and then runs away in a
+finite time. Both stages take a time of order $|\varepsilon|^{-1/4}$. The growth is algebraic,
+and the sign of the error decides whether the orbit plunges at all. With
+$\varepsilon \propto h^p$ the time to plunge should scale as $n^{p/4}$ in the steps per orbit
+$n$, and as $\mathrm{tol}^{-1/4}$ for the adaptive pairs. The measurements agree
+(\fig{isco}): the slope is $1.11$ for RK4 in (b), $\numiscoGLtwo$ for GL2 and
+$\numiscoGLthree$ for GL3 (predicted 1, 1 and 1.5), and $\numiscoDPfive$ against tolerance for
+DP5 in (b). The runs that survive oscillate on the outer side, as predicted: RK4 in (a) at
+100 steps per orbit stays within $6.000 < r < 6.073$ for 2000 orbits. DOP853 never plunges at
+tolerances up to $10^{-6}$; DP5 in (b) plunges at $10^{-9}$--$10^{-13}$ but not at
+$10^{-6}$--$10^{-8}$.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{F11_isco_plunge.pdf}
+\caption{\label{fig:isco}Inclined ISCO orbit: orbits until $|r - 6| > 1$ against tolerance and
+against steps per orbit, with the slopes fitted over the plunges (F11). Filled markers
+plunged, hollow ones left outward or were still bound after 2000 orbits.}
+\end{figure}
+
+\subsection{Method-specific findings}
+\label{sec:method-details}
+
+\paragraph{Tao's coupling $\omega$.} The error of Tao4 grows in proportion to $\omega$ once
+$\omega h \gtrsim 10^{-3}$, and the method diverges for $\omega h \gtrsim 1.4$; too small an
+$\omega$ lets the copies separate, by up to 23 within 300 periods for $\omega = 10^{-5}$
+(\fig{tao}). We use $\omega = 10^{-3}$ throughout: within a factor 1.2--5 of the best value
+on the orbits tested, with the copies within $3\times10^{-6}$ over 300 periods. This choice
+fails on two of the long experiments. On the ISCO the copies separate by $1.7$ in $r$ and the orbit
+plunges within six orbits whatever the step; $\omega = 0.1$ holds them together. On the
+inclined orbits the run is captured after 41 periods at $60^\circ$ and after 3 at $85^\circ$;
+a larger $\omega$ helps at $60^\circ$ but leaves $L^2$ drifting 3000 times more than with
+GL2, and no $\omega$ between $10^{-3}$ and 1 works at $85^\circ$. The coupling is a
+problem-dependent parameter, and choosing it is a real cost of the method.
+
+\paragraph{Implicit iteration.} Iterations per step grow from 2--5 at small steps to 10--23 at
+the largest; GL3 needs the fewest, and (a) needs more than (b) (\fig{implicit}). Stopping the
+iteration at a tolerance instead of at stagnation makes GL2 drift: over 1000 periods $|\delta
+H|$ grows tenfold with tolerances $10^{-6}$ and $10^{-8}$, threefold with $10^{-10}$, and not
+at all with $10^{-12}$ or at stagnation. A tolerance of $10^{-12}$ needs 3.5 iterations per
+step against 6.7 for stagnation: the round-off rule is safe but not the cheapest safe rule.
+
+\paragraph{Adaptive steps.} On the deflection the step grows roughly in proportion to $r$, and
+DOP853 needs three to four times fewer steps than DP5 at the same tolerance (\fig{steps}).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.75\textwidth]{F14_tao_omega.pdf}
+\caption{\label{fig:tao}Tao4: error against the coupling $\omega$ at fixed step, and the
+separation of the two copies (F14).}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{F15_implicit.pdf}
+\caption{\label{fig:implicit}Gauss--Legendre iteration (F15): iterations per step against $h$
+and along the orbit, and the drift of $|\delta H|$ when the iteration stops at a tolerance.}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.75\textwidth]{F16_step_history.pdf}
+\caption{\label{fig:steps}Step sizes of the adaptive pairs against $r$ on the deflection and
+on an eccentric orbit (F16).}
+\end{figure}

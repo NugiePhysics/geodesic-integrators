@@ -1,0 +1,75 @@
+\section{Christoffel symbols and Hamilton's equations}
+\label{app:christoffel}
+
+The nine independent non-zero Christoffel symbols of the Schwarzschild metric are
+\begin{gather*}
+\Gamma^t_{tr} = \frac{1}{r(r - 2)}, \qquad
+\Gamma^r_{tt} = \frac{r - 2}{r^3}, \qquad
+\Gamma^r_{rr} = -\frac{1}{r(r - 2)}, \qquad
+\Gamma^r_{\theta\theta} = -(r - 2), \\
+\Gamma^r_{\phi\phi} = -(r - 2)\sin^2\theta, \qquad
+\Gamma^\theta_{r\theta} = \Gamma^\phi_{r\phi} = \frac1r, \qquad
+\Gamma^\theta_{\phi\phi} = -\sin\theta\cos\theta, \qquad
+\Gamma^\phi_{\theta\phi} = \cot\theta .
+\end{gather*}
+The code writes them in terms of $r - 2$ rather than $f = 1 - 2/r$, which keeps every
+component accurate to full relative precision down to the horizon. Hamilton's equations for
+(\ref{eq:hamiltonian}) are
+\begin{gather*}
+\dot t = -\frac{p_t}{f}, \quad \dot r = f p_r, \quad \dot\theta = \frac{p_\theta}{r^2}, \quad
+\dot\phi = \frac{p_\phi}{r^2\sin^2\theta}, \qquad \dot p_t = \dot p_\phi = 0, \\
+\dot p_r = -\frac{f'}{2}\left(\frac{p_t^2}{f^2} + p_r^2\right)
+  + \frac{1}{r^3}\left(p_\theta^2 + \frac{p_\phi^2}{\sin^2\theta}\right), \qquad
+\dot p_\theta = \frac{\cos\theta}{r^2\sin^3\theta}\,p_\phi^2 .
+\end{gather*}
+Both sets were checked against a symbolic derivation from $g_{\mu\nu}$ evaluated at 50 digits,
+to $6\times10^{-16}$ relative per component for $r - 2$ from $10^{-8}$ to $10^4$.
+
+\section{Gauss--Legendre methods}
+\label{app:gauss}
+
+The $s$-stage Gauss method has nodes $c_i$ at the zeros of the shifted Legendre polynomial of
+degree $s$, and $a_{ij} = \int_0^{c_i}\ell_j(\tau)\,\dd\tau$, $b_j = \int_0^1\ell_j(\tau)\,\dd\tau$
+with the Lagrange polynomials $\ell_j$ on the nodes. For $s = 2$,
+\begin{equation*}
+\begin{array}{c|cc}
+\tfrac12 - \tfrac{\sqrt3}{6} & \tfrac14 & \tfrac14 - \tfrac{\sqrt3}{6} \\[2pt]
+\tfrac12 + \tfrac{\sqrt3}{6} & \tfrac14 + \tfrac{\sqrt3}{6} & \tfrac14 \\[2pt]
+\hline
+ & \tfrac12 & \tfrac12
+\end{array}
+\qquad\text{and for } s = 3,\qquad
+\begin{array}{c|ccc}
+\tfrac12 - \tfrac{\sqrt{15}}{10} & \tfrac{5}{36} & \tfrac29 - \tfrac{\sqrt{15}}{15} & \tfrac{5}{36} - \tfrac{\sqrt{15}}{30} \\[2pt]
+\tfrac12 & \tfrac{5}{36} + \tfrac{\sqrt{15}}{24} & \tfrac29 & \tfrac{5}{36} - \tfrac{\sqrt{15}}{24} \\[2pt]
+\tfrac12 + \tfrac{\sqrt{15}}{10} & \tfrac{5}{36} + \tfrac{\sqrt{15}}{30} & \tfrac29 + \tfrac{\sqrt{15}}{15} & \tfrac{5}{36} \\[2pt]
+\hline
+ & \tfrac{5}{18} & \tfrac49 & \tfrac{5}{18}
+\end{array}
+\end{equation*}
+GL1 is the implicit midpoint rule ($c = a = \tfrac12$, $b = 1$). One step solves
+$Z_i = h\sum_j a_{ij}F(y_n + Z_j)$ by fixed-point iteration and sets
+$y_{n+1} = y_n + \sum_i d_i Z_i$ with $d^\mathsf{T} = b^\mathsf{T}A^{-1}$, which avoids a final
+evaluation of $F$. The start value of $Z$ is the collocation polynomial of the previous step,
+evaluated at the new nodes. The iteration stops when $\|\Delta Z\|$ no longer decreases and is
+within 100 ulp of $\|Z\|$ (Sec.~\ref{sec:integrators}), or after 60 iterations, which never
+occurred in the experiments.
+
+\section{Reproducibility and computing environment}
+\label{app:environment}
+
+All integrators, metrics and formulations are compiled with Numba~\cite{numba}. One compiled
+driver per kind of method receives the vector field as a typed first-class function, so that
+compilation happens once per machine (about 60~s) and is cached. Every run is described by a
+specification (test case, formulation, method, options) whose hash keys a cache of result rows
+that carry the git commit, library versions and CPU. Long runs are reduced to per-period
+maxima before caching. The command \texttt{make all} regenerates every figure and table from
+an empty cache and then compiles this report; on the machine of \tab{environment} it takes
+about 23 minutes on four cores. Repeating it reproduced every summary table and figure byte
+for byte, except the wall times, which agreed to within 25\% (median ratio 0.98).
+
+\begin{table}[h]
+\caption{\label{tab:environment}Computing environment of the results (T8).}
+\centering\small
+\input{tables/t8}
+\end{table}

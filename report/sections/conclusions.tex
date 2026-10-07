@@ -1,0 +1,22 @@
+\section{Conclusions}
+\label{sec:conclusions}
+
+We compared eight integrators on Schwarzschild geodesics in two formulations, against exact
+references, over integrations from a single deflection to $10^4$ orbits. The classical
+expectations of geometric integration hold quantitatively: linear against quadratic phase
+error, linear drift against bounded invariants, Brouwer's law at round-off, and symmetric
+methods behaving like symplectic ones on this reversible, integrable system. The practical
+picture is less one-sided than the theory suggests. A high-order adaptive Runge--Kutta pair is
+the right tool for ray tracing and for long runs at modest accuracy. Sixth-order
+Gauss--Legendre is the right tool when the phase must stay accurate over thousands of orbits.
+Tao's explicit symplectic method needs a coupling tuned to each problem.
+
+Two results concern orbits at the edge of stability. On the photon sphere, accuracy buys
+survival only logarithmically, and double precision caps it at about six orbits for every
+method. At the ISCO the integration error decides, through its sign, whether an orbit plunges
+at all, and through its size, as $|\varepsilon|^{-1/4}$, when. In both cases the rounding of
+the state update, compensated or not, changes the answer qualitatively.
+
+All code, cached summaries, figures and this report are produced by \texttt{make all} from a
+clean checkout. The interface between metric and integrator is ready for the Kerr metric, the
+next step of this work, and for its (anti-)de~Sitter generalizations.

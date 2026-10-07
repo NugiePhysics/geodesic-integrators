@@ -1,0 +1,49 @@
+\section{Introduction}
+\label{sec:introduction}
+
+Geodesics of black-hole spacetimes are integrated numerically in two very different regimes.
+Ray tracing for images of accretion flows, such as those behind the Event Horizon Telescope
+results~\cite{eht2019}, follows millions of photons for a short affine time each; codes such
+as GRay~\cite{chan2013}, geokerr~\cite{dexter2009}, RAPTOR~\cite{bronzwaer2018} and
+GYOTO~\cite{vincent2011} are built around adaptive Runge--Kutta methods or semi-analytic
+solutions. The evolution of bound orbits, as in the adiabatic modelling of
+extreme-mass-ratio inspirals, follows a few orbits for $10^3$--$10^5$ revolutions, where the
+long-time behaviour of the integration error matters more than its size after one step.
+Geometric integrators~\cite{gni2006} are designed for the second regime, and several have been
+adapted to geodesics: Gauss collocation with a symmetric step-size control~\cite{seyrich2012},
+explicit symplectic splittings for Schwarzschild~\cite{wang2021}, and Tao's extended phase
+space~\cite{tao2016,pihajoki2015}, which the FANTASY code applies to arbitrary
+metrics~\cite{christian2021}.
+
+Comparisons between these families are usually made on one test problem, one formulation and
+one length of integration. This report compares them systematically, on the simplest
+spacetime where every relevant quantity has a closed form. We ask five research questions:
+
+\begin{description}
+\item[\RQ{1}] How do the mass-shell error and the phase error grow over long integrations?
+\item[\RQ{2}] Does the formulation, the second-order geodesic equation or Hamilton's
+  equations, change which quantities are conserved, and is a symmetric method that is not
+  symplectic in the chosen variables enough?
+\item[\RQ{3}] Which method reaches a given accuracy at the lowest cost, and how does the answer
+  depend on the length of the integration?
+\item[\RQ{4}] How far can an integrator extend the life of an orbit on the unstable photon
+  sphere, and of an orbit at the marginally stable ISCO?
+\item[\RQ{5}] Which integrator should one use for ray tracing, and which for long orbit
+  evolution?
+\end{description}
+
+The study has four design choices that the results depend on. First, both formulations keep
+the full eight-dimensional phase space, so that the conservation of the energy $E$ and the
+axial angular momentum $L_z$ can be tested rather than imposed. Second, the integrators see
+only a vector field, so the same code runs on toy problems, on Schwarzschild and, later, on
+Kerr. Third, the cost of a run is the number of vector-field evaluations, counting every
+fixed-point iteration of the implicit methods. Fourth, errors are measured on physical
+quantities against exact references: the deflection angle at the radius where the
+integration stops, the angle swept per radial period and the orbit $r(\phi)$ through elliptic
+functions, and the exit time from the photon sphere through an elliptic integral.
+
+Section~\ref{sec:formulations} sets out the two formulations and their invariants,
+Sec.~\ref{sec:integrators} the integrators and Sec.~\ref{sec:testcases} the test problems and
+references. Section~\ref{sec:results} presents the results, ordered by research question.
+Section~\ref{sec:discussion} turns them into recommendations, and Sec.~\ref{sec:conclusions}
+concludes.

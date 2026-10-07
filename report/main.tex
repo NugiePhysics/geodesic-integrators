@@ -1,0 +1,74 @@
+\documentclass[aps,prd,onecolumn,11pt,nofootinbib,superscriptaddress,floatfix]{revtex4-2}
+
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+
+\graphicspath{{../figures/}}
+\input{tables/numbers.tex}
+
+% Notation
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\order}{\mathcal{O}}
+\newcommand{\fig}[1]{Fig.~\ref{fig:#1}}
+\newcommand{\tab}[1]{Table~\ref{tab:#1}}
+\newcommand{\RQ}[1]{RQ#1}
+\newcommand{\repo}{\url{https://github.com/NugiePhysics/geodesic-integrators}}
+
+\begin{document}
+
+\title{Geometric versus classical integrators for Schwarzschild geodesics:\\
+error growth, invariants and cost over short and long integrations}
+
+\author{Nugie Saputra}
+\email{nugi.physics@gmail.com}
+
+\date{October 2026}
+
+\begin{abstract}
+Numerical geodesics underlie black-hole imaging and the modelling of extreme-mass-ratio
+inspirals, yet the choice of integrator is often made by habit. We compare eight integrators
+on timelike and null geodesics of the Schwarzschild metric: the classical Runge--Kutta method
+(RK4), the embedded pairs DP5(4) and DOP853, the Gauss--Legendre collocation methods of order
+2, 4 and 6, and Tao's explicit symplectic scheme of order 2 and 4. Each is applied to the
+second-order geodesic equation and to Hamilton's equations, and every error is measured
+against a closed-form reference built from elliptic integrals and functions. Over $10^4$
+radial periods the Runge--Kutta methods drift linearly in the mass shell and quadratically in
+phase, while the symplectic methods keep the mass-shell error bounded and the phase error
+linear; sixth-order Gauss--Legendre reaches round-off and then follows Brouwer's
+$N^{1/2}$ law. Gauss--Legendre applied to the second-order system, where it is symmetric but
+not symplectic, conserves as well as in canonical variables. For short integrations DOP853 is
+the cheapest method at every accuracy; over 1000 periods only sixth-order Gauss--Legendre
+reaches a phase error of $10^{-8}$. On the photon sphere every method survives at most about
+six orbits, gaining $\ln 10/2\pi$ orbits per decade of accuracy as predicted, and plain
+floating-point summation fakes a longer survival. At the ISCO the time to plunge grows
+algebraically, as $\varepsilon^{-1/4}$ in the size of the integration error, and the sign of
+the error decides whether the orbit plunges at all. Every figure and table is regenerated from
+a clean checkout by one command.
+\end{abstract}
+
+\maketitle
+
+\input{sections/introduction}
+\input{sections/formulations}
+\input{sections/integrators}
+\input{sections/testcases}
+\input{sections/results}
+\input{sections/discussion}
+\input{sections/conclusions}
+
+\begin{acknowledgments}
+The numerical work uses NumPy~\cite{numpy}, SciPy~\cite{scipy}, Numba~\cite{numba},
+mpmath~\cite{mpmath} and Matplotlib~\cite{matplotlib}. Code, data and the scripts that produce
+every figure and table are available at \repo.
+\end{acknowledgments}
+
+\appendix
+\input{sections/appendix}
+
+\bibliography{refs}
+
+\end{document}

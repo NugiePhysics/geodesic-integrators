@@ -1,0 +1,83 @@
+\section{Test problems and exact references}
+\label{sec:testcases}
+
+\fig{hero} shows the geodesics of the study. Each test case fixes the initial data, the span
+of the integration, the events that stop it, an exact reference and an error defined on a
+physical quantity, never on the raw state, because the states of (a) and (b) differ.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{F01_hero.pdf}
+\caption{\label{fig:hero}The geodesics of the study in the equatorial plane, with the horizon
+($r = 2$), the photon sphere ($r = 3$) and the ISCO ($r = 6$). Left: a parallel bundle of light
+rays with impact parameters from $2b_c$ to $b_c(1 + 10^{-6})$; the last winds about twice
+around the photon sphere. Right: six radial periods of the bound orbit $(p, e) = (12, 0.5)$.}
+\end{figure}
+
+\paragraph{TC1, light deflection.} A photon with impact parameter $b > b_c = 3\sqrt3$ starts at
+$r_\mathrm{far}$ and is followed to $r_\mathrm{far}$ again. With $u = 1/r$ and the roots
+$u_1 < 0 < u_2 < u_3$ of $2u^3 - u^2 + b^{-2}$, the angle swept is
+\begin{equation}
+  \Delta\phi(r_\mathrm{far}) = \frac{4F(\psi\,|\,m)}{\sqrt{2(u_3 - u_1)}}, \qquad
+  m = \frac{u_2 - u_1}{u_3 - u_1}, \qquad
+  \sin^2\psi = \frac{(u_3 - u_1)(u_2 - u_\mathrm{far})}{(u_2 - u_1)(u_3 - u_\mathrm{far})},
+  \label{eq:deflection}
+\end{equation}
+which for $r_\mathrm{far} \to \infty$ is Darwin's result~\cite{darwin1959,iyer2007}. The
+reference uses the same $r_\mathrm{far}$ as the integration: comparing with the asymptotic
+angle would leave a systematic error of order $b/r_\mathrm{far}^2$. Equation
+(\ref{eq:deflection}), Darwin's form in terms of the periapsis and a direct 30-digit quadrature
+agree to double precision for $b \in [5.2, 10^4]$. TC1b takes $b = b_c(1 + 10^{-k})$,
+$k = 1, \dots, 10$, where the number of windings grows like $-\ln(b/b_c - 1)/2\pi$
+(Bozza's strong-deflection limit~\cite{bozza2002}).
+
+\paragraph{TC2, photon sphere.} A photon starts at a turning point $r_0 = 3 + \delta_0$ with
+$b = b_c$ and is followed until $|r - 3| > 0.1$. Small offsets grow like
+$\cosh(\lambda_L t)$ with $\lambda_L = 1/(3\sqrt3)$~\cite{cardoso2009}, a factor $e^{2\pi}
+\approx 535$ per orbit; the exact exit angle is an elliptic integral from the turning point.
+The equatorial orbit with $\delta_0 = 0$ is an exact fixed point of every Runge--Kutta map:
+the radial components of the vector field vanish and $t$, $\phi$ are linear in $\lambda$. It
+survived 900 orbits in a first test. The experiments therefore tilt the orbital plane by
+$45^\circ$, so that truncation errors in $L^2$ reach $r$.
+
+\paragraph{TC3, circular orbits.} Timelike circular orbits with $E = f/\sqrt{1 - 3/r_c}$,
+$L = \sqrt{r_c/(1 - 3/r_c)}$ and $\Omega = r_c^{-3/2}$. Like the photon sphere they are fixed
+points of the radial dynamics; their errors measure round-off, not truncation. TC3m starts on
+the ISCO ($r = 6$, $E = \sqrt{8/9}$, $L = 2\sqrt3$) in a plane inclined by $45^\circ$ and stops
+when $|r - 6| > 1$.
+
+\paragraph{TC4 and TC5, eccentric orbits.} Bound orbits are labelled by the semi-latus rectum
+$p$ and eccentricity $e$~\cite{cutler1994}, with $r_p = p/(1 + e)$ and $r_a = p/(1 - e)$. The
+orbit equation $(\dd u/\dd\phi)^2 = 2(u - u_1)(u - u_2)(u - u_3)$ has $u_1 = (1 - e)/p$,
+$u_2 = (1 + e)/p$ and $u_3 = \tfrac12 - 2/p$, which gives the angle per radial period and the
+orbit in closed form~\cite{chandrasekhar1983}:
+\begin{equation}
+  \Phi = \frac{4K(m)}{\sqrt{2(u_3 - u_1)}}, \qquad
+  u(\phi) = u_1 + (u_2 - u_1)\,\mathrm{cd}^2\!\left(\sqrt{\tfrac{u_3 - u_1}{2}}\,\phi\;\middle|\;m\right),
+  \qquad m = \frac{u_2 - u_1}{u_3 - u_1}.
+  \label{eq:orbit}
+\end{equation}
+The radial periods in proper and coordinate time come from a 30-digit quadrature in the angle
+$\chi$ of $r = \tfrac12(r_a + r_p) - \tfrac12(r_a - r_p)\cos\chi$, which removes both
+turning-point singularities and gives $\Phi$ a second time (agreement $10^{-16}$). The
+long-term case TC5 follows $(20, 0.5)$ for $10^3$--$10^4$ periods; its phase error is
+$\phi_N - N\Phi$ at the $N$-th periapsis, which needs no reference integration.
+
+\paragraph{TC6, inclined orbits.} The orbit $(20, 0.5)$ in planes inclined by $30^\circ$,
+$60^\circ$ and $85^\circ$. The references are $L^2$ and the orientation of the orbital plane,
+measured by the angle between the angular-momentum vector $(L_x, L_y, L_z)$ at each sample and
+at the start.
+
+\paragraph{Validation.} \tab{validation} compares tightly integrated values (DOP853, tolerance
+$10^{-13}$, formulation (b)) with every reference. All agree to $10^{-11}$ or better, except
+the cases amplified by the photon sphere, which agree to about $10^{-8}$.
+
+\begin{table*}[t]
+\caption{\label{tab:validation}Validation (T2): DOP853 at tolerance $10^{-13}$ in formulation
+(b) against the exact references. The last row compares with the value listed by the
+predecessor project, \texttt{schwarzschild-geodesics}: its ``analytic'' 2.127093985 was
+evaluated at the smallest sampled radius rather than the true periapsis. The exact value,
+from the closed form and a 40-digit quadrature, is 2.12709400813.}
+\centering\footnotesize
+\input{tables/t2}
+\end{table*}

@@ -1,0 +1,68 @@
+\section{Two formulations of the geodesic problem}
+\label{sec:formulations}
+
+We use the signature $(-,+,+,+)$, units $G = c = M = 1$ and Schwarzschild coordinates
+$x^\mu = (t, r, \theta, \phi)$ with $f(r) = 1 - 2/r$. A dot is the derivative with respect to
+the affine parameter $\lambda$, and $\epsilon = 1$ for timelike geodesics ($\lambda = \tau$),
+$\epsilon = 0$ for null ones (normalized by $E = 1$, so that $L = b$).
+
+\paragraph{(a) Second order.} With $u^\mu = \dot x^\mu$ the geodesic equation becomes
+\begin{equation}
+  \dot x^\mu = u^\mu, \qquad \dot u^\mu = -\Gamma^\mu_{\alpha\beta}(x)\,u^\alpha u^\beta,
+  \qquad g_{\mu\nu}u^\mu u^\nu = -\epsilon ,
+  \label{eq:second-order}
+\end{equation}
+a system for $y = (x^\mu, u^\mu) \in \mathbb{R}^8$. The nine independent Christoffel symbols
+are listed in Appendix~\ref{app:christoffel}.
+
+\paragraph{(b) Hamiltonian.} The Legendre transform of the Lagrangian
+$\mathcal{L} = \tfrac12 g_{\mu\nu}\dot x^\mu \dot x^\nu$, with momenta
+$p_\mu = g_{\mu\nu}\dot x^\nu$, gives the super-Hamiltonian~\cite{mtw1973}
+\begin{equation}
+  H = \tfrac12 g^{\mu\nu}(x)\,p_\mu p_\nu
+    = \frac12\left[-\frac{p_t^2}{f} + f p_r^2 + \frac{p_\theta^2}{r^2}
+      + \frac{p_\phi^2}{r^2\sin^2\theta}\right],
+  \qquad H = -\frac{\epsilon}{2},
+  \label{eq:hamiltonian}
+\end{equation}
+with $\dot x^\mu = g^{\mu\nu}p_\nu$ and $\dot p_\mu = -\tfrac12\partial_\mu
+g^{\alpha\beta}p_\alpha p_\beta$, for $y = (x^\mu, p_\mu)$. Only $g^{\mu\nu}$ and its first
+derivatives enter, so (b) needs no Christoffel symbols. $H$ is not separable: the kinetic term
+depends on position, which rules out the explicit leapfrog family.
+
+\paragraph{Invariants.} Both systems conserve the energy, the axial and total angular momentum
+and the mass shell:
+\begin{equation}
+  E = f u^t = -p_t, \qquad L_z = r^2\sin^2\theta\,u^\phi = p_\phi, \qquad
+  L^2 = r^4\left[(u^\theta)^2 + \sin^2\theta(u^\phi)^2\right]
+      = p_\theta^2 + \frac{p_\phi^2}{\sin^2\theta}.
+  \label{eq:invariants}
+\end{equation}
+In (b), $t$ and $\phi$ are cyclic, so $\dot p_t$ and $\dot p_\phi$ are the floating-point
+number zero. Every Runge--Kutta method, explicit or implicit, then conserves $E$ and $L_z$ bit
+for bit, whatever its order, step size or number of iterations. This is a property of the
+variables, not a merit of the method. Informative tests of $E$ and $L_z$ are therefore made in
+(a), where they are nonlinear functions of the state; in (b) the informative invariants are
+$H$ and, for inclined orbits, $L^2$, the Schwarzschild limit of Carter's constant
+($Q = L^2 - L_z^2$). None of the invariants is quadratic in the state, so the exact
+conservation of quadratic invariants by Gauss methods does not apply; symplectic methods can
+only keep their errors bounded~\cite{gni2006}. We report relative errors $\delta H =
+|H + \tfrac12|/\tfrac12$ (timelike), $|H|/E^2$ (null), and $\delta E = |E - E_0|/E_0$, and
+likewise for $L_z$ and $L^2$.
+
+\paragraph{Symplecticity and reversibility.} Formulation (b) is canonical; a symplectic method
+applied to it produces symplectic maps, and backward error analysis bounds the energy error
+over exponentially long times~\cite{gni2006}. Formulation (a) describes the same flow in the
+non-canonical variables $(x, u)$, where the symplectic form has $x$-dependent coefficients; a
+Gauss method applied to (a) is symmetric but not symplectic. Both systems are reversible with
+respect to $\rho(x, v) = (x, -v)$, and for integrable reversible systems symmetric methods
+share the long-time behaviour of symplectic ones~\cite[Ch.~XI]{gni2006}. Comparing
+Gauss--Legendre in (a) and (b) tests whether reversibility alone suffices here (\RQ{2}).
+
+\paragraph{Initial data.} The constraint is a quadratic in one momentum component, solved in
+a cancellation-free form with the sign of the velocity. Near a radial turning point
+$p_r = \pm\sqrt{E^2 - V_\mathrm{eff}}/f$ is computed from a difference of nearly equal numbers
+and comes out of order $\sqrt{\epsilon_\mathrm{mach}}$ instead of zero. Bound and circular
+orbits therefore start exactly at a turning point, with $p_r = 0$ and the constraint solved
+for $p_t$. The initial relative constraint is at most $3.3\times10^{-16}$ on every orbit of
+the study, in both formulations.
